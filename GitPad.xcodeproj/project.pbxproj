@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2E81668184B007046E3 /* UIKit.framework */; };
+		8442C2EB1668184B007046E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EA1668184B007046E3 /* Foundation.framework */; };
+		8442C2ED1668184B007046E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EC1668184B007046E3 /* CoreGraphics.framework */; };
+		8442C2EF1668184B007046E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EE1668184B007046E3 /* CoreData.framework */; };
+		8442C2F51668184B007046E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8442C2F31668184B007046E3 /* InfoPlist.strings */; };
+		8442C2F71668184B007046E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C2F61668184B007046E3 /* main.m */; };
+		8442C2FB1668184B007046E3 /* GPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C2FA1668184B007046E3 /* GPAppDelegate.m */; };
+		8442C2FD1668184B007046E3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8442C2FC1668184B007046E3 /* Default.png */; };
+		8442C2FF1668184B007046E3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8442C2FE1668184B007046E3 /* Default@2x.png */; };
+		8442C3011668184B007046E3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8442C3001668184B007046E3 /* Default-568h@2x.png */; };
+		8442C3041668184B007046E3 /* GitPad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8442C3021668184B007046E3 /* GitPad.xcdatamodeld */; };
+		8442C30C1668184B007046E3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C30B1668184B007046E3 /* SenTestingKit.framework */; };
+		8442C30D1668184B007046E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2E81668184B007046E3 /* UIKit.framework */; };
+		8442C30E1668184B007046E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EA1668184B007046E3 /* Foundation.framework */; };
+		8442C30F1668184B007046E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EE1668184B007046E3 /* CoreData.framework */; };
+		8442C3171668184B007046E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8442C3151668184B007046E3 /* InfoPlist.strings */; };
+		8442C31A1668184B007046E3 /* GitPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C3191668184B007046E3 /* GitPadTests.m */; };
+		8442C32516681869007046E3 /* GPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C32416681869007046E3 /* GPNavigationController.m */; };
+		8442C32716681AF4007046E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C32616681AF4007046E3 /* QuartzCore.framework */; };
+		8442C32A16681B76007046E3 /* GPControlCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C32916681B76007046E3 /* GPControlCenterViewController.m */; };
+		8442C346166821EE007046E3 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8442C345166821EE007046E3 /* Defaults.plist */; };
+		8442C34916682284007046E3 /* GPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C34816682284007046E3 /* GPLoginViewController.m */; };
+		8442C34C16682568007046E3 /* GPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C34B16682568007046E3 /* GPNavigationBar.m */; };
+		84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */; };
+		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
+		846B20621671718B00436E90 /* GPSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B20611671718B00436E90 /* GPSplitView.m */; };
+		84DBE956169E2E970099AD25 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE942169E2E970099AD25 /* NSArray+Utilities.m */; };
+		84DBE957169E2E970099AD25 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE942169E2E970099AD25 /* NSArray+Utilities.m */; };
+		84DBE958169E2E970099AD25 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE944169E2E970099AD25 /* NSData+Base64.m */; };
+		84DBE959169E2E970099AD25 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE944169E2E970099AD25 /* NSData+Base64.m */; };
+		84DBE95A169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */; };
+		84DBE95B169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */; };
+		84DBE95C169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */; };
+		84DBE95D169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */; };
+		84DBE95E169E2E970099AD25 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94A169E2E970099AD25 /* NSString+UUID.m */; };
+		84DBE95F169E2E970099AD25 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94A169E2E970099AD25 /* NSString+UUID.m */; };
+		84DBE960169E2E970099AD25 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94C169E2E970099AD25 /* UAGithubEngine.m */; };
+		84DBE961169E2E970099AD25 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94C169E2E970099AD25 /* UAGithubEngine.m */; };
+		84DBE962169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */; };
+		84DBE963169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */; };
+		84DBE964169E2E970099AD25 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */; };
+		84DBE965169E2E970099AD25 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */; };
+		84DBE966169E2E970099AD25 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */; };
+		84DBE967169E2E970099AD25 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */; };
+		84DBE968169E2E970099AD25 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE955169E2E970099AD25 /* UAReachability.m */; };
+		84DBE969169E2E970099AD25 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE955169E2E970099AD25 /* UAReachability.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8442C3101668184B007046E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8442C2DD1668184B007046E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8442C2E41668184B007046E3;
+			remoteInfo = GitPad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8442C2E51668184B007046E3 /* GitPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8442C2E81668184B007046E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8442C2EA1668184B007046E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8442C2EC1668184B007046E3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8442C2EE1668184B007046E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8442C2F21668184B007046E3 /* GitPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitPad-Info.plist"; sourceTree = "<group>"; };
+		8442C2F41668184B007046E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8442C2F61668184B007046E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8442C2F81668184B007046E3 /* GitPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitPad-Prefix.pch"; sourceTree = "<group>"; };
+		8442C2F91668184B007046E3 /* GPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPAppDelegate.h; sourceTree = "<group>"; };
+		8442C2FA1668184B007046E3 /* GPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAppDelegate.m; sourceTree = "<group>"; };
+		8442C2FC1668184B007046E3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8442C2FE1668184B007046E3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8442C3001668184B007046E3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8442C3031668184B007046E3 /* GitPad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitPad.xcdatamodel; sourceTree = "<group>"; };
+		8442C30A1668184B007046E3 /* GitPadTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitPadTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8442C30B1668184B007046E3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		8442C3141668184B007046E3 /* GitPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GitPadTests-Info.plist"; sourceTree = "<group>"; };
+		8442C3161668184B007046E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8442C3181668184B007046E3 /* GitPadTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitPadTests.h; sourceTree = "<group>"; };
+		8442C3191668184B007046E3 /* GitPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitPadTests.m; sourceTree = "<group>"; };
+		8442C32316681869007046E3 /* GPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNavigationController.h; sourceTree = "<group>"; };
+		8442C32416681869007046E3 /* GPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNavigationController.m; sourceTree = "<group>"; };
+		8442C32616681AF4007046E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8442C32816681B76007046E3 /* GPControlCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPControlCenterViewController.h; sourceTree = "<group>"; };
+		8442C32916681B76007046E3 /* GPControlCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPControlCenterViewController.m; sourceTree = "<group>"; };
+		8442C345166821EE007046E3 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		8442C34716682283007046E3 /* GPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPLoginViewController.h; sourceTree = "<group>"; };
+		8442C34816682284007046E3 /* GPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPLoginViewController.m; sourceTree = "<group>"; };
+		8442C34A16682568007046E3 /* GPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNavigationBar.h; sourceTree = "<group>"; };
+		8442C34B16682568007046E3 /* GPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNavigationBar.m; sourceTree = "<group>"; };
+		84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		846B205B1671705B00436E90 /* GPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPConstants.h; sourceTree = "<group>"; };
+		846B205D1671717600436E90 /* GPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPMainViewController.h; sourceTree = "<group>"; };
+		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
+		846B20601671718B00436E90 /* GPSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSplitView.h; sourceTree = "<group>"; };
+		846B20611671718B00436E90 /* GPSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSplitView.m; sourceTree = "<group>"; };
+		84DBE941169E2E970099AD25 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
+		84DBE942169E2E970099AD25 /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
+		84DBE943169E2E970099AD25 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		84DBE944169E2E970099AD25 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		84DBE945169E2E970099AD25 /* NSInvocation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Blocks.h"; sourceTree = "<group>"; };
+		84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Blocks.m"; sourceTree = "<group>"; };
+		84DBE947169E2E970099AD25 /* NSString+UAGithubEngineUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UAGithubEngineUtilities.h"; sourceTree = "<group>"; };
+		84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UAGithubEngineUtilities.m"; sourceTree = "<group>"; };
+		84DBE949169E2E970099AD25 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		84DBE94A169E2E970099AD25 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		84DBE94B169E2E970099AD25 /* UAGithubEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngine.h; sourceTree = "<group>"; };
+		84DBE94C169E2E970099AD25 /* UAGithubEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngine.m; sourceTree = "<group>"; };
+		84DBE94D169E2E970099AD25 /* UAGithubEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineConstants.h; sourceTree = "<group>"; };
+		84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngineConstants.m; sourceTree = "<group>"; };
+		84DBE94F169E2E970099AD25 /* UAGithubEngineRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineRequestTypes.h; sourceTree = "<group>"; };
+		84DBE950169E2E970099AD25 /* UAGithubJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubJSONParser.h; sourceTree = "<group>"; };
+		84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubJSONParser.m; sourceTree = "<group>"; };
+		84DBE952169E2E970099AD25 /* UAGithubURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubURLConnection.h; sourceTree = "<group>"; };
+		84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
+		84DBE954169E2E970099AD25 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
+		84DBE955169E2E970099AD25 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8442C2E21668184B007046E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */,
+				8442C32716681AF4007046E3 /* QuartzCore.framework in Frameworks */,
+				8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */,
+				8442C2EB1668184B007046E3 /* Foundation.framework in Frameworks */,
+				8442C2ED1668184B007046E3 /* CoreGraphics.framework in Frameworks */,
+				8442C2EF1668184B007046E3 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8442C3061668184B007046E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8442C30C1668184B007046E3 /* SenTestingKit.framework in Frameworks */,
+				8442C30D1668184B007046E3 /* UIKit.framework in Frameworks */,
+				8442C30E1668184B007046E3 /* Foundation.framework in Frameworks */,
+				8442C30F1668184B007046E3 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8442C2DC1668184B007046E3 = {
+			isa = PBXGroup;
+			children = (
+				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
+				8442C2F01668184B007046E3 /* GitPad */,
+				8442C3121668184B007046E3 /* GitPadTests */,
+				8442C2E71668184B007046E3 /* Frameworks */,
+				8442C2E61668184B007046E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8442C2E61668184B007046E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8442C2E51668184B007046E3 /* GitPad.app */,
+				8442C30A1668184B007046E3 /* GitPadTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8442C2E71668184B007046E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8442C32616681AF4007046E3 /* QuartzCore.framework */,
+				8442C2E81668184B007046E3 /* UIKit.framework */,
+				8442C2EA1668184B007046E3 /* Foundation.framework */,
+				8442C2EC1668184B007046E3 /* CoreGraphics.framework */,
+				8442C2EE1668184B007046E3 /* CoreData.framework */,
+				8442C30B1668184B007046E3 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8442C2F01668184B007046E3 /* GitPad */ = {
+			isa = PBXGroup;
+			children = (
+				8442C2F91668184B007046E3 /* GPAppDelegate.h */,
+				8442C2FA1668184B007046E3 /* GPAppDelegate.m */,
+				846B205B1671705B00436E90 /* GPConstants.h */,
+				8442C32816681B76007046E3 /* GPControlCenterViewController.h */,
+				8442C32916681B76007046E3 /* GPControlCenterViewController.m */,
+				846B205D1671717600436E90 /* GPMainViewController.h */,
+				846B205E1671717700436E90 /* GPMainViewController.m */,
+				846B20601671718B00436E90 /* GPSplitView.h */,
+				846B20611671718B00436E90 /* GPSplitView.m */,
+				8442C34716682283007046E3 /* GPLoginViewController.h */,
+				8442C34816682284007046E3 /* GPLoginViewController.m */,
+				84DBE940169E2D050099AD25 /* UAGithubEngine */,
+				846B205C1671710100436E90 /* GPNavigationController */,
+				8442C2F11668184B007046E3 /* Supporting Files */,
+			);
+			path = GitPad;
+			sourceTree = "<group>";
+		};
+		8442C2F11668184B007046E3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8442C3021668184B007046E3 /* GitPad.xcdatamodeld */,
+				8442C2F21668184B007046E3 /* GitPad-Info.plist */,
+				8442C345166821EE007046E3 /* Defaults.plist */,
+				8442C2F31668184B007046E3 /* InfoPlist.strings */,
+				8442C2F61668184B007046E3 /* main.m */,
+				8442C2F81668184B007046E3 /* GitPad-Prefix.pch */,
+				8442C2FC1668184B007046E3 /* Default.png */,
+				8442C2FE1668184B007046E3 /* Default@2x.png */,
+				8442C3001668184B007046E3 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8442C3121668184B007046E3 /* GitPadTests */ = {
+			isa = PBXGroup;
+			children = (
+				8442C3181668184B007046E3 /* GitPadTests.h */,
+				8442C3191668184B007046E3 /* GitPadTests.m */,
+				8442C3131668184B007046E3 /* Supporting Files */,
+			);
+			path = GitPadTests;
+			sourceTree = "<group>";
+		};
+		8442C3131668184B007046E3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8442C3141668184B007046E3 /* GitPadTests-Info.plist */,
+				8442C3151668184B007046E3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		846B205C1671710100436E90 /* GPNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				8442C32316681869007046E3 /* GPNavigationController.h */,
+				8442C32416681869007046E3 /* GPNavigationController.m */,
+				8442C34A16682568007046E3 /* GPNavigationBar.h */,
+				8442C34B16682568007046E3 /* GPNavigationBar.m */,
+			);
+			name = GPNavigationController;
+			sourceTree = "<group>";
+		};
+		84DBE940169E2D050099AD25 /* UAGithubEngine */ = {
+			isa = PBXGroup;
+			children = (
+				84DBE941169E2E970099AD25 /* NSArray+Utilities.h */,
+				84DBE942169E2E970099AD25 /* NSArray+Utilities.m */,
+				84DBE943169E2E970099AD25 /* NSData+Base64.h */,
+				84DBE944169E2E970099AD25 /* NSData+Base64.m */,
+				84DBE945169E2E970099AD25 /* NSInvocation+Blocks.h */,
+				84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */,
+				84DBE947169E2E970099AD25 /* NSString+UAGithubEngineUtilities.h */,
+				84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */,
+				84DBE949169E2E970099AD25 /* NSString+UUID.h */,
+				84DBE94A169E2E970099AD25 /* NSString+UUID.m */,
+				84DBE94B169E2E970099AD25 /* UAGithubEngine.h */,
+				84DBE94C169E2E970099AD25 /* UAGithubEngine.m */,
+				84DBE94D169E2E970099AD25 /* UAGithubEngineConstants.h */,
+				84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */,
+				84DBE94F169E2E970099AD25 /* UAGithubEngineRequestTypes.h */,
+				84DBE950169E2E970099AD25 /* UAGithubJSONParser.h */,
+				84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */,
+				84DBE952169E2E970099AD25 /* UAGithubURLConnection.h */,
+				84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */,
+				84DBE954169E2E970099AD25 /* UAReachability.h */,
+				84DBE955169E2E970099AD25 /* UAReachability.m */,
+			);
+			name = UAGithubEngine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8442C2E41668184B007046E3 /* GitPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8442C31D1668184B007046E3 /* Build configuration list for PBXNativeTarget "GitPad" */;
+			buildPhases = (
+				8442C2E11668184B007046E3 /* Sources */,
+				8442C2E21668184B007046E3 /* Frameworks */,
+				8442C2E31668184B007046E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitPad;
+			productName = GitPad;
+			productReference = 8442C2E51668184B007046E3 /* GitPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8442C3091668184B007046E3 /* GitPadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8442C3201668184B007046E3 /* Build configuration list for PBXNativeTarget "GitPadTests" */;
+			buildPhases = (
+				8442C3051668184B007046E3 /* Sources */,
+				8442C3061668184B007046E3 /* Frameworks */,
+				8442C3071668184B007046E3 /* Resources */,
+				8442C3081668184B007046E3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8442C3111668184B007046E3 /* PBXTargetDependency */,
+			);
+			name = GitPadTests;
+			productName = GitPadTests;
+			productReference = 8442C30A1668184B007046E3 /* GitPadTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8442C2DD1668184B007046E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GP;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = CodaFi;
+			};
+			buildConfigurationList = 8442C2E01668184B007046E3 /* Build configuration list for PBXProject "GitPad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8442C2DC1668184B007046E3;
+			productRefGroup = 8442C2E61668184B007046E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8442C2E41668184B007046E3 /* GitPad */,
+				8442C3091668184B007046E3 /* GitPadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8442C2E31668184B007046E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8442C2F51668184B007046E3 /* InfoPlist.strings in Resources */,
+				8442C2FD1668184B007046E3 /* Default.png in Resources */,
+				8442C2FF1668184B007046E3 /* Default@2x.png in Resources */,
+				8442C3011668184B007046E3 /* Default-568h@2x.png in Resources */,
+				8442C346166821EE007046E3 /* Defaults.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8442C3071668184B007046E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8442C3171668184B007046E3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8442C3081668184B007046E3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8442C2E11668184B007046E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8442C2F71668184B007046E3 /* main.m in Sources */,
+				8442C2FB1668184B007046E3 /* GPAppDelegate.m in Sources */,
+				8442C3041668184B007046E3 /* GitPad.xcdatamodeld in Sources */,
+				8442C32516681869007046E3 /* GPNavigationController.m in Sources */,
+				8442C32A16681B76007046E3 /* GPControlCenterViewController.m in Sources */,
+				8442C34916682284007046E3 /* GPLoginViewController.m in Sources */,
+				8442C34C16682568007046E3 /* GPNavigationBar.m in Sources */,
+				846B205F1671717700436E90 /* GPMainViewController.m in Sources */,
+				846B20621671718B00436E90 /* GPSplitView.m in Sources */,
+				84DBE956169E2E970099AD25 /* NSArray+Utilities.m in Sources */,
+				84DBE958169E2E970099AD25 /* NSData+Base64.m in Sources */,
+				84DBE95A169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */,
+				84DBE95C169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */,
+				84DBE95E169E2E970099AD25 /* NSString+UUID.m in Sources */,
+				84DBE960169E2E970099AD25 /* UAGithubEngine.m in Sources */,
+				84DBE962169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */,
+				84DBE964169E2E970099AD25 /* UAGithubJSONParser.m in Sources */,
+				84DBE966169E2E970099AD25 /* UAGithubURLConnection.m in Sources */,
+				84DBE968169E2E970099AD25 /* UAReachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8442C3051668184B007046E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8442C31A1668184B007046E3 /* GitPadTests.m in Sources */,
+				84DBE957169E2E970099AD25 /* NSArray+Utilities.m in Sources */,
+				84DBE959169E2E970099AD25 /* NSData+Base64.m in Sources */,
+				84DBE95B169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */,
+				84DBE95D169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */,
+				84DBE95F169E2E970099AD25 /* NSString+UUID.m in Sources */,
+				84DBE961169E2E970099AD25 /* UAGithubEngine.m in Sources */,
+				84DBE963169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */,
+				84DBE965169E2E970099AD25 /* UAGithubJSONParser.m in Sources */,
+				84DBE967169E2E970099AD25 /* UAGithubURLConnection.m in Sources */,
+				84DBE969169E2E970099AD25 /* UAReachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8442C3111668184B007046E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8442C2E41668184B007046E3 /* GitPad */;
+			targetProxy = 8442C3101668184B007046E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8442C2F31668184B007046E3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8442C2F41668184B007046E3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8442C3151668184B007046E3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8442C3161668184B007046E3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8442C31B1668184B007046E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_STRICT_ALIASING = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		8442C31C1668184B007046E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_STRICT_ALIASING = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8442C31E1668184B007046E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HubKit\"/**";
+				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8442C31F1668184B007046E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HubKit\"/**";
+				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8442C3211668184B007046E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitPad.app/GitPad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
+				INFOPLIST_FILE = "GitPadTests/GitPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8442C3221668184B007046E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitPad.app/GitPad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
+				INFOPLIST_FILE = "GitPadTests/GitPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8442C2E01668184B007046E3 /* Build configuration list for PBXProject "GitPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8442C31B1668184B007046E3 /* Debug */,
+				8442C31C1668184B007046E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8442C31D1668184B007046E3 /* Build configuration list for PBXNativeTarget "GitPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8442C31E1668184B007046E3 /* Debug */,
+				8442C31F1668184B007046E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8442C3201668184B007046E3 /* Build configuration list for PBXNativeTarget "GitPadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8442C3211668184B007046E3 /* Debug */,
+				8442C3221668184B007046E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8442C3021668184B007046E3 /* GitPad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8442C3031668184B007046E3 /* GitPad.xcdatamodel */,
+			);
+			currentVersion = 8442C3031668184B007046E3 /* GitPad.xcdatamodel */;
+			path = GitPad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8442C2DD1668184B007046E3 /* Project object */;
+}
