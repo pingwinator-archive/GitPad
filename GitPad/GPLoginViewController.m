@@ -60,7 +60,8 @@
     [super viewDidLoad];
 	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectMake(0, 0, 540, 44)];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	[self.navigationBar setTitle:@"Login"];
+
+	[self.navigationBar setTitle:@"Sign In"];
 	[self.view addSubview:self.navigationBar];
 	
 	self.usernameField = [[UITextField alloc]initWithFrame:CGRectMake(145, 163, 250, 44)];
@@ -134,7 +135,6 @@
 		[errStr appendString:@"Please enter a User Name \n"];
 		errAlpha = 1;
 	} else {
-		//NO EMAILS
 		if ([self validateEmail:self.usernameField.text]) {
 			[errStr appendString:@"Please use your GitHub username to login, not an email address. \n"];
 			errAlpha = 1;
@@ -156,7 +156,7 @@
 	} else {
 		[self _reEnableForFailedValidation];
 	}
-	[self.errorLabel setText:[errStr copy]];
+	[self.errorLabel setText:errStr];
 	[UIView animateWithDuration:.5 animations:^{
 		[self.errorLabel setAlpha:errAlpha];
 	}];
