@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class GPNavigationBar;
+
+typedef void (^GHNavigationBarDrawBlock)(GPNavigationBar *bar, CGRect dirtyRect);
+
 @interface GPNavigationBar : UIView
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) GHNavigationBarDrawBlock drawRect;
 
 @end

@@ -119,6 +119,10 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+	if (self.drawRect != nil) {
+		self.drawRect(self, rect);
+		return;
+	}
     CGRect drawingRect = [self bounds];
 
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -128,7 +132,6 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 	
 	CGRect clippingRect = drawingRect;
 
-//	clippingRect.size.height -= 1;
 	CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
 	CGContextAddPath(context, clippingPath);
 	CGContextClip(context);
