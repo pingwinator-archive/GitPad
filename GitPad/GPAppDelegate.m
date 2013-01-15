@@ -41,7 +41,6 @@
 	[self.navigationController setRootViewController:self.mainViewController];	
 	self.navigationController.delegate = self;
 	self.navigationController.dataSource = self;
-	[self.mainViewController setup];
 	[self.window setRootViewController:self.navigationController];
 	
     return YES;
