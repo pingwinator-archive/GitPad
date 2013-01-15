@@ -10,6 +10,5 @@
 
 @interface GPMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (void)setup;
 
 @end

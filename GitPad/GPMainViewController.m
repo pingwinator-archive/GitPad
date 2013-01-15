@@ -51,7 +51,7 @@
 	[self.view addSubview:self.newsFeedTableView];
 }
 
-- (void)setup {
+- (void)viewDidAppear:(BOOL)animated {
 	if ([self presentLoginViewControllerIfNeeded]) {
 		
 	} else {
@@ -64,7 +64,7 @@
 	//	if ([[HKAccountManager sharedManager]accounts].count == 0) {
 	[self _setupLoginViewControllerIfNeeded];
 	//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-	[self.navigationController presentViewController:self.loginNavigationBar animated:YES completion:NULL];
+	[self presentViewController:self.loginNavigationBar animated:YES completion:NULL];
 	//#else
 	//		[self presentModalViewController:self.loginViewController animated:YES];
 	//#endif
