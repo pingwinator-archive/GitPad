@@ -38,6 +38,7 @@
 		8442C34C16682568007046E3 /* GPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C34B16682568007046E3 /* GPNavigationBar.m */; };
 		84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */; };
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
+		846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		846B205B1671705B00436E90 /* GPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPConstants.h; sourceTree = "<group>"; };
 		846B205D1671717600436E90 /* GPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPMainViewController.h; sourceTree = "<group>"; };
 		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
+		846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
+		846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				8442C34816682284007046E3 /* GPLoginViewController.m */,
 				840582EA169F7D920022E4F9 /* MWFSlideNavigationViewController.h */,
 				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
+				846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */,
+				846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */,
 				846B205C1671710100436E90 /* GPNavigationController */,
 				8442C2F11668184B007046E3 /* Supporting Files */,
 			);
@@ -421,6 +426,7 @@
 				8442C31A1668184B007046E3 /* GitPadTests.m in Sources */,
 				840582ED169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */,
 				840582F2169F86DE0022E4F9 /* GPNotificationButton.m in Sources */,
+				846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
