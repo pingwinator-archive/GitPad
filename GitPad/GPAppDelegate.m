@@ -9,6 +9,12 @@
 #import "GPAppDelegate.h"
 #import "GPControlCenterViewController.h"
 #import "GPNavigationController.h"
+#import "MWFSlideNavigationViewController.h"
+#import "GPMainViewController.h"
+
+@interface GPAppDelegate () <MWFSlideNavigationViewControllerDataSource, MWFSlideNavigationViewControllerDelegate>
+
+@end
 
 @implementation GPAppDelegate
 
@@ -28,12 +34,20 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
+	self.navigationController = [[MWFSlideNavigationViewController alloc]init];
 	self.controlCenterViewController = [GPControlCenterViewController controlCenterViewController];
-	self.navigationController = [[GPNavigationController alloc]initWithRootViewController:self.controlCenterViewController];
+	self.mainViewController = [[GPMainViewController alloc]init];
+	
+	[self.navigationController setRootViewController:self.mainViewController];	
+	self.navigationController.delegate = self;
+	self.navigationController.dataSource = self;
+	[self.mainViewController setup];
 	[self.window setRootViewController:self.navigationController];
 	
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -61,6 +75,21 @@
 {
 	// Saves changes in the application's managed object context before the application terminates.
 	[self saveContext];
+}
+
+- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller distanceForSlideDirecton:(MWFSlideDirection)direction portraitOrientation:(BOOL)portraitOrientation {
+	if (portraitOrientation) {
+		return 180;
+	}
+	else {
+		return 100;
+	}
+}
+
+- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
+					  viewControllerForSlideDirecton:(MWFSlideDirection)direction
+{
+	return self.controlCenterViewController;
 }
 
 - (void)saveContext

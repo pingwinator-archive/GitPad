@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840582EC169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */; };
+		840582ED169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */; };
+		840582F1169F86DE0022E4F9 /* GPNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582F0169F86DE0022E4F9 /* GPNotificationButton.m */; };
+		840582F2169F86DE0022E4F9 /* GPNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582F0169F86DE0022E4F9 /* GPNotificationButton.m */; };
+		8410AB48169F8FF900E71AC3 /* GPNewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */; };
+		8410AC19169F93A900E71AC3 /* libKrakenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8410AC18169F93A900E71AC3 /* libKrakenKit.a */; };
 		8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2E81668184B007046E3 /* UIKit.framework */; };
 		8442C2EB1668184B007046E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EA1668184B007046E3 /* Foundation.framework */; };
 		8442C2ED1668184B007046E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EC1668184B007046E3 /* CoreGraphics.framework */; };
@@ -32,30 +38,23 @@
 		8442C34C16682568007046E3 /* GPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C34B16682568007046E3 /* GPNavigationBar.m */; };
 		84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */; };
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
-		846B20621671718B00436E90 /* GPSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B20611671718B00436E90 /* GPSplitView.m */; };
-		84DBE956169E2E970099AD25 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE942169E2E970099AD25 /* NSArray+Utilities.m */; };
-		84DBE957169E2E970099AD25 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE942169E2E970099AD25 /* NSArray+Utilities.m */; };
-		84DBE958169E2E970099AD25 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE944169E2E970099AD25 /* NSData+Base64.m */; };
-		84DBE959169E2E970099AD25 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE944169E2E970099AD25 /* NSData+Base64.m */; };
-		84DBE95A169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */; };
-		84DBE95B169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */; };
-		84DBE95C169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */; };
-		84DBE95D169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */; };
-		84DBE95E169E2E970099AD25 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94A169E2E970099AD25 /* NSString+UUID.m */; };
-		84DBE95F169E2E970099AD25 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94A169E2E970099AD25 /* NSString+UUID.m */; };
-		84DBE960169E2E970099AD25 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94C169E2E970099AD25 /* UAGithubEngine.m */; };
-		84DBE961169E2E970099AD25 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94C169E2E970099AD25 /* UAGithubEngine.m */; };
-		84DBE962169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */; };
-		84DBE963169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */; };
-		84DBE964169E2E970099AD25 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */; };
-		84DBE965169E2E970099AD25 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */; };
-		84DBE966169E2E970099AD25 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */; };
-		84DBE967169E2E970099AD25 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */; };
-		84DBE968169E2E970099AD25 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE955169E2E970099AD25 /* UAReachability.m */; };
-		84DBE969169E2E970099AD25 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DBE955169E2E970099AD25 /* UAReachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8410AC17169F93A900E71AC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8410ABF4169F934800E71AC3;
+			remoteInfo = KrakenKit;
+		};
+		8410AC1A169F93B700E71AC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8410ABF3169F934800E71AC3;
+			remoteInfo = KrakenKit;
+		};
 		8442C3101668184B007046E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8442C2DD1668184B007046E3 /* Project object */;
@@ -66,6 +65,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840582EA169F7D920022E4F9 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFSlideNavigationViewController.h; sourceTree = "<group>"; };
+		840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
+		840582EF169F86DE0022E4F9 /* GPNotificationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNotificationButton.h; sourceTree = "<group>"; };
+		840582F0169F86DE0022E4F9 /* GPNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNotificationButton.m; sourceTree = "<group>"; };
+		8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNewsFeedCell.h; sourceTree = "<group>"; };
+		8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNewsFeedCell.m; sourceTree = "<group>"; };
+		8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
+		8410ABE8169F932900E71AC3 /* KrakenKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KrakenKit-Prefix.pch"; sourceTree = "<group>"; };
+		8410ABE9169F932900E71AC3 /* KrakenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KrakenKit.h; sourceTree = "<group>"; };
+		8410ABEB169F932900E71AC3 /* KrakenKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KrakenKit.m; sourceTree = "<group>"; };
 		8442C2E51668184B007046E3 /* GitPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8442C2E81668184B007046E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8442C2EA1668184B007046E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,29 +110,6 @@
 		846B205B1671705B00436E90 /* GPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPConstants.h; sourceTree = "<group>"; };
 		846B205D1671717600436E90 /* GPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPMainViewController.h; sourceTree = "<group>"; };
 		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
-		846B20601671718B00436E90 /* GPSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSplitView.h; sourceTree = "<group>"; };
-		846B20611671718B00436E90 /* GPSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSplitView.m; sourceTree = "<group>"; };
-		84DBE941169E2E970099AD25 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
-		84DBE942169E2E970099AD25 /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
-		84DBE943169E2E970099AD25 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		84DBE944169E2E970099AD25 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		84DBE945169E2E970099AD25 /* NSInvocation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Blocks.h"; sourceTree = "<group>"; };
-		84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Blocks.m"; sourceTree = "<group>"; };
-		84DBE947169E2E970099AD25 /* NSString+UAGithubEngineUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UAGithubEngineUtilities.h"; sourceTree = "<group>"; };
-		84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UAGithubEngineUtilities.m"; sourceTree = "<group>"; };
-		84DBE949169E2E970099AD25 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
-		84DBE94A169E2E970099AD25 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
-		84DBE94B169E2E970099AD25 /* UAGithubEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngine.h; sourceTree = "<group>"; };
-		84DBE94C169E2E970099AD25 /* UAGithubEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngine.m; sourceTree = "<group>"; };
-		84DBE94D169E2E970099AD25 /* UAGithubEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineConstants.h; sourceTree = "<group>"; };
-		84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngineConstants.m; sourceTree = "<group>"; };
-		84DBE94F169E2E970099AD25 /* UAGithubEngineRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineRequestTypes.h; sourceTree = "<group>"; };
-		84DBE950169E2E970099AD25 /* UAGithubJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubJSONParser.h; sourceTree = "<group>"; };
-		84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubJSONParser.m; sourceTree = "<group>"; };
-		84DBE952169E2E970099AD25 /* UAGithubURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubURLConnection.h; sourceTree = "<group>"; };
-		84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
-		84DBE954169E2E970099AD25 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
-		84DBE955169E2E970099AD25 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8410AC19169F93A900E71AC3 /* libKrakenKit.a in Frameworks */,
 				84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */,
 				8442C32716681AF4007046E3 /* QuartzCore.framework in Frameworks */,
 				8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */,
@@ -154,12 +141,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8410AB4A169F916500E71AC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8410AC18169F93A900E71AC3 /* libKrakenKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8410ABE6169F932900E71AC3 /* KrakenKit */ = {
+			isa = PBXGroup;
+			children = (
+				8410ABE9169F932900E71AC3 /* KrakenKit.h */,
+				8410ABEB169F932900E71AC3 /* KrakenKit.m */,
+				8410ABE7169F932900E71AC3 /* Supporting Files */,
+			);
+			path = KrakenKit;
+			sourceTree = "<group>";
+		};
+		8410ABE7169F932900E71AC3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8410ABE8169F932900E71AC3 /* KrakenKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
+				8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */,
 				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
 				8442C2F01668184B007046E3 /* GitPad */,
 				8442C3121668184B007046E3 /* GitPadTests */,
+				8410ABE6169F932900E71AC3 /* KrakenKit */,
 				8442C2E71668184B007046E3 /* Frameworks */,
 				8442C2E61668184B007046E3 /* Products */,
 			);
@@ -193,15 +208,18 @@
 				8442C2F91668184B007046E3 /* GPAppDelegate.h */,
 				8442C2FA1668184B007046E3 /* GPAppDelegate.m */,
 				846B205B1671705B00436E90 /* GPConstants.h */,
-				8442C32816681B76007046E3 /* GPControlCenterViewController.h */,
-				8442C32916681B76007046E3 /* GPControlCenterViewController.m */,
 				846B205D1671717600436E90 /* GPMainViewController.h */,
 				846B205E1671717700436E90 /* GPMainViewController.m */,
-				846B20601671718B00436E90 /* GPSplitView.h */,
-				846B20611671718B00436E90 /* GPSplitView.m */,
+				8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */,
+				8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */,
+				840582EF169F86DE0022E4F9 /* GPNotificationButton.h */,
+				840582F0169F86DE0022E4F9 /* GPNotificationButton.m */,
+				8442C32816681B76007046E3 /* GPControlCenterViewController.h */,
+				8442C32916681B76007046E3 /* GPControlCenterViewController.m */,
 				8442C34716682283007046E3 /* GPLoginViewController.h */,
 				8442C34816682284007046E3 /* GPLoginViewController.m */,
-				84DBE940169E2D050099AD25 /* UAGithubEngine */,
+				840582EA169F7D920022E4F9 /* MWFSlideNavigationViewController.h */,
+				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
 				846B205C1671710100436E90 /* GPNavigationController */,
 				8442C2F11668184B007046E3 /* Supporting Files */,
 			);
@@ -254,34 +272,6 @@
 			name = GPNavigationController;
 			sourceTree = "<group>";
 		};
-		84DBE940169E2D050099AD25 /* UAGithubEngine */ = {
-			isa = PBXGroup;
-			children = (
-				84DBE941169E2E970099AD25 /* NSArray+Utilities.h */,
-				84DBE942169E2E970099AD25 /* NSArray+Utilities.m */,
-				84DBE943169E2E970099AD25 /* NSData+Base64.h */,
-				84DBE944169E2E970099AD25 /* NSData+Base64.m */,
-				84DBE945169E2E970099AD25 /* NSInvocation+Blocks.h */,
-				84DBE946169E2E970099AD25 /* NSInvocation+Blocks.m */,
-				84DBE947169E2E970099AD25 /* NSString+UAGithubEngineUtilities.h */,
-				84DBE948169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m */,
-				84DBE949169E2E970099AD25 /* NSString+UUID.h */,
-				84DBE94A169E2E970099AD25 /* NSString+UUID.m */,
-				84DBE94B169E2E970099AD25 /* UAGithubEngine.h */,
-				84DBE94C169E2E970099AD25 /* UAGithubEngine.m */,
-				84DBE94D169E2E970099AD25 /* UAGithubEngineConstants.h */,
-				84DBE94E169E2E970099AD25 /* UAGithubEngineConstants.m */,
-				84DBE94F169E2E970099AD25 /* UAGithubEngineRequestTypes.h */,
-				84DBE950169E2E970099AD25 /* UAGithubJSONParser.h */,
-				84DBE951169E2E970099AD25 /* UAGithubJSONParser.m */,
-				84DBE952169E2E970099AD25 /* UAGithubURLConnection.h */,
-				84DBE953169E2E970099AD25 /* UAGithubURLConnection.m */,
-				84DBE954169E2E970099AD25 /* UAReachability.h */,
-				84DBE955169E2E970099AD25 /* UAReachability.m */,
-			);
-			name = UAGithubEngine;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +286,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8410AC1B169F93B700E71AC3 /* PBXTargetDependency */,
 			);
 			name = GitPad;
 			productName = GitPad;
@@ -341,6 +332,12 @@
 			mainGroup = 8442C2DC1668184B007046E3;
 			productRefGroup = 8442C2E61668184B007046E3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8410AB4A169F916500E71AC3 /* Products */;
+					ProjectRef = 8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8442C2E41668184B007046E3 /* GitPad */,
@@ -348,6 +345,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8410AC18169F93A900E71AC3 /* libKrakenKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKrakenKit.a;
+			remoteRef = 8410AC17169F93A900E71AC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8442C2E31668184B007046E3 /* Resources */ = {
@@ -401,17 +408,9 @@
 				8442C34916682284007046E3 /* GPLoginViewController.m in Sources */,
 				8442C34C16682568007046E3 /* GPNavigationBar.m in Sources */,
 				846B205F1671717700436E90 /* GPMainViewController.m in Sources */,
-				846B20621671718B00436E90 /* GPSplitView.m in Sources */,
-				84DBE956169E2E970099AD25 /* NSArray+Utilities.m in Sources */,
-				84DBE958169E2E970099AD25 /* NSData+Base64.m in Sources */,
-				84DBE95A169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */,
-				84DBE95C169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */,
-				84DBE95E169E2E970099AD25 /* NSString+UUID.m in Sources */,
-				84DBE960169E2E970099AD25 /* UAGithubEngine.m in Sources */,
-				84DBE962169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */,
-				84DBE964169E2E970099AD25 /* UAGithubJSONParser.m in Sources */,
-				84DBE966169E2E970099AD25 /* UAGithubURLConnection.m in Sources */,
-				84DBE968169E2E970099AD25 /* UAReachability.m in Sources */,
+				840582EC169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */,
+				840582F1169F86DE0022E4F9 /* GPNotificationButton.m in Sources */,
+				8410AB48169F8FF900E71AC3 /* GPNewsFeedCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,22 +419,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8442C31A1668184B007046E3 /* GitPadTests.m in Sources */,
-				84DBE957169E2E970099AD25 /* NSArray+Utilities.m in Sources */,
-				84DBE959169E2E970099AD25 /* NSData+Base64.m in Sources */,
-				84DBE95B169E2E970099AD25 /* NSInvocation+Blocks.m in Sources */,
-				84DBE95D169E2E970099AD25 /* NSString+UAGithubEngineUtilities.m in Sources */,
-				84DBE95F169E2E970099AD25 /* NSString+UUID.m in Sources */,
-				84DBE961169E2E970099AD25 /* UAGithubEngine.m in Sources */,
-				84DBE963169E2E970099AD25 /* UAGithubEngineConstants.m in Sources */,
-				84DBE965169E2E970099AD25 /* UAGithubJSONParser.m in Sources */,
-				84DBE967169E2E970099AD25 /* UAGithubURLConnection.m in Sources */,
-				84DBE969169E2E970099AD25 /* UAReachability.m in Sources */,
+				840582ED169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */,
+				840582F2169F86DE0022E4F9 /* GPNotificationButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8410AC1B169F93B700E71AC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KrakenKit;
+			targetProxy = 8410AC1A169F93B700E71AC3 /* PBXContainerItemProxy */;
+		};
 		8442C3111668184B007046E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8442C2E41668184B007046E3 /* GitPad */;

@@ -123,15 +123,12 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-	UIColor *startColor = nil;
-	UIColor *endColor = nil;
-	
-	startColor = IN_COLOR_MAIN_START_L;
-	endColor = IN_COLOR_MAIN_END_L;
+	UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
+	UIColor *endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
 	
 	CGRect clippingRect = drawingRect;
 
-	clippingRect.size.height -= 1;
+//	clippingRect.size.height -= 1;
 	CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
 	CGContextAddPath(context, clippingPath);
 	CGContextClip(context);
@@ -142,28 +139,13 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 								CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMaxY(drawingRect)), 0);
 	CGGradientRelease(gradient);
 	
-	UIColor *bottomColor = IN_COLOR_MAIN_BOTTOM_L;
-	
-	CGRect bottomRect = CGRectMake(0.0, CGRectGetMinY(drawingRect), CGRectGetWidth(drawingRect), 1.0);
-	[bottomColor set];
-	UIRectFill(bottomRect);
-	
-	bottomRect.origin.y += 1.0;
-	[[UIColor colorWithWhite:1.0 alpha:0.12] setFill];
-	[[UIBezierPath bezierPathWithRect:bottomRect] fill];
-	
-	CGRect noiseRect = CGRectInset(drawingRect, 1.0, 1.0);
-	
-	noiseRect.origin.y    -= 1.0;
-	noiseRect.size.height += 1.0;
-	
-	CGPathRef noiseClippingPath =
-	createClippingPathWithRectAndRadius(noiseRect, INCornerClipRadius);
-	CGContextAddPath(context, noiseClippingPath);
-	CGContextClip(context);
-	CGPathRelease(noiseClippingPath);
-	
-	[self drawNoiseWithOpacity:0.1];
+	[[UIColor colorWithWhite:0.873 alpha:1.000] set];
+    CGContextSetLineWidth(context,1.0f);
+    CGContextMoveToPoint(context,0.0f, CGRectGetMaxY(drawingRect));
+    CGContextAddLineToPoint(context,CGRectGetMaxX(drawingRect), CGRectGetMaxY(drawingRect));
+    CGContextStrokePath(context);
+
 }
+
 
 @end

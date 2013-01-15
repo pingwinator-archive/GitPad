@@ -11,7 +11,7 @@
 #import "GPNavigationBar.h"
 #import "GPAppDelegate.h"
 #import "GPConstants.h"
-#import "UAGithubEngine.h"
+#import "KrakenKit.h"
 
 @implementation UIView (FindAndResignFirstResponder)
 - (BOOL)findAndResignFirstResponder
@@ -151,6 +151,7 @@
 		} failure:^(NSError *error) {
 			[errStr appendString:@"Your credentials are invalid.  Please enter another login"];
 			errAlpha = 1;
+			[self _reEnableForFailedValidation];
 		}];
 	} else {
 		[self _reEnableForFailedValidation];

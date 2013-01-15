@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPMainViewController : UIViewController
+@interface GPMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+- (void)setup;
 
 @end

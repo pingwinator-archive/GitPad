@@ -10,6 +10,6 @@
 
 @interface GPControlCenterViewController : UIViewController
 
-+(id)controlCenterViewController;
++ (id)controlCenterViewController;
 
 @end
