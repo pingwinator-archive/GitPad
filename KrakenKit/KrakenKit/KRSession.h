@@ -24,6 +24,7 @@
 
 @interface KRSession (Private)
 
-- (BOOL)_login;
+- (NSArray*)_login;
+- (NSArray*)_fetchNotifications;
 
 @end

@@ -39,6 +39,12 @@
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
 		846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */; };
 		84ADF9EC16ADA7D50026F990 /* libKrakenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADF9E916ADA7C70026F990 /* libKrakenKit.a */; };
+		84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */; };
+		84CB8C9A16ADCE9B0026AF86 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */; };
+		84CB8C9B16ADCE9B0026AF86 /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9516ADCE9B0026AF86 /* PDFView.m */; };
+		84CB8C9C16ADCE9B0026AF86 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9716ADCE9B0026AF86 /* UIImage+PDF.m */; };
+		84CB8C9D16ADCE9B0026AF86 /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */; };
+		84CB8C9F16ADCEA60026AF86 /* <Blacktocats>.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +119,16 @@
 		846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
+		84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "<Github-Social-Logo-Outlined>.png"; sourceTree = "<group>"; };
+		84CB8C9216ADCE9B0026AF86 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		84CB8C9416ADCE9B0026AF86 /* PDFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFView.h; sourceTree = "<group>"; };
+		84CB8C9516ADCE9B0026AF86 /* PDFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFView.m; sourceTree = "<group>"; };
+		84CB8C9616ADCE9B0026AF86 /* UIImage+PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PDF.h"; sourceTree = "<group>"; };
+		84CB8C9716ADCE9B0026AF86 /* UIImage+PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PDF.m"; sourceTree = "<group>"; };
+		84CB8C9816ADCE9B0026AF86 /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
+		84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
+		84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "<Blacktocats>.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +233,7 @@
 				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
 				846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */,
 				846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */,
+				84CB8C9116ADCE9B0026AF86 /* UIImage+PDF */,
 				846B205C1671710100436E90 /* GPNavigationController */,
 				8442C2F11668184B007046E3 /* Supporting Files */,
 			);
@@ -226,6 +243,8 @@
 		8442C2F11668184B007046E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */,
+				84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */,
 				8442C3021668184B007046E3 /* GitPad.xcdatamodeld */,
 				8442C2F21668184B007046E3 /* GitPad-Info.plist */,
 				8442C345166821EE007046E3 /* Defaults.plist */,
@@ -275,6 +294,21 @@
 				84ADF9E916ADA7C70026F990 /* libKrakenKit.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		84CB8C9116ADCE9B0026AF86 /* UIImage+PDF */ = {
+			isa = PBXGroup;
+			children = (
+				84CB8C9216ADCE9B0026AF86 /* NSString+MD5.h */,
+				84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */,
+				84CB8C9416ADCE9B0026AF86 /* PDFView.h */,
+				84CB8C9516ADCE9B0026AF86 /* PDFView.m */,
+				84CB8C9616ADCE9B0026AF86 /* UIImage+PDF.h */,
+				84CB8C9716ADCE9B0026AF86 /* UIImage+PDF.m */,
+				84CB8C9816ADCE9B0026AF86 /* UIView+Image.h */,
+				84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */,
+			);
+			path = "UIImage+PDF";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +405,8 @@
 				8442C2FF1668184B007046E3 /* Default@2x.png in Resources */,
 				8442C3011668184B007046E3 /* Default-568h@2x.png in Resources */,
 				8442C346166821EE007046E3 /* Defaults.plist in Resources */,
+				84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */,
+				84CB8C9F16ADCEA60026AF86 /* <Blacktocats>.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +452,10 @@
 				840582EC169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */,
 				840582F1169F86DE0022E4F9 /* GPNotificationButton.m in Sources */,
 				8410AB48169F8FF900E71AC3 /* GPNewsFeedCell.m in Sources */,
+				84CB8C9A16ADCE9B0026AF86 /* NSString+MD5.m in Sources */,
+				84CB8C9B16ADCE9B0026AF86 /* PDFView.m in Sources */,
+				84CB8C9C16ADCE9B0026AF86 /* UIImage+PDF.m in Sources */,
+				84CB8C9D16ADCE9B0026AF86 /* UIView+Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

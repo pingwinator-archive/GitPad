@@ -50,6 +50,7 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 @interface GPNavigationBar ()
 
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -67,16 +68,20 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-		self.label = [[UILabel alloc]initWithFrame:CGRectInset(frame, 0, 0)];
-		[self.label setTextColor:[UIColor grayColor]];
-		[self.label setBackgroundColor:[UIColor clearColor]];
-		[self.label setTextAlignment:NSTextAlignmentCenter];
-		[self.label setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0f]];
-		self.label.layer.shadowOpacity = 1.0;
-		self.label.layer.shadowRadius = 0.0;
-		self.label.layer.shadowColor = [UIColor blackColor].CGColor;
-		self.label.layer.shadowOffset = CGSizeMake(0.0, -1.0);
-		[self addSubview:self.label];
+		_label = [[UILabel alloc]initWithFrame:CGRectInset(frame, 0, 0)];
+		_label.textColor = [UIColor grayColor];
+		_label.backgroundColor = [UIColor clearColor];
+		_label.textAlignment = NSTextAlignmentCenter;
+		_label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0f];
+		_label.layer.shadowOpacity = 1.0;
+		_label.layer.shadowRadius = 0.0;
+		_label.layer.shadowColor = [UIColor blackColor].CGColor;
+		_label.layer.shadowOffset = CGSizeMake(0.0, -1.0);
+		[self addSubview:_label];
+		
+		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+		_imageView.contentMode = UIViewContentModeCenter;
+		[self addSubview:_imageView];
     }
     return self;
 }
@@ -115,6 +120,11 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
     CGContextRestoreGState(context);
 }
 
+-(void)setTitleImage:(UIImage *)titleImage {
+	_titleImage = titleImage;
+	[self.imageView setImage:titleImage];
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -127,8 +137,14 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-	UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
-	UIColor *endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
+	UIColor *startColor = self.startColor;
+	UIColor *endColor = self.endColor;
+	if (self.startColor == nil) {
+		startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
+	}
+	if (self.endColor == nil) {
+		endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
+	}
 	
 	CGRect clippingRect = drawingRect;
 
@@ -148,6 +164,14 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
     CGContextAddLineToPoint(context,CGRectGetMaxX(drawingRect), CGRectGetMaxY(drawingRect));
     CGContextStrokePath(context);
 
+}
+
+-(void)commitColorUpdate {
+	self.alpha = 0.5;
+	[self setNeedsDisplay];
+	[UIView animateWithDuration:0.5 animations:^{
+		self.alpha = 1.0;
+	}];
 }
 
 

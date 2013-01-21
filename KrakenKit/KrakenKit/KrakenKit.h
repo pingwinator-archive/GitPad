@@ -12,7 +12,7 @@
 
 #import "UAGithubEngine.h"
 
-#import "KRAccount.h"
+#import "KRGithubAccount.h"
 
 #import "KRUtils.h"
 

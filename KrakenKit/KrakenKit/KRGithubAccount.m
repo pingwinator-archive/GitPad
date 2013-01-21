@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 CodaFi. All rights reserved.
 //
 
-#import "KRAccount.h"
+#import "KRGithubAccount.h"
 #import "UAGithubEngine.h"
-#import "KRGithubLoginRequest.h"
+#import "KRGithubNotificationsRequest.h"
 #import "KRSession.h"
 
 NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 
-@interface KRAccount ()
+@interface KRGithubAccount ()
 
 @property (nonatomic, strong) KRSession *session;
 @property (nonatomic, copy) NSString *username;
@@ -22,16 +22,51 @@ NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 
 @end
 
-@implementation KRAccount
+@implementation KRGithubAccount {
+	NSURL* _repositoryURL;
+	NSString* _email;
+	NSURL* _eventsURL;
+	NSURL* _recievedEventsURL;
+	NSInteger _ownedPrivateRepositories;
+	long long _userID;
+	NSURL* _avatarURL;
+	NSInteger _privateGists;
+	NSURL* _subscriptionsURL;
+	NSURL* _blogURL;
+	long long _diskUsage;
+	NSURL* _userURL;
+	NSInteger _publicGists;
+	NSURL* _organizationsURL;
+	NSURL* _followingURL;
+	KRGithubAccountType _type;
+	NSString* _companyName;
+	NSDate* _accountCreationDate;
+	NSURL* _followersURL;
+	NSString* _location;
+	NSString* _name;
+	NSInteger _publicRepositories;
+	NSInteger _following;
+	NSURL* _gistsURL;
+	NSInteger _collaborators;
+	KRGithubAccountPlan* _plan;
+	NSString* _bio;
+	NSInteger _totalPrivateRepositories;
+	NSString* _gravatarID;
+	NSInteger _followers;
+	NSURL* _htmlURL;
+	NSDate* _updatedAt;
+	BOOL _hireable;
+	NSURL* _starredURL;
+}
 
 
 #pragma mark - Object Lifecycle
 
-+ (KRAccount*)accountWithUsername:(NSString*)username password:(NSString*)password {
++ (KRGithubAccount*)accountWithUsername:(NSString*)username password:(NSString*)password {
 	return [self accountWithUsername:username password:password endPoint:[NSURL URLWithString:KRGitHubDefaultAPIEndpoint]];
 }
 
-+ (KRAccount*)accountWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint {
++ (KRGithubAccount*)accountWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint {
 	return [[self alloc]initWithUsername:username password:password endPoint:endPoint];
 }
 
@@ -54,7 +89,15 @@ NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 #pragma Account Management
 
 - (BOOL)login {
-	return [self.session _login];
+	NSArray *userResponse = [self.session _login];
+	
+	return (userResponse != nil);
+}
+
+- (KRGithubNotificationsRequest*)notificationsRequest {
+	KRGithubNotificationsRequest *request = [[KRGithubNotificationsRequest alloc]init];
+	
+	return request;
 }
 
 #pragma mark - NSCoding

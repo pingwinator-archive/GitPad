@@ -12,6 +12,7 @@
 #import "GPAppDelegate.h"
 #import "GPConstants.h"
 #import "KrakenKit.h"
+#import "UIImage+PDF.h"
 
 @implementation UIView (FindAndResignFirstResponder)
 - (BOOL)findAndResignFirstResponder
@@ -57,8 +58,7 @@
     [super viewDidLoad];
 	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectMake(0, 0, 540, 44)];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-
-	[self.navigationBar setTitle:@"Sign In"];
+	self.navigationBar.titleImage = [UIImage imageWithPDFNamed:@"<Blacktocats>.pdf" atSize:CGSizeMake(32, 32)];
 	[self.view addSubview:self.navigationBar];
 	
 	self.usernameField = [[UITextField alloc]initWithFrame:CGRectMake(145, 163, 250, 44)];
@@ -142,7 +142,7 @@
 		errAlpha = 1;
 	}
 	if (errAlpha == 0) {
-		KRAccount *newAccount = [[KRAccount alloc]initWithUsername:self.usernameField.text password:self.passwordField.text];
+		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithUsername:self.usernameField.text password:self.passwordField.text];
 		if ([newAccount login]) {
 			[self _dismissForSuccessfulValidation];
 		} else {
@@ -166,6 +166,10 @@
 }
 
 -(void)_reEnableForFailedValidation {
+	self.navigationBar.startColor = [UIColor colorWithRed:0.962 green:0.808 blue:0.812 alpha:1.000];
+	self.navigationBar.endColor = [UIColor colorWithRed:0.918 green:0.771 blue:0.774 alpha:1.000];
+	[self.navigationBar commitColorUpdate];
+	
 	[self.usernameField setUserInteractionEnabled:YES];
 	[self.passwordField setUserInteractionEnabled:YES];
 	[self.loginButton setUserInteractionEnabled:YES];

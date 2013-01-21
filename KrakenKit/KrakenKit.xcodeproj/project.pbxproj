@@ -20,12 +20,12 @@
 		84ADFA0A16ADA8B60026F990 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9FE16ADA8B60026F990 /* UAGithubJSONParser.m */; };
 		84ADFA0B16ADA8B60026F990 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0016ADA8B60026F990 /* UAGithubURLConnection.m */; };
 		84ADFA0C16ADA8B60026F990 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0216ADA8B60026F990 /* UAReachability.m */; };
-		84ADFA0F16ADA9390026F990 /* KRAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0E16ADA9390026F990 /* KRAccount.m */; };
+		84ADFA0F16ADA9390026F990 /* KRGithubAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0E16ADA9390026F990 /* KRGithubAccount.m */; };
 		84ADFA1216ADA9A40026F990 /* KRGithubRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA1116ADA9A40026F990 /* KRGithubRequest.m */; };
 		84ADFA1516ADA9BD0026F990 /* KRSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA1416ADA9BD0026F990 /* KRSession.m */; };
 		84ADFA1916ADAA730026F990 /* KRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA1816ADAA730026F990 /* KRUtils.m */; };
 		84ADFA1B16ADADCB0026F990 /* KrakenKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9DB16ADA7C60026F990 /* KrakenKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84ADFA1C16ADADCB0026F990 /* KRAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA0D16ADA9390026F990 /* KRAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84ADFA1C16ADADCB0026F990 /* KRGithubAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA0D16ADA9390026F990 /* KRGithubAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84ADFA1D16ADADCB0026F990 /* KRGithubRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA1016ADA9A40026F990 /* KRGithubRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84ADFA1E16ADADCB0026F990 /* KRSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA1316ADA9BD0026F990 /* KRSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84ADFA1F16ADADCB0026F990 /* KRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA1716ADAA730026F990 /* KRUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +43,8 @@
 		84CB8C8116ADB94F0026AF86 /* NSInvocation+Blocks.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84ADF9F216ADA8B60026F990 /* NSInvocation+Blocks.h */; };
 		84CB8C8516ADBC1D0026AF86 /* KRGithubNotificationsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CB8C8316ADBC1D0026AF86 /* KRGithubNotificationsRequest.h */; };
 		84CB8C8616ADBC1D0026AF86 /* KRGithubNotificationsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C8416ADBC1D0026AF86 /* KRGithubNotificationsRequest.m */; };
+		84CB8C8916ADC3BA0026AF86 /* KRGithubAccountPlan.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */; };
+		84CB8C8A16ADC3BA0026AF86 /* KRGithubAccountPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,8 +88,8 @@
 		84ADFA0016ADA8B60026F990 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
 		84ADFA0116ADA8B60026F990 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
 		84ADFA0216ADA8B60026F990 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
-		84ADFA0D16ADA9390026F990 /* KRAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRAccount.h; sourceTree = "<group>"; };
-		84ADFA0E16ADA9390026F990 /* KRAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRAccount.m; sourceTree = "<group>"; };
+		84ADFA0D16ADA9390026F990 /* KRGithubAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubAccount.h; sourceTree = "<group>"; };
+		84ADFA0E16ADA9390026F990 /* KRGithubAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubAccount.m; sourceTree = "<group>"; };
 		84ADFA1016ADA9A40026F990 /* KRGithubRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubRequest.h; sourceTree = "<group>"; };
 		84ADFA1116ADA9A40026F990 /* KRGithubRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubRequest.m; sourceTree = "<group>"; };
 		84ADFA1316ADA9BD0026F990 /* KRSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSession.h; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		84ADFA1816ADAA730026F990 /* KRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRUtils.m; sourceTree = "<group>"; };
 		84CB8C8316ADBC1D0026AF86 /* KRGithubNotificationsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubNotificationsRequest.h; sourceTree = "<group>"; };
 		84CB8C8416ADBC1D0026AF86 /* KRGithubNotificationsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubNotificationsRequest.m; sourceTree = "<group>"; };
+		84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubAccountPlan.h; sourceTree = "<group>"; };
+		84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubAccountPlan.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +144,10 @@
 			children = (
 				84ADF9DB16ADA7C60026F990 /* KrakenKit.h */,
 				84ADF9DD16ADA7C60026F990 /* KrakenKit.m */,
-				84ADFA0D16ADA9390026F990 /* KRAccount.h */,
-				84ADFA0E16ADA9390026F990 /* KRAccount.m */,
+				84ADFA0D16ADA9390026F990 /* KRGithubAccount.h */,
+				84ADFA0E16ADA9390026F990 /* KRGithubAccount.m */,
+				84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */,
+				84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */,
 				84CB8C8216ADBB000026AF86 /* Requests */,
 				84ADFA1316ADA9BD0026F990 /* KRSession.h */,
 				84ADFA1416ADA9BD0026F990 /* KRSession.m */,
@@ -209,7 +215,7 @@
 			files = (
 				84ADFA2316ADADDA0026F990 /* NSInvocation+Blocks.h in Headers */,
 				84ADFA1B16ADADCB0026F990 /* KrakenKit.h in Headers */,
-				84ADFA1C16ADADCB0026F990 /* KRAccount.h in Headers */,
+				84ADFA1C16ADADCB0026F990 /* KRGithubAccount.h in Headers */,
 				84ADFA1D16ADADCB0026F990 /* KRGithubRequest.h in Headers */,
 				84ADFA1E16ADADCB0026F990 /* KRSession.h in Headers */,
 				84ADFA1F16ADADCB0026F990 /* KRUtils.h in Headers */,
@@ -224,6 +230,7 @@
 				84ADFA2916ADADDA0026F990 /* UAGithubURLConnection.h in Headers */,
 				84ADFA2A16ADADDA0026F990 /* UAReachability.h in Headers */,
 				84CB8C8516ADBC1D0026AF86 /* KRGithubNotificationsRequest.h in Headers */,
+				84CB8C8916ADC3BA0026AF86 /* KRGithubAccountPlan.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,11 +297,12 @@
 				84ADFA0A16ADA8B60026F990 /* UAGithubJSONParser.m in Sources */,
 				84ADFA0B16ADA8B60026F990 /* UAGithubURLConnection.m in Sources */,
 				84ADFA0C16ADA8B60026F990 /* UAReachability.m in Sources */,
-				84ADFA0F16ADA9390026F990 /* KRAccount.m in Sources */,
+				84ADFA0F16ADA9390026F990 /* KRGithubAccount.m in Sources */,
 				84ADFA1216ADA9A40026F990 /* KRGithubRequest.m in Sources */,
 				84ADFA1516ADA9BD0026F990 /* KRSession.m in Sources */,
 				84ADFA1916ADAA730026F990 /* KRUtils.m in Sources */,
 				84CB8C8616ADBC1D0026AF86 /* KRGithubNotificationsRequest.m in Sources */,
+				84CB8C8A16ADC3BA0026AF86 /* KRGithubAccountPlan.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

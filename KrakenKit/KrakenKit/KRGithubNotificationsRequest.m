@@ -7,7 +7,26 @@
 //
 
 #import "KRGithubNotificationsRequest.h"
+#import "UAGithubEngine.h"
+#import "KRSession.h"
+
+@interface KRGithubNotificationsRequest ()
+
+@property (nonatomic, strong) NSArray *notifications;
+
+@end
 
 @implementation KRGithubNotificationsRequest
+
+- (void)mainRequest {
+	self.notifications = [self.session _fetchNotifications];
+	if (self.notifications != nil) {
+		[self _parseNotifications];
+	}
+}
+
+-(void)_parseNotifications {
+	
+}
 
 @end

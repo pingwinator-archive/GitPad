@@ -85,7 +85,6 @@
 	
 	self.loginNavigationBar = [[GPNavigationController alloc]initWithRootViewController:self.loginViewController];
 	[self.loginNavigationBar setModalPresentationStyle:UIModalPresentationFormSheet];
-	
 }
 
 -(void)_newLoginSuccessful {

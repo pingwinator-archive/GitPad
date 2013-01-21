@@ -34,15 +34,21 @@
 	[_queue addOperation:request];
 }
 
-- (BOOL)_login {
-	__block BOOL loginSuccess = NO;
+- (NSArray*)_login {
+	__block NSArray *success = nil;
 	
-	[self.githubEngine userWithSuccess:^(id success) {
-		loginSuccess = YES;
-	} failure:^(NSError *error) {
-		loginSuccess = NO;
-	}];
-	return loginSuccess;
+	[self.githubEngine userWithSuccess:^(NSArray *user) {
+		success = user;
+	} failure:^(NSError *error) { }];
+	return success;
+}
+
+- (NSArray*)_fetchNotifications {
+	__block NSArray *responseArray = nil;
+	[self.githubEngine notificationsWithSuccess:^(NSArray *response) {
+		responseArray = response;
+	} failure:^(NSError *error) { }];
+	return responseArray;
 }
 
 @end

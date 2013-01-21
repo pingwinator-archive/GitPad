@@ -15,6 +15,11 @@ typedef void (^GHNavigationBarDrawBlock)(GPNavigationBar *bar, CGRect dirtyRect)
 @interface GPNavigationBar : UIView
 
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIImage *titleImage;
 @property (nonatomic, copy) GHNavigationBarDrawBlock drawRect;
+@property (nonatomic, strong) UIColor *startColor;
+@property (nonatomic, strong) UIColor *endColor;
+
+-(void)commitColorUpdate;
 
 @end

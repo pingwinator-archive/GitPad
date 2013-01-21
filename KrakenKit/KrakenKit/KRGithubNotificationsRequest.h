@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 CodaFi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "KRGithubRequest.h"
 
-@interface KRGithubNotificationsRequest : NSObject
+@interface KRGithubNotificationsRequest : KRGithubRequest
+
+@property (nonatomic, strong, readonly) NSArray *notifications;
 
 @end
