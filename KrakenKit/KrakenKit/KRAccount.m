@@ -2,16 +2,20 @@
 //  KRAccount.m
 //  KrakenKit
 //
-//  Created by Robert Widmann on 12/26/12.
-//  Copyright (c) 2012 CodaFi. All rights reserved.
+//  Created by Robert Widmann on 1/21/13.
+//  Copyright (c) 2013 CodaFi. All rights reserved.
 //
 
 #import "KRAccount.h"
+#import "UAGithubEngine.h"
+#import "KRGithubLoginRequest.h"
+#import "KRSession.h"
 
 NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 
 @interface KRAccount ()
 
+@property (nonatomic, strong) KRSession *session;
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, strong) NSURL *endPoint;
@@ -38,10 +42,19 @@ NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 
 - (id)initWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint {
 	self = [super init];
+	
+	_session = [[KRSession alloc]initWithUsername:username password:password];
 	_username = username;
 	_password = password;
 	_endPoint = endPoint;
+	
 	return self;
+}
+
+#pragma Account Management
+
+- (BOOL)login {
+	return [self.session _login];
 }
 
 #pragma mark - NSCoding

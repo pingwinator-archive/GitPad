@@ -2,12 +2,14 @@
 //  KRAccount.h
 //  KrakenKit
 //
-//  Created by Robert Widmann on 12/26/12.
-//  Copyright (c) 2012 CodaFi. All rights reserved.
+//  Created by Robert Widmann on 1/21/13.
+//  Copyright (c) 2013 CodaFi. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "KrakenKit.h"
+
+@class KRGithubLoginRequest;
+@class UAGithubEngine;
 
 @interface KRAccount : NSObject <NSCoding>
 
@@ -16,6 +18,8 @@
 
 - (id)initWithUsername:(NSString*)username password:(NSString*)password;
 - (id)initWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint;
+
+- (BOOL)login;
 
 @property (nonatomic, copy, readonly) NSString *username;
 @property (nonatomic, copy, readonly) NSString *password;
