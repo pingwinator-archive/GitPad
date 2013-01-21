@@ -12,7 +12,6 @@
 		840582F1169F86DE0022E4F9 /* GPNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582F0169F86DE0022E4F9 /* GPNotificationButton.m */; };
 		840582F2169F86DE0022E4F9 /* GPNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582F0169F86DE0022E4F9 /* GPNotificationButton.m */; };
 		8410AB48169F8FF900E71AC3 /* GPNewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */; };
-		8410AC19169F93A900E71AC3 /* libKrakenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8410AC18169F93A900E71AC3 /* libKrakenKit.a */; };
 		8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2E81668184B007046E3 /* UIKit.framework */; };
 		8442C2EB1668184B007046E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EA1668184B007046E3 /* Foundation.framework */; };
 		8442C2ED1668184B007046E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EC1668184B007046E3 /* CoreGraphics.framework */; };
@@ -39,29 +38,30 @@
 		84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */; };
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
 		846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */; };
+		84ADF9EC16ADA7D50026F990 /* libKrakenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADF9E916ADA7C70026F990 /* libKrakenKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8410AC17169F93A900E71AC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8410ABF4169F934800E71AC3;
-			remoteInfo = KrakenKit;
-		};
-		8410AC1A169F93B700E71AC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8410ABF3169F934800E71AC3;
-			remoteInfo = KrakenKit;
-		};
 		8442C3101668184B007046E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8442C2DD1668184B007046E3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8442C2E41668184B007046E3;
 			remoteInfo = GitPad;
+		};
+		84ADF9E816ADA7C70026F990 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84ADF9D316ADA7C60026F990;
+			remoteInfo = KrakenKit;
+		};
+		84ADF9EA16ADA7D10026F990 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 84ADF9D216ADA7C60026F990;
+			remoteInfo = KrakenKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,7 +72,6 @@
 		840582F0169F86DE0022E4F9 /* GPNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNotificationButton.m; sourceTree = "<group>"; };
 		8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNewsFeedCell.h; sourceTree = "<group>"; };
 		8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNewsFeedCell.m; sourceTree = "<group>"; };
-		8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
 		8410ABE8169F932900E71AC3 /* KrakenKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KrakenKit-Prefix.pch"; sourceTree = "<group>"; };
 		8410ABE9169F932900E71AC3 /* KrakenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KrakenKit.h; sourceTree = "<group>"; };
 		8410ABEB169F932900E71AC3 /* KrakenKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KrakenKit.m; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
 		846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
+		84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8410AC19169F93A900E71AC3 /* libKrakenKit.a in Frameworks */,
+				84ADF9EC16ADA7D50026F990 /* libKrakenKit.a in Frameworks */,
 				84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */,
 				8442C32716681AF4007046E3 /* QuartzCore.framework in Frameworks */,
 				8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */,
@@ -144,14 +144,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8410AB4A169F916500E71AC3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8410AC18169F93A900E71AC3 /* libKrakenKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8410ABE6169F932900E71AC3 /* KrakenKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +165,7 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
-				8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */,
+				84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */,
 				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
 				8442C2F01668184B007046E3 /* GitPad */,
 				8442C3121668184B007046E3 /* GitPadTests */,
@@ -277,6 +269,14 @@
 			name = GPNavigationController;
 			sourceTree = "<group>";
 		};
+		84ADF9E516ADA7C60026F990 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84ADF9E916ADA7C70026F990 /* libKrakenKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,7 +291,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				8410AC1B169F93B700E71AC3 /* PBXTargetDependency */,
+				84ADF9EB16ADA7D10026F990 /* PBXTargetDependency */,
 			);
 			name = GitPad;
 			productName = GitPad;
@@ -339,8 +339,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8410AB4A169F916500E71AC3 /* Products */;
-					ProjectRef = 8410AB49169F916500E71AC3 /* KrakenKit.xcodeproj */;
+					ProductGroup = 84ADF9E516ADA7C60026F990 /* Products */;
+					ProjectRef = 84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -352,11 +352,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8410AC18169F93A900E71AC3 /* libKrakenKit.a */ = {
+		84ADF9E916ADA7C70026F990 /* libKrakenKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libKrakenKit.a;
-			remoteRef = 8410AC17169F93A900E71AC3 /* PBXContainerItemProxy */;
+			remoteRef = 84ADF9E816ADA7C70026F990 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -433,15 +433,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8410AC1B169F93B700E71AC3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KrakenKit;
-			targetProxy = 8410AC1A169F93B700E71AC3 /* PBXContainerItemProxy */;
-		};
 		8442C3111668184B007046E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8442C2E41668184B007046E3 /* GitPad */;
 			targetProxy = 8442C3101668184B007046E3 /* PBXContainerItemProxy */;
+		};
+		84ADF9EB16ADA7D10026F990 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KrakenKit;
+			targetProxy = 84ADF9EA16ADA7D10026F990 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -530,8 +530,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HubKit\"/**";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/KrakenKit\"/**";
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -542,8 +546,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/HubKit\"/**";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/KrakenKit\"/**";
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -1,14 +1,8 @@
 //
-// Prefix header for all source files of the 'GitPad' target in the 'GitPad' project
+// Prefix header for all source files of the 'KrakenKit' target in the 'KrakenKit' project
 //
 
-#import <Availability.h>
-
-#ifndef __IPHONE_3_0
-#warning "This project uses features only available in iOS SDK 3.0 and later."
-#endif
-
 #ifdef __OBJC__
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
+	#import <Foundation/Foundation.h>
+	#import "NSInvocation+Blocks.h"
 #endif
