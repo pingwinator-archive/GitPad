@@ -13,6 +13,7 @@
 #import "GPNavigationBar.h"
 #import "GPNotificationButton.h"
 #import "GPNewsFeedCell.h"
+#import "GPConstants.h"
 
 @interface GPMainViewController ()
 
@@ -30,6 +31,8 @@
 - (id)init {
 	if (self = [super init]) {
 		_delegate = [[UIApplication sharedApplication]delegate];
+		
+		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
 	}
 	return self;
 }

@@ -30,8 +30,6 @@
 
 @interface GPLoginViewController () <UITextFieldDelegate>
 
-@property (nonatomic, assign) GPAppDelegate *delegate;
-
 @property (nonatomic, strong) GPNavigationBar *navigationBar;
 
 @property (nonatomic, strong) UITextField *usernameField;
@@ -49,7 +47,6 @@
     self = [super init];
     if (self) {
         // Custom initialization
-		_delegate = [[UIApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -145,14 +142,14 @@
 		errAlpha = 1;
 	}
 	if (errAlpha == 0) {
-		 self.delegate.githubEngine = [[UAGithubEngine alloc]initWithUsername:self.usernameField.text password:self.passwordField.text withReachability:YES];
-		[self.delegate.githubEngine repositoriesWithSuccess:^(id response) {
+		KRAccount *newAccount = [[KRAccount alloc]initWithUsername:self.usernameField.text password:self.passwordField.text];
+		if ([newAccount login]) {
 			[self _dismissForSuccessfulValidation];
-		} failure:^(NSError *error) {
+		} else {
 			[errStr appendString:@"Your credentials are invalid.  Please enter another login"];
 			errAlpha = 1;
 			[self _reEnableForFailedValidation];
-		}];
+		}
 	} else {
 		[self _reEnableForFailedValidation];
 	}

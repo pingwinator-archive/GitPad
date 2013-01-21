@@ -31,7 +31,6 @@
 	if (self = [super init]) {
 		_delegate = [[UIApplication sharedApplication]delegate];
 		self.view.backgroundColor = [UIColor darkGrayColor];
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
 		
 	}
 	return self;
