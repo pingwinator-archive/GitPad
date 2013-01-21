@@ -16,13 +16,12 @@
 @property (strong, nonatomic) GPControlCenterViewController *controlCenterViewController;
 @property (strong, nonatomic) GPMainViewController *mainViewController;
 @property (strong, nonatomic) MWFSlideNavigationViewController *navigationController;
-@property (strong, nonatomic) UAGithubEngine *githubEngine;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+- (NSURL*)applicationDocumentsDirectory;
 
 @end
