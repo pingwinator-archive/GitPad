@@ -2,12 +2,18 @@
 //  KrakenKit.h
 //  KrakenKit
 //
-//  Created by Robert Widmann on 1/10/13.
+//  Created by Robert Widmann on 1/21/13.
 //  Copyright (c) 2013 CodaFi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//header import guard
+#ifndef KrankenKit_DECLS_H
+#define KrankenKit_DECLS_H
 
-@interface KrakenKit : NSObject
+#import "UAGithubEngine.h"
 
-@end
+#import "KRAccount.h"
+
+#import "KRUtils.h"
+
+#endif
