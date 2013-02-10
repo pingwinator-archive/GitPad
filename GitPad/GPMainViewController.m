@@ -14,6 +14,7 @@
 #import "GPNotificationButton.h"
 #import "GPNewsFeedCell.h"
 #import "GPConstants.h"
+#import <KrakenKit/KrakenKit.h>
 
 @interface GPMainViewController ()
 
@@ -32,7 +33,7 @@
 	if (self = [super init]) {
 		_delegate = [[UIApplication sharedApplication]delegate];
 		
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
+		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful:) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
 	}
 	return self;
 }
@@ -87,9 +88,14 @@
 	[self.loginNavigationBar setModalPresentationStyle:UIModalPresentationFormSheet];
 }
 
--(void)_newLoginSuccessful {
+-(void)_newLoginSuccessful:(NSNotification*)loginNotification {
 	[self dismissViewControllerAnimated:YES completion:NULL];
+	KRGithubAccount *account = loginNotification.object;
+	[[account syncRepositories]subscribeNext:^(NSArray *notifications) {
+
+	}];
 }
+
 
 #pragma mark - UITableViewDataSource
 

@@ -13,21 +13,11 @@
 #import "GPConstants.h"
 #import "KrakenKit.h"
 #import "UIImage+PDF.h"
-
-@implementation UIView (FindAndResignFirstResponder)
-- (BOOL)findAndResignFirstResponder
-{
-    if (self.isFirstResponder) {
-        [self resignFirstResponder];
-        return YES;
-    }
-    for (UIView *subView in self.subviews) {
-        if ([subView findAndResignFirstResponder])
-            return YES;
-    }
-    return NO;
-}
-@end
+#import "WBNoticeView.h"
+#import "WBErrorNoticeView.h"
+#import "WBSuccessNoticeView.h"
+#import "WBStickyNoticeView.h"
+#import "NSOperationQueue+WBNoticeExtensions.h"
 
 @interface GPLoginViewController () <UITextFieldDelegate>
 
@@ -36,8 +26,6 @@
 @property (nonatomic, strong) UITextField *usernameField;
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) UIButton *loginButton;
-
-@property (nonatomic, strong) UILabel *errorLabel;
 
 @end
 
@@ -59,12 +47,32 @@
 	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectMake(0, 0, 540, 44)];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	self.navigationBar.titleImage = [UIImage imageWithPDFNamed:@"<Blacktocats>.pdf" atSize:CGSizeMake(32, 32)];
+	self.navigationBar.drawRect = ^(GPNavigationBar *bar, CGRect dirtyRect) {
+		CGRect drawingRect = [bar bounds];
+		
+		CGContextRef context = UIGraphicsGetCurrentContext();
+		
+		UIColor *startColor = [UIColor colorWithRed:0.425 green:0.512 blue:0.581 alpha:1.000];
+		UIColor *endColor = [UIColor colorWithRed:0.351 green:0.438 blue:0.504 alpha:1.000];
+				
+		CGGradientRef gradient = createGradientWithColors(startColor, endColor);
+		CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMinY(drawingRect)),
+									CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMaxY(drawingRect)), 0);
+		CGGradientRelease(gradient);
+		
+		[[UIColor colorWithRed:0.273 green:0.333 blue:0.375 alpha:1.000] set];
+		CGContextSetLineWidth(context,1.0f);
+		CGContextMoveToPoint(context,0.0f, CGRectGetMaxY(drawingRect));
+		CGContextAddLineToPoint(context,CGRectGetMaxX(drawingRect), CGRectGetMaxY(drawingRect));
+		CGContextStrokePath(context);
+	};
+	
 	[self.view addSubview:self.navigationBar];
 	
 	self.usernameField = [[UITextField alloc]initWithFrame:CGRectMake(145, 163, 250, 44)];
 	self.usernameField.delegate = self;
 	[self.usernameField setBackgroundColor:[UIColor whiteColor]];
-	self.usernameField.borderStyle = UITextBorderStyleBezel;
+	self.usernameField.borderStyle = UITextBorderStyleLine;
 	self.usernameField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	[self.usernameField setPlaceholder:@"Username"];
 	[self.usernameField setReturnKeyType:UIReturnKeyNext];
@@ -74,7 +82,7 @@
 	self.passwordField.delegate = self;
 	[self.passwordField setSecureTextEntry:YES];
 	[self.passwordField setBackgroundColor:[UIColor whiteColor]];
-	self.passwordField.borderStyle = UITextBorderStyleBezel;
+	self.passwordField.borderStyle = UITextBorderStyleLine;
 	self.passwordField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	[self.passwordField setPlaceholder:@"Password"];
 	[self.passwordField setReturnKeyType:UIReturnKeyNext];
@@ -82,15 +90,10 @@
 	
 	self.loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[self.loginButton setFrame:CGRectMake(145, 277, 250, 44)];
-	[self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
+	[self.loginButton setTitle:@"Sign in" forState:UIControlStateNormal];
 	[self.loginButton addTarget:self action:@selector(loginWithCredentialsAndReturnError) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:self.loginButton];
-	
-	self.errorLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 392, 500, 188)];
-	[self.errorLabel setNumberOfLines:4];
-	[self.errorLabel setBackgroundColor:[UIColor clearColor]];
-	[self.view addSubview:self.errorLabel];
-	
+
 	[self.usernameField becomeFirstResponder];
 }
 
@@ -124,8 +127,6 @@
 #pragma mark - Login
 
 -(void)loginWithCredentialsAndReturnError {
-	[self.view findAndResignFirstResponder];
-	[self _disableForValidation];
 	__block CGFloat errAlpha = 0;
 	NSMutableString *errStr = [[NSMutableString alloc]init];
 	if (self.usernameField.text.length == 0) {
@@ -144,20 +145,17 @@
 	if (errAlpha == 0) {
 		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithUsername:self.usernameField.text password:self.passwordField.text];
 		if ([newAccount login]) {
-			[self _dismissForSuccessfulValidation];
+			[self _dismissForSuccessfulValidationWithAccount:newAccount];
 		} else {
-			[errStr appendString:@"Your credentials are invalid.  Please enter another login"];
+			[errStr appendString:@"Your credentials are invalid.  Please enter another login."];
 			errAlpha = 1;
-			[self _reEnableForFailedValidation];
+			[self _reEnableForFailedValidationWithErrorMessage:errStr];
 		}
 	} else {
-		[self _reEnableForFailedValidation];
+		[self _reEnableForFailedValidationWithErrorMessage:errStr];
 	}
-	[self.errorLabel setText:errStr];
-	[UIView animateWithDuration:.5 animations:^{
-		[self.errorLabel setAlpha:errAlpha];
-	}];
 }
+
 
 -(void)_disableForValidation {
 	[self.usernameField setUserInteractionEnabled:NO];
@@ -165,18 +163,17 @@
 	[self.loginButton setUserInteractionEnabled:NO];
 }
 
--(void)_reEnableForFailedValidation {
-	self.navigationBar.startColor = [UIColor colorWithRed:0.962 green:0.808 blue:0.812 alpha:1.000];
-	self.navigationBar.endColor = [UIColor colorWithRed:0.918 green:0.771 blue:0.774 alpha:1.000];
-	[self.navigationBar commitColorUpdate];
+-(void)_reEnableForFailedValidationWithErrorMessage:(NSString*)message {
+	WBErrorNoticeView *notice = [WBErrorNoticeView errorNoticeInView:self.view title:@"Login Error!" message:message];
+    [NSOperationQueue addNoticeView:notice filterDuplicates:YES];
 	
 	[self.usernameField setUserInteractionEnabled:YES];
 	[self.passwordField setUserInteractionEnabled:YES];
 	[self.loginButton setUserInteractionEnabled:YES];
 }
 
--(void)_dismissForSuccessfulValidation {
-	[[NSNotificationCenter defaultCenter]postNotificationName:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
+-(void)_dismissForSuccessfulValidationWithAccount:(KRGithubAccount*)account {
+	[[NSNotificationCenter defaultCenter]postNotificationName:GPLoginViewControllerDidSuccessfulyLoginNotification object:account];
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {
