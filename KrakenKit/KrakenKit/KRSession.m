@@ -43,12 +43,8 @@
 	return success;
 }
 
-- (NSArray*)_fetchNotifications {
-	__block NSArray *responseArray = nil;
-	[self.githubEngine notificationsWithSuccess:^(NSArray *response) {
-		responseArray = response;
-	} failure:^(NSError *error) { }];
-	return responseArray;
+- (void)_fetchRepositoriesWithSuccess:(void(^)(NSArray *notifications))successBlock failure:(void(^)(NSError *error))failureBlock {
+	[self.githubEngine repositoriesWithSuccess:successBlock failure:failureBlock];
 }
 
 @end

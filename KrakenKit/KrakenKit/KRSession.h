@@ -25,6 +25,6 @@
 @interface KRSession (Private)
 
 - (NSArray*)_login;
-- (NSArray*)_fetchNotifications;
+- (void)_fetchRepositoriesWithSuccess:(void(^)(NSArray *notifications))successBlock failure:(void(^)(NSError *error))failureBlock;
 
 @end
