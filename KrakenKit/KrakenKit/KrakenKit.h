@@ -11,9 +11,7 @@
 #define KrankenKit_DECLS_H
 
 #import "UAGithubEngine.h"
-
 #import "KRGithubAccount.h"
-
 #import "KRUtils.h"
 
 #endif

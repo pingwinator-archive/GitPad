@@ -20,22 +20,22 @@
 
 #define KRLogStack(...)
 #define KRLog(...)
-#define KRAssert(condition) NSAssert(condition, @#condition)
+#define KRAssert(condition) NSAssert(condition, @# condition)
 #define KRCrash() NSAssert(0, @"KRCrash")
 
-#define KRPROPERTY(propName)    @#propName
+#define KRPROPERTY(propName)    @# propName
 
-#define		KRDebugDefaultsBoolForKey( key, placeholder )		( placeholder )
-#define		KRDebugDefaultsIntegerForKey( key, placeholder )	( placeholder )
-#define		KRDebugDefaultsFloatForKey( key, placeholder )		( placeholder )
-#define		KRDebugDefaultsDoubleForKey( key, placeholder )		( placeholder )
-#define		KRDebugDefaultsObjectForKey( key, placeholder )		( placeholder )
+#define     KRDebugDefaultsBoolForKey(key, placeholder)       (placeholder)
+#define     KRDebugDefaultsIntegerForKey(key, placeholder)    (placeholder)
+#define     KRDebugDefaultsFloatForKey(key, placeholder)      (placeholder)
+#define     KRDebugDefaultsDoubleForKey(key, placeholder)     (placeholder)
+#define     KRDebugDefaultsObjectForKey(key, placeholder)     (placeholder)
 
 #else
 
 #define KRLogStack(...) KRLogInternal(__FILE__, __LINE__, 1, __VA_ARGS__)
 #define KRLog(...) KRLogInternal(__FILE__, __LINE__, 0, __VA_ARGS__)
-#define KRAssert(condition) NSAssert(condition, @#condition)
+#define KRAssert(condition) NSAssert(condition, @# condition)
 #define KRCrash() NSAssert(0, @"KRCrash")
 
 //
@@ -43,10 +43,10 @@
 // Instead of writing valueForKey(@"keyName"),
 // use valueForKey(KRPROPERTY(keyName)).
 // To be used with -Wundeclared-selector.
-#define KRPROPERTY(propName)    NSStringFromSelector(@selector(propName))
+#define KRPROPERTY(propName)    NSStringFromSelector( @selector(propName) )
 
 #endif
 
 __BEGIN_DECLS
-void KRLogInternal(const char * filename, unsigned int line, int dumpStack, NSString * format, ...);
+void KRLogInternal(const char *filename, unsigned int line, int dumpStack, NSString *format, ...);
 __END_DECLS
