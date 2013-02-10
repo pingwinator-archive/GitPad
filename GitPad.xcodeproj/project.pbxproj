@@ -38,6 +38,19 @@
 		84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */; };
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
 		846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */; };
+		846F181616C7949A0099BA2C /* GPAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181516C7949A0099BA2C /* GPAccountManager.m */; };
+		846F181916C795EC0099BA2C /* NPReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181816C795EC0099BA2C /* NPReachability.m */; };
+		846F183116C79A110099BA2C /* NoticeView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 846F181B16C79A110099BA2C /* NoticeView.bundle */; };
+		846F183216C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181D16C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m */; };
+		846F183316C79A110099BA2C /* UILabel+WBExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181F16C79A110099BA2C /* UILabel+WBExtensions.m */; };
+		846F183416C79A110099BA2C /* WBBlueGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182116C79A110099BA2C /* WBBlueGradientView.m */; };
+		846F183516C79A110099BA2C /* WBErrorNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182316C79A110099BA2C /* WBErrorNoticeView.m */; };
+		846F183616C79A110099BA2C /* WBGrayGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182516C79A110099BA2C /* WBGrayGradientView.m */; };
+		846F183716C79A110099BA2C /* WBNoticeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182716C79A110099BA2C /* WBNoticeOperation.m */; };
+		846F183816C79A110099BA2C /* WBNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182A16C79A110099BA2C /* WBNoticeView.m */; };
+		846F183916C79A110099BA2C /* WBRedGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182C16C79A110099BA2C /* WBRedGradientView.m */; };
+		846F183A16C79A110099BA2C /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182E16C79A110099BA2C /* WBStickyNoticeView.m */; };
+		846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F183016C79A110099BA2C /* WBSuccessNoticeView.m */; };
 		84ADF9EC16ADA7D50026F990 /* libKrakenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADF9E916ADA7C70026F990 /* libKrakenKit.a */; };
 		84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */; };
 		84CB8C9A16ADCE9B0026AF86 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */; };
@@ -54,6 +67,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8442C2E41668184B007046E3;
 			remoteInfo = GitPad;
+		};
+		846F180016C7834A0099BA2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88037F8315056328001A5B19;
+			remoteInfo = ReactiveCocoa;
+		};
+		846F180216C7834A0099BA2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88F440AB153DAC820097B4C3;
+			remoteInfo = "ReactiveCocoa-iOS";
+		};
+		846F180416C7834A0099BA2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88CDF7DC15000FCF00163A9F;
+			remoteInfo = ReactiveCocoaTests;
+		};
+		846F180816C783B50099BA2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88F440AA153DAC820097B4C3;
+			remoteInfo = "ReactiveCocoa-iOS";
 		};
 		84ADF9E816ADA7C70026F990 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -118,6 +159,33 @@
 		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
 		846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
+		846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
+		846F181416C7949A0099BA2C /* GPAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAccountManager.h; sourceTree = "<group>"; };
+		846F181516C7949A0099BA2C /* GPAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAccountManager.m; sourceTree = "<group>"; };
+		846F181716C795EC0099BA2C /* NPReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPReachability.h; sourceTree = "<group>"; };
+		846F181816C795EC0099BA2C /* NPReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPReachability.m; sourceTree = "<group>"; };
+		846F181B16C79A110099BA2C /* NoticeView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NoticeView.bundle; sourceTree = "<group>"; };
+		846F181C16C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+WBNoticeExtensions.h"; sourceTree = "<group>"; };
+		846F181D16C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+WBNoticeExtensions.m"; sourceTree = "<group>"; };
+		846F181E16C79A110099BA2C /* UILabel+WBExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WBExtensions.h"; sourceTree = "<group>"; };
+		846F181F16C79A110099BA2C /* UILabel+WBExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WBExtensions.m"; sourceTree = "<group>"; };
+		846F182016C79A110099BA2C /* WBBlueGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBBlueGradientView.h; sourceTree = "<group>"; };
+		846F182116C79A110099BA2C /* WBBlueGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBBlueGradientView.m; sourceTree = "<group>"; };
+		846F182216C79A110099BA2C /* WBErrorNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBErrorNoticeView.h; sourceTree = "<group>"; };
+		846F182316C79A110099BA2C /* WBErrorNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBErrorNoticeView.m; sourceTree = "<group>"; };
+		846F182416C79A110099BA2C /* WBGrayGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBGrayGradientView.h; sourceTree = "<group>"; };
+		846F182516C79A110099BA2C /* WBGrayGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBGrayGradientView.m; sourceTree = "<group>"; };
+		846F182616C79A110099BA2C /* WBNoticeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNoticeOperation.h; sourceTree = "<group>"; };
+		846F182716C79A110099BA2C /* WBNoticeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNoticeOperation.m; sourceTree = "<group>"; };
+		846F182816C79A110099BA2C /* WBNoticeView+ForSubclassEyesOnly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBNoticeView+ForSubclassEyesOnly.h"; sourceTree = "<group>"; };
+		846F182916C79A110099BA2C /* WBNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNoticeView.h; sourceTree = "<group>"; };
+		846F182A16C79A110099BA2C /* WBNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBNoticeView.m; sourceTree = "<group>"; };
+		846F182B16C79A110099BA2C /* WBRedGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBRedGradientView.h; sourceTree = "<group>"; };
+		846F182C16C79A110099BA2C /* WBRedGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBRedGradientView.m; sourceTree = "<group>"; };
+		846F182D16C79A110099BA2C /* WBStickyNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStickyNoticeView.h; sourceTree = "<group>"; };
+		846F182E16C79A110099BA2C /* WBStickyNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStickyNoticeView.m; sourceTree = "<group>"; };
+		846F182F16C79A110099BA2C /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
+		846F183016C79A110099BA2C /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
 		84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "<Github-Social-Logo-Outlined>.png"; sourceTree = "<group>"; };
 		84CB8C9216ADCE9B0026AF86 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
@@ -181,6 +249,7 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
+				846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */,
 				84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */,
 				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
 				8442C2F01668184B007046E3 /* GitPad */,
@@ -219,6 +288,10 @@
 				8442C2F91668184B007046E3 /* GPAppDelegate.h */,
 				8442C2FA1668184B007046E3 /* GPAppDelegate.m */,
 				846B205B1671705B00436E90 /* GPConstants.h */,
+				846F181416C7949A0099BA2C /* GPAccountManager.h */,
+				846F181516C7949A0099BA2C /* GPAccountManager.m */,
+				846F181716C795EC0099BA2C /* NPReachability.h */,
+				846F181816C795EC0099BA2C /* NPReachability.m */,
 				846B205D1671717600436E90 /* GPMainViewController.h */,
 				846B205E1671717700436E90 /* GPMainViewController.m */,
 				8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */,
@@ -233,6 +306,7 @@
 				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
 				846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */,
 				846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */,
+				846F181A16C79A110099BA2C /* WBNoticeView */,
 				84CB8C9116ADCE9B0026AF86 /* UIImage+PDF */,
 				846B205C1671710100436E90 /* GPNavigationController */,
 				8442C2F11668184B007046E3 /* Supporting Files */,
@@ -288,6 +362,45 @@
 			name = GPNavigationController;
 			sourceTree = "<group>";
 		};
+		846F17F916C7834A0099BA2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				846F180116C7834A0099BA2C /* ReactiveCocoa.framework */,
+				846F180316C7834A0099BA2C /* libReactiveCocoa-iOS.a */,
+				846F180516C7834A0099BA2C /* ReactiveCocoaTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		846F181A16C79A110099BA2C /* WBNoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				846F181B16C79A110099BA2C /* NoticeView.bundle */,
+				846F181C16C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.h */,
+				846F181D16C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m */,
+				846F181E16C79A110099BA2C /* UILabel+WBExtensions.h */,
+				846F181F16C79A110099BA2C /* UILabel+WBExtensions.m */,
+				846F182016C79A110099BA2C /* WBBlueGradientView.h */,
+				846F182116C79A110099BA2C /* WBBlueGradientView.m */,
+				846F182216C79A110099BA2C /* WBErrorNoticeView.h */,
+				846F182316C79A110099BA2C /* WBErrorNoticeView.m */,
+				846F182416C79A110099BA2C /* WBGrayGradientView.h */,
+				846F182516C79A110099BA2C /* WBGrayGradientView.m */,
+				846F182616C79A110099BA2C /* WBNoticeOperation.h */,
+				846F182716C79A110099BA2C /* WBNoticeOperation.m */,
+				846F182816C79A110099BA2C /* WBNoticeView+ForSubclassEyesOnly.h */,
+				846F182916C79A110099BA2C /* WBNoticeView.h */,
+				846F182A16C79A110099BA2C /* WBNoticeView.m */,
+				846F182B16C79A110099BA2C /* WBRedGradientView.h */,
+				846F182C16C79A110099BA2C /* WBRedGradientView.m */,
+				846F182D16C79A110099BA2C /* WBStickyNoticeView.h */,
+				846F182E16C79A110099BA2C /* WBStickyNoticeView.m */,
+				846F182F16C79A110099BA2C /* WBSuccessNoticeView.h */,
+				846F183016C79A110099BA2C /* WBSuccessNoticeView.m */,
+			);
+			path = WBNoticeView;
+			sourceTree = "<group>";
+		};
 		84ADF9E516ADA7C60026F990 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +438,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				846F180916C783B50099BA2C /* PBXTargetDependency */,
 				84ADF9EB16ADA7D10026F990 /* PBXTargetDependency */,
 			);
 			name = GitPad;
@@ -376,6 +490,10 @@
 					ProductGroup = 84ADF9E516ADA7C60026F990 /* Products */;
 					ProjectRef = 84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */;
 				},
+				{
+					ProductGroup = 846F17F916C7834A0099BA2C /* Products */;
+					ProjectRef = 846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -386,6 +504,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		846F180116C7834A0099BA2C /* ReactiveCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveCocoa.framework;
+			remoteRef = 846F180016C7834A0099BA2C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		846F180316C7834A0099BA2C /* libReactiveCocoa-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReactiveCocoa-iOS.a";
+			remoteRef = 846F180216C7834A0099BA2C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		846F180516C7834A0099BA2C /* ReactiveCocoaTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveCocoaTests.octest;
+			remoteRef = 846F180416C7834A0099BA2C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		84ADF9E916ADA7C70026F990 /* libKrakenKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -407,6 +546,7 @@
 				8442C346166821EE007046E3 /* Defaults.plist in Resources */,
 				84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */,
 				84CB8C9F16ADCEA60026AF86 /* <Blacktocats>.pdf in Resources */,
+				846F183116C79A110099BA2C /* NoticeView.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +596,18 @@
 				84CB8C9B16ADCE9B0026AF86 /* PDFView.m in Sources */,
 				84CB8C9C16ADCE9B0026AF86 /* UIImage+PDF.m in Sources */,
 				84CB8C9D16ADCE9B0026AF86 /* UIView+Image.m in Sources */,
+				846F181616C7949A0099BA2C /* GPAccountManager.m in Sources */,
+				846F181916C795EC0099BA2C /* NPReachability.m in Sources */,
+				846F183216C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m in Sources */,
+				846F183316C79A110099BA2C /* UILabel+WBExtensions.m in Sources */,
+				846F183416C79A110099BA2C /* WBBlueGradientView.m in Sources */,
+				846F183516C79A110099BA2C /* WBErrorNoticeView.m in Sources */,
+				846F183616C79A110099BA2C /* WBGrayGradientView.m in Sources */,
+				846F183716C79A110099BA2C /* WBNoticeOperation.m in Sources */,
+				846F183816C79A110099BA2C /* WBNoticeView.m in Sources */,
+				846F183916C79A110099BA2C /* WBRedGradientView.m in Sources */,
+				846F183A16C79A110099BA2C /* WBStickyNoticeView.m in Sources */,
+				846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +629,11 @@
 			isa = PBXTargetDependency;
 			target = 8442C2E41668184B007046E3 /* GitPad */;
 			targetProxy = 8442C3101668184B007046E3 /* PBXContainerItemProxy */;
+		};
+		846F180916C783B50099BA2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveCocoa-iOS";
+			targetProxy = 846F180816C783B50099BA2C /* PBXContainerItemProxy */;
 		};
 		84ADF9EB16ADA7D10026F990 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -570,7 +727,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/KrakenKit\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/KrakenKit\"/**",
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -586,7 +747,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/KrakenKit\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/KrakenKit\"/**",
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
 				OTHER_LDFLAGS = (
 					"-all_load",
