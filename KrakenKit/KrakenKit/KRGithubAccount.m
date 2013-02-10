@@ -8,10 +8,28 @@
 
 #import "KRGithubAccount.h"
 #import "UAGithubEngine.h"
-#import "KRGithubNotificationsRequest.h"
 #import "KRSession.h"
+#import "KRGithubRepository.h"
 
 NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
+extern NSString *const KRGithubAccountUsernameKey = @"KRUsernameKey";
+extern NSString *const KRGithubAccountPasswordKey = @"KRPasswordKey";
+extern NSString *const KRGithubAccountEndpointKey = @"KREndpointKey";
+
+RACScheduler *syncScheduler() {
+	static RACScheduler *syncScheduler = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		syncScheduler = [RACScheduler scheduler];
+	});
+	return syncScheduler;
+}
+
+// Returns the current scheduler
+RACScheduler *currentScheduler() {
+	NSCAssert(RACScheduler.currentScheduler != nil, @"KrakenKit called from a thread without a RACScheduler.");
+	return RACScheduler.currentScheduler;
+}
 
 @interface KRGithubAccount ()
 
@@ -19,6 +37,8 @@ NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, strong) NSURL *endPoint;
+@property (nonatomic, assign) BOOL finished;
+@property (nonatomic, strong) KRGithubRepositoriesRequest *notificationsRequest;
 
 @end
 
@@ -62,12 +82,21 @@ NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 
 #pragma mark - Object Lifecycle
 
++ (KRGithubAccount*)accountWithDictionary:(NSDictionary*)dictionary {
+	return [[self alloc]initWithDictionary:dictionary];
+}
+
 + (KRGithubAccount*)accountWithUsername:(NSString*)username password:(NSString*)password {
 	return [self accountWithUsername:username password:password endPoint:[NSURL URLWithString:KRGitHubDefaultAPIEndpoint]];
 }
 
 + (KRGithubAccount*)accountWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint {
 	return [[self alloc]initWithUsername:username password:password endPoint:endPoint];
+}
+
+- (id)initWithDictionary:(NSDictionary*)dictionary {
+	self = [self initWithUsername:dictionary[@"username"] password:dictionary[@"password"] endPoint:dictionary[@"endpoint"]];
+	return self;
 }
 
 - (id)initWithUsername:(NSString*)username password:(NSString*)password {
@@ -94,11 +123,28 @@ NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 	return (userResponse != nil);
 }
 
-- (KRGithubNotificationsRequest*)notificationsRequest {
-	KRGithubNotificationsRequest *request = [[KRGithubNotificationsRequest alloc]init];
-	
-	return request;
+- (RACSignal *)syncRepositories {
+	return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+		return [syncScheduler() schedule:^{
+			[self.session _fetchRepositoriesWithSuccess:^(NSArray *repositories){
+				[subscriber sendNext:_parsedRepositories(repositories)];
+				[subscriber sendCompleted];
+			} failure:^(NSError *error){
+				[subscriber sendError:error];
+			}];
+		}];
+	}]deliverOn:currentScheduler()];
 }
+
+static NSArray *_parsedRepositories(NSArray *dirtyRepos) {
+	NSMutableArray *result = [[NSMutableArray alloc]init];
+	for (NSDictionary *repositoryDictionary in dirtyRepos) {
+		KRGithubRepository *newRepo = [[KRGithubRepository alloc]initWithDictionary:repositoryDictionary];
+		[result addObject:newRepo];
+	}
+	return result;
+}
+
 
 #pragma mark - NSCoding
 

@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
+extern NSString *const KRGithubAccountUsernameKey;
+extern NSString *const KRGithubAccountPasswordKey;
+extern NSString *const KRGithubAccountEndpointKey;
 
 typedef NS_ENUM(int, KRGithubAccountType) {
 	KRGithubAccountTypeUser = 0,
@@ -14,19 +19,20 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 };
 
 @class KRGithubAccountPlan;
-@class KRGithubNotificationsRequest;
 @class UAGithubEngine;
 
 @interface KRGithubAccount : NSObject <NSCoding>
 
++ (KRGithubAccount*)accountWithDictionary:(NSDictionary*)dictionary;
 + (KRGithubAccount*)accountWithUsername:(NSString*)username password:(NSString*)password;
 + (KRGithubAccount*)accountWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint;
 
+- (id)initWithDictionary:(NSDictionary*)dictionary;
 - (id)initWithUsername:(NSString*)username password:(NSString*)password;
 - (id)initWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint;
 
 - (BOOL)login;
-- (KRGithubNotificationsRequest*)notificationsRequest;
+- (RACSignal *)syncRepositories;
 
 @property (nonatomic, copy, readonly) NSString *username;
 @property (nonatomic, copy, readonly) NSString *password;
