@@ -17,9 +17,7 @@ typedef void (^GHNavigationBarDrawBlock)(GPNavigationBar *bar, CGRect dirtyRect)
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) UIImage *titleImage;
 @property (nonatomic, copy) GHNavigationBarDrawBlock drawRect;
-@property (nonatomic, strong) UIColor *startColor;
-@property (nonatomic, strong) UIColor *endColor;
 
--(void)commitColorUpdate;
+extern inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *endingColor);
 
 @end

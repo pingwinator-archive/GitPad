@@ -33,7 +33,7 @@ static inline CGPathRef createClippingPathWithRectAndRadius(CGRect rect, CGFloat
     return path;
 }
 
-static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *endingColor)
+inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *endingColor)
 {
     CGFloat locations[2] = {0.0f, 1.0f, };
 #if __has_feature(objc_arc)
@@ -137,14 +137,8 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-	UIColor *startColor = self.startColor;
-	UIColor *endColor = self.endColor;
-	if (self.startColor == nil) {
-		startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
-	}
-	if (self.endColor == nil) {
-		endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
-	}
+	UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
+	UIColor *endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
 	
 	CGRect clippingRect = drawingRect;
 
@@ -166,13 +160,6 @@ static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIC
 
 }
 
--(void)commitColorUpdate {
-	self.alpha = 0.5;
-	[self setNeedsDisplay];
-	[UIView animateWithDuration:0.5 animations:^{
-		self.alpha = 1.0;
-	}];
-}
 
 
 @end
