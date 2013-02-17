@@ -852,6 +852,18 @@ describe(@"-toProperty:onObject:", ^{
 		// This shouldn't do anything.
 		[subject sendNext:@3];
 	});
+
+	it(@"should allow a new derivation after the signal's completed", ^{
+		RACSubject *subject1 = [RACSubject subject];
+		RACTestObject *testObject = [[RACTestObject alloc] init];
+		[subject1 toProperty:@keypath(testObject.objectValue) onObject:testObject];
+		[subject1 sendCompleted];
+
+		RACSubject *subject2 = [RACSubject subject];
+		// This will assert if the previous completion didn't dispose of the
+		// subscription.
+		[subject2 toProperty:@keypath(testObject.objectValue) onObject:testObject];
+	});
 });
 
 describe(@"memory management", ^{
@@ -2291,6 +2303,18 @@ describe(@"-dematerialize", ^{
 		__block NSError *error = nil;
 		expect([[events dematerialize] firstOrDefault:nil success:NULL error:&error]).to.beNil();
 		expect(error).to.equal(RACSignalTestError);
+	});
+});
+
+describe(@"-not", ^{
+	it(@"should invert every BOOL sent", ^{
+		RACSubject *subject = [RACReplaySubject subject];
+		[subject sendNext:@NO];
+		[subject sendNext:@YES];
+		[subject sendCompleted];
+		NSArray *results = [[subject not] toArray];
+		NSArray *expected = @[ @YES, @NO ];
+		expect(results).to.equal(expected);
 	});
 });
 
