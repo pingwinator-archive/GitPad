@@ -13,16 +13,6 @@
 		84ADF9D716ADA7C60026F990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADF9D616ADA7C60026F990 /* Foundation.framework */; };
 		84ADF9DC16ADA7C60026F990 /* KrakenKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84ADF9DB16ADA7C60026F990 /* KrakenKit.h */; };
 		84ADF9DE16ADA7C60026F990 /* KrakenKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9DD16ADA7C60026F990 /* KrakenKit.m */; };
-		84ADFA0316ADA8B60026F990 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9EF16ADA8B60026F990 /* NSArray+Utilities.m */; };
-		84ADFA0416ADA8B60026F990 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9F116ADA8B60026F990 /* NSData+Base64.m */; };
-		84ADFA0516ADA8B60026F990 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9F316ADA8B60026F990 /* NSInvocation+Blocks.m */; };
-		84ADFA0616ADA8B60026F990 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9F516ADA8B60026F990 /* NSString+UAGithubEngineUtilities.m */; };
-		84ADFA0716ADA8B60026F990 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9F716ADA8B60026F990 /* NSString+UUID.m */; };
-		84ADFA0816ADA8B60026F990 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9F916ADA8B60026F990 /* UAGithubEngine.m */; };
-		84ADFA0916ADA8B60026F990 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9FB16ADA8B60026F990 /* UAGithubEngineConstants.m */; };
-		84ADFA0A16ADA8B60026F990 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADF9FE16ADA8B60026F990 /* UAGithubJSONParser.m */; };
-		84ADFA0B16ADA8B60026F990 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0016ADA8B60026F990 /* UAGithubURLConnection.m */; };
-		84ADFA0C16ADA8B60026F990 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0216ADA8B60026F990 /* UAReachability.m */; };
 		84ADFA0F16ADA9390026F990 /* KRGithubAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA0E16ADA9390026F990 /* KRGithubAccount.m */; };
 		84ADFA1516ADA9BD0026F990 /* KRSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA1416ADA9BD0026F990 /* KRSession.m */; };
 		84ADFA1916ADAA730026F990 /* KRUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFA1816ADAA730026F990 /* KRUtils.m */; };
@@ -30,20 +20,29 @@
 		84ADFA1C16ADADCB0026F990 /* KRGithubAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA0D16ADA9390026F990 /* KRGithubAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84ADFA1E16ADADCB0026F990 /* KRSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA1316ADA9BD0026F990 /* KRSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84ADFA1F16ADADCB0026F990 /* KRUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA1716ADAA730026F990 /* KRUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84ADFA2016ADADCB0026F990 /* UAGithubEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9F816ADA8B60026F990 /* UAGithubEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84ADFA2116ADADDA0026F990 /* NSArray+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9EE16ADA8B60026F990 /* NSArray+Utilities.h */; };
-		84ADFA2216ADADDA0026F990 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9F016ADA8B60026F990 /* NSData+Base64.h */; };
-		84ADFA2316ADADDA0026F990 /* NSInvocation+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9F216ADA8B60026F990 /* NSInvocation+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84ADFA2416ADADDA0026F990 /* NSString+UAGithubEngineUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9F416ADA8B60026F990 /* NSString+UAGithubEngineUtilities.h */; };
-		84ADFA2516ADADDA0026F990 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9F616ADA8B60026F990 /* NSString+UUID.h */; };
-		84ADFA2616ADADDA0026F990 /* UAGithubEngineConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9FA16ADA8B60026F990 /* UAGithubEngineConstants.h */; };
-		84ADFA2716ADADDA0026F990 /* UAGithubEngineRequestTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9FC16ADA8B60026F990 /* UAGithubEngineRequestTypes.h */; };
-		84ADFA2816ADADDA0026F990 /* UAGithubJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9FD16ADA8B60026F990 /* UAGithubJSONParser.h */; };
-		84ADFA2916ADADDA0026F990 /* UAGithubURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADF9FF16ADA8B60026F990 /* UAGithubURLConnection.h */; };
-		84ADFA2A16ADADDA0026F990 /* UAReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ADFA0116ADA8B60026F990 /* UAReachability.h */; };
-		84CB8C8116ADB94F0026AF86 /* NSInvocation+Blocks.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84ADF9F216ADA8B60026F990 /* NSInvocation+Blocks.h */; };
 		84CB8C8916ADC3BA0026AF86 /* KRGithubAccountPlan.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */; };
 		84CB8C8A16ADC3BA0026AF86 /* KRGithubAccountPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */; };
+		84D4676F16D0CBBE0080E6F6 /* NSArray+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4675A16D0CBBE0080E6F6 /* NSArray+Utilities.h */; };
+		84D4677016D0CBBE0080E6F6 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4675B16D0CBBE0080E6F6 /* NSArray+Utilities.m */; };
+		84D4677116D0CBBE0080E6F6 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4675C16D0CBBE0080E6F6 /* NSData+Base64.h */; };
+		84D4677216D0CBBE0080E6F6 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4675D16D0CBBE0080E6F6 /* NSData+Base64.m */; };
+		84D4677316D0CBBE0080E6F6 /* NSInvocation+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4675E16D0CBBE0080E6F6 /* NSInvocation+Blocks.h */; };
+		84D4677416D0CBBE0080E6F6 /* NSInvocation+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4675F16D0CBBE0080E6F6 /* NSInvocation+Blocks.m */; };
+		84D4677516D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676016D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.h */; };
+		84D4677616D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676116D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.m */; };
+		84D4677716D0CBBE0080E6F6 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676216D0CBBE0080E6F6 /* NSString+UUID.h */; };
+		84D4677816D0CBBE0080E6F6 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676316D0CBBE0080E6F6 /* NSString+UUID.m */; };
+		84D4677916D0CBBE0080E6F6 /* UAGithubEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676416D0CBBE0080E6F6 /* UAGithubEngine.h */; };
+		84D4677A16D0CBBE0080E6F6 /* UAGithubEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676516D0CBBE0080E6F6 /* UAGithubEngine.m */; };
+		84D4677B16D0CBBE0080E6F6 /* UAGithubEngineConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676616D0CBBE0080E6F6 /* UAGithubEngineConstants.h */; };
+		84D4677C16D0CBBE0080E6F6 /* UAGithubEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676716D0CBBE0080E6F6 /* UAGithubEngineConstants.m */; };
+		84D4677D16D0CBBE0080E6F6 /* UAGithubEngineRequestTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676816D0CBBE0080E6F6 /* UAGithubEngineRequestTypes.h */; };
+		84D4677E16D0CBBE0080E6F6 /* UAGithubJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676916D0CBBE0080E6F6 /* UAGithubJSONParser.h */; };
+		84D4677F16D0CBBE0080E6F6 /* UAGithubJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676A16D0CBBE0080E6F6 /* UAGithubJSONParser.m */; };
+		84D4678016D0CBBE0080E6F6 /* UAGithubURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676B16D0CBBE0080E6F6 /* UAGithubURLConnection.h */; };
+		84D4678116D0CBBE0080E6F6 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */; };
+		84D4678216D0CBBE0080E6F6 /* UAReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676D16D0CBBE0080E6F6 /* UAReachability.h */; };
+		84D4678316D0CBBE0080E6F6 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676E16D0CBBE0080E6F6 /* UAReachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,7 +52,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				84CB8C8116ADB94F0026AF86 /* NSInvocation+Blocks.h in CopyFiles */,
 				84ADF9DC16ADA7C60026F990 /* KrakenKit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		846F180616C783730099BA2C /* libReactiveCocoa-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = "libReactiveCocoa-iOS.a"; path = "../ReactiveCocoa/ReactiveCocoaFramework/build/Release/libReactiveCocoa-iOS.a"; sourceTree = "<group>"; };
+		846F180616C783730099BA2C /* libReactiveCocoa-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libReactiveCocoa-iOS.a"; path = "../ReactiveCocoa/ReactiveCocoaFramework/build/Release/libReactiveCocoa-iOS.a"; sourceTree = "<group>"; };
 		846F181016C791AD0099BA2C /* KRGithubRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubRepository.h; sourceTree = "<group>"; };
 		846F181116C791AD0099BA2C /* KRGithubRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubRepository.m; sourceTree = "<group>"; };
 		84ADF9D316ADA7C60026F990 /* libKrakenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKrakenKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,27 +67,6 @@
 		84ADF9DA16ADA7C60026F990 /* KrakenKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KrakenKit-Prefix.pch"; sourceTree = "<group>"; };
 		84ADF9DB16ADA7C60026F990 /* KrakenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KrakenKit.h; sourceTree = "<group>"; };
 		84ADF9DD16ADA7C60026F990 /* KrakenKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KrakenKit.m; sourceTree = "<group>"; };
-		84ADF9EE16ADA8B60026F990 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
-		84ADF9EF16ADA8B60026F990 /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
-		84ADF9F016ADA8B60026F990 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		84ADF9F116ADA8B60026F990 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		84ADF9F216ADA8B60026F990 /* NSInvocation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Blocks.h"; sourceTree = "<group>"; };
-		84ADF9F316ADA8B60026F990 /* NSInvocation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Blocks.m"; sourceTree = "<group>"; };
-		84ADF9F416ADA8B60026F990 /* NSString+UAGithubEngineUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UAGithubEngineUtilities.h"; sourceTree = "<group>"; };
-		84ADF9F516ADA8B60026F990 /* NSString+UAGithubEngineUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UAGithubEngineUtilities.m"; sourceTree = "<group>"; };
-		84ADF9F616ADA8B60026F990 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
-		84ADF9F716ADA8B60026F990 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
-		84ADF9F816ADA8B60026F990 /* UAGithubEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngine.h; sourceTree = "<group>"; };
-		84ADF9F916ADA8B60026F990 /* UAGithubEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngine.m; sourceTree = "<group>"; };
-		84ADF9FA16ADA8B60026F990 /* UAGithubEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineConstants.h; sourceTree = "<group>"; };
-		84ADF9FB16ADA8B60026F990 /* UAGithubEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngineConstants.m; sourceTree = "<group>"; };
-		84ADF9FC16ADA8B60026F990 /* UAGithubEngineRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineRequestTypes.h; sourceTree = "<group>"; };
-		84ADF9FD16ADA8B60026F990 /* UAGithubJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubJSONParser.h; sourceTree = "<group>"; };
-		84ADF9FE16ADA8B60026F990 /* UAGithubJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubJSONParser.m; sourceTree = "<group>"; };
-		84ADF9FF16ADA8B60026F990 /* UAGithubURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubURLConnection.h; sourceTree = "<group>"; };
-		84ADFA0016ADA8B60026F990 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
-		84ADFA0116ADA8B60026F990 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
-		84ADFA0216ADA8B60026F990 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
 		84ADFA0D16ADA9390026F990 /* KRGithubAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubAccount.h; sourceTree = "<group>"; };
 		84ADFA0E16ADA9390026F990 /* KRGithubAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubAccount.m; sourceTree = "<group>"; };
 		84ADFA1316ADA9BD0026F990 /* KRSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSession.h; sourceTree = "<group>"; };
@@ -98,6 +75,27 @@
 		84ADFA1816ADAA730026F990 /* KRUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRUtils.m; sourceTree = "<group>"; };
 		84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubAccountPlan.h; sourceTree = "<group>"; };
 		84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubAccountPlan.m; sourceTree = "<group>"; };
+		84D4675A16D0CBBE0080E6F6 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
+		84D4675B16D0CBBE0080E6F6 /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
+		84D4675C16D0CBBE0080E6F6 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		84D4675D16D0CBBE0080E6F6 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		84D4675E16D0CBBE0080E6F6 /* NSInvocation+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Blocks.h"; sourceTree = "<group>"; };
+		84D4675F16D0CBBE0080E6F6 /* NSInvocation+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Blocks.m"; sourceTree = "<group>"; };
+		84D4676016D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UAGithubEngineUtilities.h"; sourceTree = "<group>"; };
+		84D4676116D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UAGithubEngineUtilities.m"; sourceTree = "<group>"; };
+		84D4676216D0CBBE0080E6F6 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		84D4676316D0CBBE0080E6F6 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		84D4676416D0CBBE0080E6F6 /* UAGithubEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngine.h; sourceTree = "<group>"; };
+		84D4676516D0CBBE0080E6F6 /* UAGithubEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngine.m; sourceTree = "<group>"; };
+		84D4676616D0CBBE0080E6F6 /* UAGithubEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineConstants.h; sourceTree = "<group>"; };
+		84D4676716D0CBBE0080E6F6 /* UAGithubEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubEngineConstants.m; sourceTree = "<group>"; };
+		84D4676816D0CBBE0080E6F6 /* UAGithubEngineRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubEngineRequestTypes.h; sourceTree = "<group>"; };
+		84D4676916D0CBBE0080E6F6 /* UAGithubJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubJSONParser.h; sourceTree = "<group>"; };
+		84D4676A16D0CBBE0080E6F6 /* UAGithubJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubJSONParser.m; sourceTree = "<group>"; };
+		84D4676B16D0CBBE0080E6F6 /* UAGithubURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAGithubURLConnection.h; sourceTree = "<group>"; };
+		84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
+		84D4676D16D0CBBE0080E6F6 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
+		84D4676E16D0CBBE0080E6F6 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +152,7 @@
 				84ADFA1416ADA9BD0026F990 /* KRSession.m */,
 				84ADFA1716ADAA730026F990 /* KRUtils.h */,
 				84ADFA1816ADAA730026F990 /* KRUtils.m */,
-				84ADF9ED16ADA8B60026F990 /* UAGithubEngine */,
+				84D4675916D0CBBE0080E6F6 /* UAGithubEngine */,
 				84ADF9D916ADA7C60026F990 /* Supporting Files */,
 			);
 			path = KrakenKit;
@@ -168,30 +166,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		84ADF9ED16ADA8B60026F990 /* UAGithubEngine */ = {
+		84D4675916D0CBBE0080E6F6 /* UAGithubEngine */ = {
 			isa = PBXGroup;
 			children = (
-				84ADF9EE16ADA8B60026F990 /* NSArray+Utilities.h */,
-				84ADF9EF16ADA8B60026F990 /* NSArray+Utilities.m */,
-				84ADF9F016ADA8B60026F990 /* NSData+Base64.h */,
-				84ADF9F116ADA8B60026F990 /* NSData+Base64.m */,
-				84ADF9F216ADA8B60026F990 /* NSInvocation+Blocks.h */,
-				84ADF9F316ADA8B60026F990 /* NSInvocation+Blocks.m */,
-				84ADF9F416ADA8B60026F990 /* NSString+UAGithubEngineUtilities.h */,
-				84ADF9F516ADA8B60026F990 /* NSString+UAGithubEngineUtilities.m */,
-				84ADF9F616ADA8B60026F990 /* NSString+UUID.h */,
-				84ADF9F716ADA8B60026F990 /* NSString+UUID.m */,
-				84ADF9F816ADA8B60026F990 /* UAGithubEngine.h */,
-				84ADF9F916ADA8B60026F990 /* UAGithubEngine.m */,
-				84ADF9FA16ADA8B60026F990 /* UAGithubEngineConstants.h */,
-				84ADF9FB16ADA8B60026F990 /* UAGithubEngineConstants.m */,
-				84ADF9FC16ADA8B60026F990 /* UAGithubEngineRequestTypes.h */,
-				84ADF9FD16ADA8B60026F990 /* UAGithubJSONParser.h */,
-				84ADF9FE16ADA8B60026F990 /* UAGithubJSONParser.m */,
-				84ADF9FF16ADA8B60026F990 /* UAGithubURLConnection.h */,
-				84ADFA0016ADA8B60026F990 /* UAGithubURLConnection.m */,
-				84ADFA0116ADA8B60026F990 /* UAReachability.h */,
-				84ADFA0216ADA8B60026F990 /* UAReachability.m */,
+				84D4675A16D0CBBE0080E6F6 /* NSArray+Utilities.h */,
+				84D4675B16D0CBBE0080E6F6 /* NSArray+Utilities.m */,
+				84D4675C16D0CBBE0080E6F6 /* NSData+Base64.h */,
+				84D4675D16D0CBBE0080E6F6 /* NSData+Base64.m */,
+				84D4675E16D0CBBE0080E6F6 /* NSInvocation+Blocks.h */,
+				84D4675F16D0CBBE0080E6F6 /* NSInvocation+Blocks.m */,
+				84D4676016D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.h */,
+				84D4676116D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.m */,
+				84D4676216D0CBBE0080E6F6 /* NSString+UUID.h */,
+				84D4676316D0CBBE0080E6F6 /* NSString+UUID.m */,
+				84D4676416D0CBBE0080E6F6 /* UAGithubEngine.h */,
+				84D4676516D0CBBE0080E6F6 /* UAGithubEngine.m */,
+				84D4676616D0CBBE0080E6F6 /* UAGithubEngineConstants.h */,
+				84D4676716D0CBBE0080E6F6 /* UAGithubEngineConstants.m */,
+				84D4676816D0CBBE0080E6F6 /* UAGithubEngineRequestTypes.h */,
+				84D4676916D0CBBE0080E6F6 /* UAGithubJSONParser.h */,
+				84D4676A16D0CBBE0080E6F6 /* UAGithubJSONParser.m */,
+				84D4676B16D0CBBE0080E6F6 /* UAGithubURLConnection.h */,
+				84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */,
+				84D4676D16D0CBBE0080E6F6 /* UAReachability.h */,
+				84D4676E16D0CBBE0080E6F6 /* UAReachability.m */,
 			);
 			path = UAGithubEngine;
 			sourceTree = "<group>";
@@ -203,23 +201,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84ADFA2316ADADDA0026F990 /* NSInvocation+Blocks.h in Headers */,
 				84ADFA1B16ADADCB0026F990 /* KrakenKit.h in Headers */,
 				84ADFA1C16ADADCB0026F990 /* KRGithubAccount.h in Headers */,
 				84ADFA1E16ADADCB0026F990 /* KRSession.h in Headers */,
 				84ADFA1F16ADADCB0026F990 /* KRUtils.h in Headers */,
-				84ADFA2016ADADCB0026F990 /* UAGithubEngine.h in Headers */,
-				84ADFA2116ADADDA0026F990 /* NSArray+Utilities.h in Headers */,
-				84ADFA2216ADADDA0026F990 /* NSData+Base64.h in Headers */,
-				84ADFA2416ADADDA0026F990 /* NSString+UAGithubEngineUtilities.h in Headers */,
-				84ADFA2516ADADDA0026F990 /* NSString+UUID.h in Headers */,
-				84ADFA2616ADADDA0026F990 /* UAGithubEngineConstants.h in Headers */,
-				84ADFA2716ADADDA0026F990 /* UAGithubEngineRequestTypes.h in Headers */,
-				84ADFA2816ADADDA0026F990 /* UAGithubJSONParser.h in Headers */,
-				84ADFA2916ADADDA0026F990 /* UAGithubURLConnection.h in Headers */,
-				84ADFA2A16ADADDA0026F990 /* UAReachability.h in Headers */,
 				84CB8C8916ADC3BA0026AF86 /* KRGithubAccountPlan.h in Headers */,
 				846F181216C791AE0099BA2C /* KRGithubRepository.h in Headers */,
+				84D4676F16D0CBBE0080E6F6 /* NSArray+Utilities.h in Headers */,
+				84D4677116D0CBBE0080E6F6 /* NSData+Base64.h in Headers */,
+				84D4677316D0CBBE0080E6F6 /* NSInvocation+Blocks.h in Headers */,
+				84D4677516D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.h in Headers */,
+				84D4677716D0CBBE0080E6F6 /* NSString+UUID.h in Headers */,
+				84D4677916D0CBBE0080E6F6 /* UAGithubEngine.h in Headers */,
+				84D4677B16D0CBBE0080E6F6 /* UAGithubEngineConstants.h in Headers */,
+				84D4677D16D0CBBE0080E6F6 /* UAGithubEngineRequestTypes.h in Headers */,
+				84D4677E16D0CBBE0080E6F6 /* UAGithubJSONParser.h in Headers */,
+				84D4678016D0CBBE0080E6F6 /* UAGithubURLConnection.h in Headers */,
+				84D4678216D0CBBE0080E6F6 /* UAReachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,21 +274,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ADF9DE16ADA7C60026F990 /* KrakenKit.m in Sources */,
-				84ADFA0316ADA8B60026F990 /* NSArray+Utilities.m in Sources */,
-				84ADFA0416ADA8B60026F990 /* NSData+Base64.m in Sources */,
-				84ADFA0516ADA8B60026F990 /* NSInvocation+Blocks.m in Sources */,
-				84ADFA0616ADA8B60026F990 /* NSString+UAGithubEngineUtilities.m in Sources */,
-				84ADFA0716ADA8B60026F990 /* NSString+UUID.m in Sources */,
-				84ADFA0816ADA8B60026F990 /* UAGithubEngine.m in Sources */,
-				84ADFA0916ADA8B60026F990 /* UAGithubEngineConstants.m in Sources */,
-				84ADFA0A16ADA8B60026F990 /* UAGithubJSONParser.m in Sources */,
-				84ADFA0B16ADA8B60026F990 /* UAGithubURLConnection.m in Sources */,
-				84ADFA0C16ADA8B60026F990 /* UAReachability.m in Sources */,
 				84ADFA0F16ADA9390026F990 /* KRGithubAccount.m in Sources */,
 				84ADFA1516ADA9BD0026F990 /* KRSession.m in Sources */,
 				84ADFA1916ADAA730026F990 /* KRUtils.m in Sources */,
 				84CB8C8A16ADC3BA0026AF86 /* KRGithubAccountPlan.m in Sources */,
 				846F181316C791AE0099BA2C /* KRGithubRepository.m in Sources */,
+				84D4677016D0CBBE0080E6F6 /* NSArray+Utilities.m in Sources */,
+				84D4677216D0CBBE0080E6F6 /* NSData+Base64.m in Sources */,
+				84D4677416D0CBBE0080E6F6 /* NSInvocation+Blocks.m in Sources */,
+				84D4677616D0CBBE0080E6F6 /* NSString+UAGithubEngineUtilities.m in Sources */,
+				84D4677816D0CBBE0080E6F6 /* NSString+UUID.m in Sources */,
+				84D4677A16D0CBBE0080E6F6 /* UAGithubEngine.m in Sources */,
+				84D4677C16D0CBBE0080E6F6 /* UAGithubEngineConstants.m in Sources */,
+				84D4677F16D0CBBE0080E6F6 /* UAGithubJSONParser.m in Sources */,
+				84D4678116D0CBBE0080E6F6 /* UAGithubURLConnection.m in Sources */,
+				84D4678316D0CBBE0080E6F6 /* UAReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

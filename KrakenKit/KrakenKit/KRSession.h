@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class KRGithubRequest;
 @class UAGithubEngine;
 
 @interface KRSession : NSObject {
@@ -16,7 +15,6 @@
 }
 
 - (id)initWithUsername:(NSString*)username password:(NSString*)password;
-- (void)enqueueRequest:(KRGithubRequest*)request;
 
 @property (nonatomic, strong, readonly) UAGithubEngine *githubEngine;
 

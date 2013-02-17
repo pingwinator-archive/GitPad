@@ -12,9 +12,9 @@
 #import "KRGithubRepository.h"
 
 NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
-extern NSString *const KRGithubAccountUsernameKey = @"KRUsernameKey";
-extern NSString *const KRGithubAccountPasswordKey = @"KRPasswordKey";
-extern NSString *const KRGithubAccountEndpointKey = @"KREndpointKey";
+NSString *const KRGithubAccountUsernameKey = @"KRUsernameKey";
+NSString *const KRGithubAccountPasswordKey = @"KRPasswordKey";
+NSString *const KRGithubAccountEndpointKey = @"KREndpointKey";
 
 RACScheduler *syncScheduler() {
 	static RACScheduler *syncScheduler = nil;
@@ -38,7 +38,6 @@ RACScheduler *currentScheduler() {
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, strong) NSURL *endPoint;
 @property (nonatomic, assign) BOOL finished;
-@property (nonatomic, strong) KRGithubRepositoriesRequest *notificationsRequest;
 
 @end
 

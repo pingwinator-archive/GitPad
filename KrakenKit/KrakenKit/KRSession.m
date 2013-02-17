@@ -7,7 +7,6 @@
 //
 
 #import "KRSession.h"
-#import "KRGithubRequest.h"
 #import "UAGithubEngine.h"
 
 @interface KRSession ()
@@ -27,11 +26,6 @@
 	[_queue setMaxConcurrentOperationCount:1];
 	
 	return self;
-}
-
-- (void)enqueueRequest:(KRGithubRequest*)request {
-	request.githubEngine = self.githubEngine;
-	[_queue addOperation:request];
 }
 
 - (NSArray*)_login {

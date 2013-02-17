@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-extern NSString *const KRGithubAccountUsernameKey;
-extern NSString *const KRGithubAccountPasswordKey;
-extern NSString *const KRGithubAccountEndpointKey;
+FOUNDATION_EXPORT NSString *const KRGithubAccountUsernameKey;
+FOUNDATION_EXPORT NSString *const KRGithubAccountPasswordKey;
+FOUNDATION_EXPORT NSString *const KRGithubAccountEndpointKey;
 
 typedef NS_ENUM(int, KRGithubAccountType) {
 	KRGithubAccountTypeUser = 0,
