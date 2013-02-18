@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		846F180716C783730099BA2C /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 846F180616C783730099BA2C /* libReactiveCocoa-iOS.a */; };
 		846F181216C791AE0099BA2C /* KRGithubRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 846F181016C791AD0099BA2C /* KRGithubRepository.h */; };
 		846F181316C791AE0099BA2C /* KRGithubRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181116C791AD0099BA2C /* KRGithubRepository.m */; };
 		84ADF9D716ADA7C60026F990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ADF9D616ADA7C60026F990 /* Foundation.framework */; };
@@ -43,6 +42,15 @@
 		84D4678116D0CBBE0080E6F6 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */; };
 		84D4678216D0CBBE0080E6F6 /* UAReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676D16D0CBBE0080E6F6 /* UAReachability.h */; };
 		84D4678316D0CBBE0080E6F6 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676E16D0CBBE0080E6F6 /* UAReachability.m */; };
+		84FE0DF116D0D9C800A9F360 /* NSDate+JSONDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FE0DEF16D0D9C800A9F360 /* NSDate+JSONDate.h */; };
+		84FE0DF216D0D9C800A9F360 /* NSDate+JSONDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DF016D0D9C800A9F360 /* NSDate+JSONDate.m */; };
+		84FE0E2E16D19C8B00A9F360 /* KRGithubEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FE0E2C16D19C8B00A9F360 /* KRGithubEvent.h */; };
+		84FE0E2F16D19C8B00A9F360 /* KRGithubEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0E2D16D19C8B00A9F360 /* KRGithubEvent.m */; };
+		84FE0E3216D1B25200A9F360 /* KRGithubIssue.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FE0E3016D1B25200A9F360 /* KRGithubIssue.h */; };
+		84FE0E3316D1B25200A9F360 /* KRGithubIssue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0E3116D1B25200A9F360 /* KRGithubIssue.m */; };
+		84FE0E3516D1B2A600A9F360 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FE0E3416D1B2A600A9F360 /* libReactiveCocoa-iOS.a */; };
+		84FE0E3816D1BADB00A9F360 /* KRGithubCommit.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FE0E3616D1BADB00A9F360 /* KRGithubCommit.h */; };
+		84FE0E3916D1BADB00A9F360 /* KRGithubCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0E3716D1BADB00A9F360 /* KRGithubCommit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,7 +67,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		846F180616C783730099BA2C /* libReactiveCocoa-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libReactiveCocoa-iOS.a"; path = "../ReactiveCocoa/ReactiveCocoaFramework/build/Release/libReactiveCocoa-iOS.a"; sourceTree = "<group>"; };
 		846F181016C791AD0099BA2C /* KRGithubRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubRepository.h; sourceTree = "<group>"; };
 		846F181116C791AD0099BA2C /* KRGithubRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubRepository.m; sourceTree = "<group>"; };
 		84ADF9D316ADA7C60026F990 /* libKrakenKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKrakenKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +103,15 @@
 		84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
 		84D4676D16D0CBBE0080E6F6 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
 		84D4676E16D0CBBE0080E6F6 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
+		84FE0DEF16D0D9C800A9F360 /* NSDate+JSONDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSONDate.h"; sourceTree = "<group>"; };
+		84FE0DF016D0D9C800A9F360 /* NSDate+JSONDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONDate.m"; sourceTree = "<group>"; };
+		84FE0E2C16D19C8B00A9F360 /* KRGithubEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubEvent.h; sourceTree = "<group>"; };
+		84FE0E2D16D19C8B00A9F360 /* KRGithubEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubEvent.m; sourceTree = "<group>"; };
+		84FE0E3016D1B25200A9F360 /* KRGithubIssue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubIssue.h; sourceTree = "<group>"; };
+		84FE0E3116D1B25200A9F360 /* KRGithubIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubIssue.m; sourceTree = "<group>"; };
+		84FE0E3416D1B2A600A9F360 /* libReactiveCocoa-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libReactiveCocoa-iOS.a"; path = "../../ReactiveCocoa/ReactiveCocoaFramework/build/Release-iphoneos/libReactiveCocoa-iOS.a"; sourceTree = "<group>"; };
+		84FE0E3616D1BADB00A9F360 /* KRGithubCommit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubCommit.h; sourceTree = "<group>"; };
+		84FE0E3716D1BADB00A9F360 /* KRGithubCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubCommit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				846F180716C783730099BA2C /* libReactiveCocoa-iOS.a in Frameworks */,
+				84FE0E3516D1B2A600A9F360 /* libReactiveCocoa-iOS.a in Frameworks */,
 				84ADF9D716ADA7C60026F990 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,7 +130,6 @@
 		84ADF9CA16ADA7C60026F990 = {
 			isa = PBXGroup;
 			children = (
-				846F180616C783730099BA2C /* libReactiveCocoa-iOS.a */,
 				84ADF9D816ADA7C60026F990 /* KrakenKit */,
 				84ADF9D516ADA7C60026F990 /* Frameworks */,
 				84ADF9D416ADA7C60026F990 /* Products */,
@@ -146,6 +161,12 @@
 				84ADFA0E16ADA9390026F990 /* KRGithubAccount.m */,
 				846F181016C791AD0099BA2C /* KRGithubRepository.h */,
 				846F181116C791AD0099BA2C /* KRGithubRepository.m */,
+				84FE0E2C16D19C8B00A9F360 /* KRGithubEvent.h */,
+				84FE0E2D16D19C8B00A9F360 /* KRGithubEvent.m */,
+				84FE0E3616D1BADB00A9F360 /* KRGithubCommit.h */,
+				84FE0E3716D1BADB00A9F360 /* KRGithubCommit.m */,
+				84FE0E3016D1B25200A9F360 /* KRGithubIssue.h */,
+				84FE0E3116D1B25200A9F360 /* KRGithubIssue.m */,
 				84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */,
 				84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */,
 				84ADFA1316ADA9BD0026F990 /* KRSession.h */,
@@ -161,6 +182,7 @@
 		84ADF9D916ADA7C60026F990 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84FE0E3416D1B2A600A9F360 /* libReactiveCocoa-iOS.a */,
 				84ADF9DA16ADA7C60026F990 /* KrakenKit-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -190,6 +212,8 @@
 				84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */,
 				84D4676D16D0CBBE0080E6F6 /* UAReachability.h */,
 				84D4676E16D0CBBE0080E6F6 /* UAReachability.m */,
+				84FE0DEF16D0D9C800A9F360 /* NSDate+JSONDate.h */,
+				84FE0DF016D0D9C800A9F360 /* NSDate+JSONDate.m */,
 			);
 			path = UAGithubEngine;
 			sourceTree = "<group>";
@@ -218,6 +242,10 @@
 				84D4677E16D0CBBE0080E6F6 /* UAGithubJSONParser.h in Headers */,
 				84D4678016D0CBBE0080E6F6 /* UAGithubURLConnection.h in Headers */,
 				84D4678216D0CBBE0080E6F6 /* UAReachability.h in Headers */,
+				84FE0DF116D0D9C800A9F360 /* NSDate+JSONDate.h in Headers */,
+				84FE0E2E16D19C8B00A9F360 /* KRGithubEvent.h in Headers */,
+				84FE0E3216D1B25200A9F360 /* KRGithubIssue.h in Headers */,
+				84FE0E3816D1BADB00A9F360 /* KRGithubCommit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +317,10 @@
 				84D4677F16D0CBBE0080E6F6 /* UAGithubJSONParser.m in Sources */,
 				84D4678116D0CBBE0080E6F6 /* UAGithubURLConnection.m in Sources */,
 				84D4678316D0CBBE0080E6F6 /* UAReachability.m in Sources */,
+				84FE0DF216D0D9C800A9F360 /* NSDate+JSONDate.m in Sources */,
+				84FE0E2F16D19C8B00A9F360 /* KRGithubEvent.m in Sources */,
+				84FE0E3316D1B25200A9F360 /* KRGithubIssue.m in Sources */,
+				84FE0E3916D1BADB00A9F360 /* KRGithubCommit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

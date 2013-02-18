@@ -12,6 +12,8 @@
 
 #import "UAGithubEngine.h"
 #import "KRGithubAccount.h"
-#import "KRUtils.h"
+#import "KRGithubRepository.h"
+#import "KRGithubEvent.h"
+#import "KRGithubIssue.h"
 
 #endif

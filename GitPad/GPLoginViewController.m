@@ -144,13 +144,28 @@
 	}
 	if (errAlpha == 0) {
 		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithUsername:self.usernameField.text password:self.passwordField.text];
-		if ([newAccount login]) {
+		@weakify(self);
+		RACSignal *loginSignal = [newAccount login];
+		[loginSignal subscribeCompleted:^ {
+			@strongify(self);
 			[self _dismissForSuccessfulValidationWithAccount:newAccount];
-		} else {
-			[errStr appendString:@"Your credentials are invalid.  Please enter another login."];
-			errAlpha = 1;
+		}];
+		[loginSignal subscribeError:^(NSError *error) {
+			@strongify(self);
+			switch (error.code) {
+				case 503:
+					[errStr appendString:@"GitHub appears to be unreachable.  Check that you have a valid connection to the internet."];
+					errAlpha = 1;
+					[self _reEnableForFailedValidationWithErrorMessage:errStr];
+					break;
+				default:
+					[errStr appendString:@"Your credentials are invalid.  Please enter another login."];
+					errAlpha = 1;
+					break;
+			}
 			[self _reEnableForFailedValidationWithErrorMessage:errStr];
-		}
+		}];
+
 	} else {
 		[self _reEnableForFailedValidationWithErrorMessage:errStr];
 	}

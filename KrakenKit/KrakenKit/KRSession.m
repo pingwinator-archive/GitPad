@@ -28,17 +28,16 @@
 	return self;
 }
 
-- (NSArray*)_login {
-	__block NSArray *success = nil;
-	
-	[self.githubEngine userWithSuccess:^(NSArray *user) {
-		success = user;
-	} failure:^(NSError *error) { }];
-	return success;
+- (void)_loginWithSuccess:(void(^)(NSArray *user))successBlock failure:(void(^)(NSError *error))failureBlock {	
+	[self.githubEngine userWithSuccess:successBlock failure:failureBlock];
 }
 
 - (void)_fetchRepositoriesWithSuccess:(void(^)(NSArray *notifications))successBlock failure:(void(^)(NSError *error))failureBlock {
 	[self.githubEngine repositoriesWithSuccess:successBlock failure:failureBlock];
+}
+
+- (void)_fetchEventsWithSuccess:(void(^)(NSArray *events))successBlock failure:(void(^)(NSError *error))failureBlock {
+	[self.githubEngine eventsReceivedByUser:self.githubEngine.username success:successBlock failure:failureBlock];
 }
 
 @end

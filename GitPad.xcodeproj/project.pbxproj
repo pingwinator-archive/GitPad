@@ -58,6 +58,8 @@
 		84CB8C9C16ADCE9B0026AF86 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9716ADCE9B0026AF86 /* UIImage+PDF.m */; };
 		84CB8C9D16ADCE9B0026AF86 /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */; };
 		84CB8C9F16ADCEA60026AF86 /* <Blacktocats>.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */; };
+		84FE0DE916D0CE0800A9F360 /* GPRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */; };
+		84FE0DEE16D0CE2400A9F360 /* GPRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,9 +121,6 @@
 		840582F0169F86DE0022E4F9 /* GPNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNotificationButton.m; sourceTree = "<group>"; };
 		8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNewsFeedCell.h; sourceTree = "<group>"; };
 		8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNewsFeedCell.m; sourceTree = "<group>"; };
-		8410ABE8169F932900E71AC3 /* KrakenKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KrakenKit-Prefix.pch"; sourceTree = "<group>"; };
-		8410ABE9169F932900E71AC3 /* KrakenKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KrakenKit.h; sourceTree = "<group>"; };
-		8410ABEB169F932900E71AC3 /* KrakenKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KrakenKit.m; sourceTree = "<group>"; };
 		8442C2E51668184B007046E3 /* GitPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8442C2E81668184B007046E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8442C2EA1668184B007046E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +196,10 @@
 		84CB8C9816ADCE9B0026AF86 /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
 		84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
 		84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "<Blacktocats>.pdf"; sourceTree = "<group>"; };
+		84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryViewController.h; sourceTree = "<group>"; };
+		84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPRepositoryViewController.m; sourceTree = "<group>"; };
+		84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryCell.h; sourceTree = "<group>"; };
+		84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPRepositoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,24 +231,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8410ABE6169F932900E71AC3 /* KrakenKit */ = {
-			isa = PBXGroup;
-			children = (
-				8410ABE9169F932900E71AC3 /* KrakenKit.h */,
-				8410ABEB169F932900E71AC3 /* KrakenKit.m */,
-				8410ABE7169F932900E71AC3 /* Supporting Files */,
-			);
-			path = KrakenKit;
-			sourceTree = "<group>";
-		};
-		8410ABE7169F932900E71AC3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8410ABE8169F932900E71AC3 /* KrakenKit-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +239,6 @@
 				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
 				8442C2F01668184B007046E3 /* GitPad */,
 				8442C3121668184B007046E3 /* GitPadTests */,
-				8410ABE6169F932900E71AC3 /* KrakenKit */,
 				8442C2E71668184B007046E3 /* Frameworks */,
 				8442C2E61668184B007046E3 /* Products */,
 			);
@@ -294,6 +278,10 @@
 				846F181816C795EC0099BA2C /* NPReachability.m */,
 				846B205D1671717600436E90 /* GPMainViewController.h */,
 				846B205E1671717700436E90 /* GPMainViewController.m */,
+				84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */,
+				84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */,
+				84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */,
+				84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */,
 				8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */,
 				8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */,
 				840582EF169F86DE0022E4F9 /* GPNotificationButton.h */,
@@ -608,6 +596,8 @@
 				846F183916C79A110099BA2C /* WBRedGradientView.m in Sources */,
 				846F183A16C79A110099BA2C /* WBStickyNoticeView.m in Sources */,
 				846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */,
+				84FE0DE916D0CE0800A9F360 /* GPRepositoryViewController.m in Sources */,
+				84FE0DEE16D0CE2400A9F360 /* GPRepositoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

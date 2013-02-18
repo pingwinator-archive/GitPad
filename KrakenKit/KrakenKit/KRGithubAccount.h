@@ -31,8 +31,9 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 - (id)initWithUsername:(NSString*)username password:(NSString*)password;
 - (id)initWithUsername:(NSString*)username password:(NSString*)password endPoint:(NSURL*)endPoint;
 
-- (BOOL)login;
+- (RACSignal *)login;
 - (RACSignal *)syncRepositories;
+- (RACSignal *)syncNewsFeed;
 
 @property (nonatomic, copy, readonly) NSString *username;
 @property (nonatomic, copy, readonly) NSString *password;
@@ -44,7 +45,7 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 - (NSURL*)recievedEventsURL;
 - (NSInteger)ownedPrivateRepositories;
 - (long long)userID;
-- (NSURL*)avatarURL;
+@property (nonatomic, strong, readonly) NSURL *avatarURL;
 - (NSInteger)privateGists;
 - (NSURL*)subscriptionsURL;
 - (NSURL*)blogURL;
@@ -58,7 +59,7 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 - (NSDate*)accountCreationDate;
 - (NSURL*)followersURL;
 - (NSString*)location;
-- (NSString*)name;
+@property (nonatomic, copy, readonly) NSString *name;
 - (NSInteger)publicRepositories;
 - (NSInteger)following;
 - (NSURL*)gistsURL;

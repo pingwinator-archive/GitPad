@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class UAGithubEngine;
+@class UAGithubEngine, RACSignal;
 
 @interface KRSession : NSObject {
 	NSOperationQueue * _queue;
@@ -22,7 +22,8 @@
 
 @interface KRSession (Private)
 
-- (NSArray*)_login;
+- (void)_login;
 - (void)_fetchRepositoriesWithSuccess:(void(^)(NSArray *notifications))successBlock failure:(void(^)(NSError *error))failureBlock;
+- (void)_fetchEventsWithSuccess:(void(^)(NSArray *events))successBlock failure:(void(^)(NSError *error))failureBlock;
 
 @end

@@ -10,6 +10,7 @@
 #import "UAGithubEngine.h"
 #import "KRSession.h"
 #import "KRGithubRepository.h"
+#import "KRGithubEvent.h"
 
 NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 NSString *const KRGithubAccountUsernameKey = @"KRUsernameKey";
@@ -39,6 +40,9 @@ RACScheduler *currentScheduler() {
 @property (nonatomic, strong) NSURL *endPoint;
 @property (nonatomic, assign) BOOL finished;
 
+@property (nonatomic, strong) NSURL *avatarURL;
+@property (nonatomic, copy) NSString *name;
+
 @end
 
 @implementation KRGithubAccount {
@@ -48,7 +52,6 @@ RACScheduler *currentScheduler() {
 	NSURL* _recievedEventsURL;
 	NSInteger _ownedPrivateRepositories;
 	long long _userID;
-	NSURL* _avatarURL;
 	NSInteger _privateGists;
 	NSURL* _subscriptionsURL;
 	NSURL* _blogURL;
@@ -62,7 +65,6 @@ RACScheduler *currentScheduler() {
 	NSDate* _accountCreationDate;
 	NSURL* _followersURL;
 	NSString* _location;
-	NSString* _name;
 	NSInteger _publicRepositories;
 	NSInteger _following;
 	NSURL* _gistsURL;
@@ -94,7 +96,16 @@ RACScheduler *currentScheduler() {
 }
 
 - (id)initWithDictionary:(NSDictionary*)dictionary {
-	self = [self initWithUsername:dictionary[@"username"] password:dictionary[@"password"] endPoint:dictionary[@"endpoint"]];
+	self = [super init];
+	NSString *loginString = dictionary[@"login"];
+	if (loginString != nil) {
+		self.username = loginString;
+	}
+	NSString *avatarURLString = dictionary[@"avatar_url"];
+	if (avatarURLString != nil) {
+		self.avatarURL = [NSURL URLWithString:avatarURLString];
+	}
+	
 	return self;
 }
 
@@ -116,10 +127,17 @@ RACScheduler *currentScheduler() {
 
 #pragma Account Management
 
-- (BOOL)login {
-	NSArray *userResponse = [self.session _login];
-	
-	return (userResponse != nil);
+- (RACSignal *)login {
+	return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+		return [syncScheduler() schedule:^{
+			[self.session _fetchRepositoriesWithSuccess:^(NSArray *user){
+				[subscriber sendCompleted];
+			} failure:^(NSError *error){
+				[subscriber sendError:error];
+			}];
+		}];
+	}]deliverOn:currentScheduler()];
+
 }
 
 - (RACSignal *)syncRepositories {
@@ -141,7 +159,34 @@ static NSArray *_parsedRepositories(NSArray *dirtyRepos) {
 		KRGithubRepository *newRepo = [[KRGithubRepository alloc]initWithDictionary:repositoryDictionary];
 		[result addObject:newRepo];
 	}
-	return result;
+	return [result sortedArrayUsingComparator:^NSComparisonResult(KRGithubRepository *obj1, KRGithubRepository *obj2) {
+		return [obj2.sortDate compare:obj1.sortDate];
+	}];
+}
+
+
+- (RACSignal *)syncNewsFeed {
+	return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+		return [syncScheduler() schedule:^{
+			[self.session _fetchEventsWithSuccess:^(NSArray *events){
+				[subscriber sendNext:_parsedEvents(events)];
+				[subscriber sendCompleted];
+			} failure:^(NSError *error){
+				[subscriber sendError:error];
+			}];
+		}];
+	}]deliverOn:currentScheduler()];
+}
+
+static NSArray *_parsedEvents(NSArray *dirtyEvents) {
+	NSMutableArray *result = [[NSMutableArray alloc]init];
+	for (NSDictionary *repositoryDictionary in dirtyEvents) {
+		KRGithubEvent *newRepo = [[KRGithubEvent alloc]initWithDictionary:repositoryDictionary];
+		[result addObject:newRepo];
+	}
+	return [result sortedArrayUsingComparator:^NSComparisonResult(KRGithubEvent *obj1, KRGithubEvent *obj2) {
+		return [obj2.creationDate compare:obj1.creationDate];
+	}];
 }
 
 

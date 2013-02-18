@@ -49,7 +49,6 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 
 @interface GPNavigationBar ()
 
-@property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIImageView *imageView;
 
 @end
@@ -72,7 +71,7 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 		_label.textColor = [UIColor grayColor];
 		_label.backgroundColor = [UIColor clearColor];
 		_label.textAlignment = NSTextAlignmentCenter;
-		_label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0f];
+		_label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f];
 		_label.layer.shadowOpacity = 1.0;
 		_label.layer.shadowRadius = 0.0;
 		_label.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -88,6 +87,11 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 
 -(void)setTitle:(NSString *)title {
 	[self.label setText:title];
+}
+
+- (void)setFrame:(CGRect)frame {
+	[super setFrame:frame];
+	[self.label setFrame:self.bounds];
 }
 
 #pragma mark - Drawing

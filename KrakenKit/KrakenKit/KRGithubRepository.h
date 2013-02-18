@@ -12,7 +12,21 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
+@property (nonatomic, strong, readonly) NSDate *lastPushDate;
+@property (nonatomic, strong, readonly) NSDate *lastUpdateDate;
+@property (nonatomic, strong, readonly) NSDate *sortDate;
+
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, assign, readonly, getter = isPrivateRepository) BOOL privateRepository;
 
 @end
+
+@interface KRGithubRepositoryReference : NSObject
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
+@property (nonatomic, copy, readonly) NSString *referenceName;
+@property (nonatomic, copy, readonly) NSString *description;
+
+@end
+
