@@ -8,6 +8,7 @@
 
 #import "GPAccountManager.h"
 #import "NPReachability.h"
+#import "SSKeychain.h"
 #import <KrakenKit/KrakenKit.h>
 
 @interface GPAccountManager ()
@@ -33,7 +34,6 @@
 {
     if (self = [super init])
     {
-		[self refreshAccounts];
 		_accounts = [[NSMutableArray alloc]init];
 		_accountHash = [NSMutableDictionary dictionary];
 		[self _loadAccounts];
@@ -55,28 +55,23 @@
 	[self.accountHash removeAllObjects];
 	[_accounts setArray:accounts];
 	for (KRGithubAccount *account in self.accounts) {
-		[self.accountHash setObject:account forKey:account.email];
+		[self.accountHash setObject:account forKey:account.username];
 	}
 }
 
 - (void)addAccount:(KRGithubAccount*)account {
 	[self.accounts addObject:account];
-	[self.accountHash setObject:account forKey:account.email];
+	[self.accountHash setObject:account forKey:account.username];
 }
 
 - (void)removeAccount:(KRGithubAccount*)account {
 //	[account cancel];
-	[self.accountHash removeObjectForKey:account.email];
+	[self.accountHash removeObjectForKey:account.username];
 	[self.accounts removeObject:account];
 }
 
-- (void)refreshAccounts {
-	//NOOP
-}
-
-
--(KRGithubAccount*)accountForEmail:(NSString*)email {
-	return [self.accountHash objectForKey:email];
+- (KRGithubAccount*)accountForUsername:(NSString*)username {
+	return [self.accountHash objectForKey:username];
 }
 
 - (void)saveChanges {
@@ -85,17 +80,18 @@
 
 - (void)_loadAccounts {
 	NSArray *defaultsAccounts = [[NSUserDefaults standardUserDefaults]objectForKey:@"Accounts"];
-	for (NSDictionary *infoDictionary in defaultsAccounts) {
-		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithDictionary:infoDictionary];
+	for (NSDictionary *infoDict in defaultsAccounts) {
+		NSString *password = [SSKeychain passwordForService:GPPasswordServiceConstant account:infoDict[@"login"]];
+		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithUsername:infoDict[@"login"] password:password];
 		[self.accounts addObject:newAccount];
-		[self.accountHash setObject:newAccount forKey:newAccount.email];
+		[self.accountHash setObject:newAccount forKey:newAccount.username];
 	}
 }
 
 - (void)_saveAccounts {
 	NSMutableArray *arrayOfAccounts = [NSMutableArray array];
 	for (KRGithubAccount *account in self.accounts) {
-//		[arrayOfAccounts addObject:[account info]];
+		[arrayOfAccounts addObject:[account dictionaryRepresentation]];
 	}
 	[[NSUserDefaults standardUserDefaults]setObject:arrayOfAccounts forKey:@"Accounts"];
 	[[NSUserDefaults standardUserDefaults]synchronize];

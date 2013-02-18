@@ -103,6 +103,37 @@
 	return result;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	self = [super init];
+	
+	_creationDate = [aDecoder decodeObjectForKey:@"CreationDate"];
+	_actor = [aDecoder decodeObjectForKey:@"Actor"];
+	_repository = [aDecoder decodeObjectForKey:@"Repository"];
+	_eventType = [aDecoder decodeIntForKey:@"EventType"];
+	_followee = [aDecoder decodeObjectForKey:@"Followee"];
+	_addedMember = [aDecoder decodeObjectForKey:@"AddedMember"];
+	_issue = [aDecoder decodeObjectForKey:@"Issue"];
+	_repository = [aDecoder decodeObjectForKey:@"CreationDate"];
+	_commits = [aDecoder decodeObjectForKey:@"Commits"];
+
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:_creationDate forKey:@"CreationDate"];
+	[aCoder encodeObject:_actor forKey:@"Actor"];
+	[aCoder encodeObject:_repository forKey:@"Repository"];
+	[aCoder encodeInt:_eventType forKey:@"EventType"];
+	[aCoder encodeObject:_followee forKey:@"Followee"];
+	[aCoder encodeObject:_addedMember forKey:@"AddedMember"];
+	[aCoder encodeObject:_issue forKey:@"Issue"];
+	[aCoder encodeObject:_repository forKey:@"RepositoryReference"];
+	[aCoder encodeObject:_commits forKey:@"Commits"];
+
+}
+
 #pragma mark - Private
 
 NSArray *_parsedIssuesCommits(NSArray *commits) {

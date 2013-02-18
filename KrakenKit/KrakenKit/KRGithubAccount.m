@@ -11,6 +11,7 @@
 #import "KRSession.h"
 #import "KRGithubRepository.h"
 #import "KRGithubEvent.h"
+#import "KRGithubNotification.h"
 
 NSString *const KRGitHubDefaultAPIEndpoint = @"https://api.github.com";
 NSString *const KRGithubAccountUsernameKey = @"KRUsernameKey";
@@ -40,6 +41,8 @@ RACScheduler *currentScheduler() {
 @property (nonatomic, strong) NSURL *endPoint;
 @property (nonatomic, assign) BOOL finished;
 
+@property (nonatomic, copy) NSArray *repositories;
+@property (nonatomic, copy) NSArray *events;
 @property (nonatomic, strong) NSURL *avatarURL;
 @property (nonatomic, copy) NSString *name;
 
@@ -105,7 +108,6 @@ RACScheduler *currentScheduler() {
 	if (avatarURLString != nil) {
 		self.avatarURL = [NSURL URLWithString:avatarURLString];
 	}
-	
 	return self;
 }
 
@@ -125,6 +127,13 @@ RACScheduler *currentScheduler() {
 	return self;
 }
 
+- (NSDictionary*)dictionaryRepresentation {
+	NSMutableDictionary *dict = @{}.mutableCopy;
+	[dict setObject:self.username forKey:@"login"];
+
+	return dict;
+}
+
 #pragma Account Management
 
 - (RACSignal *)login {
@@ -137,7 +146,6 @@ RACScheduler *currentScheduler() {
 			}];
 		}];
 	}]deliverOn:currentScheduler()];
-
 }
 
 - (RACSignal *)syncRepositories {
@@ -169,7 +177,8 @@ static NSArray *_parsedRepositories(NSArray *dirtyRepos) {
 	return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
 		return [syncScheduler() schedule:^{
 			[self.session _fetchEventsWithSuccess:^(NSArray *events){
-				[subscriber sendNext:_parsedEvents(events)];
+				self.events = _parsedEvents(events);
+				[subscriber sendNext:self.events];
 				[subscriber sendCompleted];
 			} failure:^(NSError *error){
 				[subscriber sendError:error];
@@ -189,22 +198,46 @@ static NSArray *_parsedEvents(NSArray *dirtyEvents) {
 	}];
 }
 
+- (RACSignal *)syncNotifications {
+	return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+		return [syncScheduler() schedule:^{
+			[self.session _fetchNotificationsWithSuccess:^(NSArray *notifications){
+				self.repositories = _parsedNotifications(notifications);
+				[subscriber sendNext:self.repositories];
+				[subscriber sendCompleted];
+			} failure:^(NSError *error){
+				[subscriber sendError:error];
+			}];
+		}];
+	}]deliverOn:currentScheduler()];
+}
+
+static NSArray *_parsedNotifications(NSArray *dirtyNotifications) {
+	NSMutableArray *result = [[NSMutableArray alloc]init];
+	for (NSDictionary *repositoryDictionary in dirtyNotifications) {
+		KRGithubNotification *newNotification = [[KRGithubNotification alloc]initWithDictionary:repositoryDictionary];
+		[result addObject:newNotification];
+	}
+	return result;
+}
+
 
 #pragma mark - NSCoding
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	self = [super init];
+	self = [self initWithUsername:[aDecoder decodeObjectForKey:@"Username"] password:[aDecoder decodeObjectForKey:@"Password"]];
 	
-	self.username = [aDecoder decodeObjectForKey:@"Username"];
-	self.password = [aDecoder decodeObjectForKey:@"Password"];
+	_repositories = [aDecoder decodeObjectForKey:@"Repositories"];
+	_events = [aDecoder decodeObjectForKey:@"Events"];
 	
 	return self;
 }
 
-- (void) encodeWithCoder:(NSCoder *)encoder
-{
+- (void) encodeWithCoder:(NSCoder *)encoder {
 	[encoder encodeObject:_username forKey:@"Username"];
 	[encoder encodeObject:_password forKey:@"Password"];
+	[encoder encodeObject:_repositories forKey:@"Repositories"];
+	[encoder encodeObject:_events forKey:@"Events"];
 }
 
 

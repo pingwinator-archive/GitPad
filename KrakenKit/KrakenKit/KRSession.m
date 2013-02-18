@@ -40,4 +40,8 @@
 	[self.githubEngine eventsReceivedByUser:self.githubEngine.username success:successBlock failure:failureBlock];
 }
 
+- (void)_fetchNotificationsWithSuccess:(void(^)(NSArray *events))successBlock failure:(void(^)(NSError *error))failureBlock {
+	[self.githubEngine notificationsWithSuccess:successBlock failure:failureBlock];
+}
+
 @end

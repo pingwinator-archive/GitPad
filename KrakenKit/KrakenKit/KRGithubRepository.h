@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KRGithubRepository : NSObject
+@interface KRGithubRepository : NSObject <NSCoding>
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
@@ -19,6 +19,8 @@
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, assign, readonly, getter = isPrivateRepository) BOOL privateRepository;
 
+@property (nonatomic, copy, readonly) NSString *descriptionString;
+
 @end
 
 @interface KRGithubRepositoryReference : NSObject
@@ -26,7 +28,7 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, copy, readonly) NSString *referenceName;
-@property (nonatomic, copy, readonly) NSString *description;
+@property (nonatomic, copy, readonly) NSString *descriptionString;
 
 @end
 

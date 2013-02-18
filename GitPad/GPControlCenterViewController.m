@@ -30,7 +30,7 @@
 -(id)init {
 	if (self = [super init]) {
 		_delegate = [[UIApplication sharedApplication]delegate];
-		self.view.backgroundColor = [UIColor darkGrayColor];
+		self.view.backgroundColor = [UIColor scrollViewTexturedBackgroundColor];
 		
 	}
 	return self;

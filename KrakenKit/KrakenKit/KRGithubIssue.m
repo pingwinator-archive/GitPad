@@ -23,6 +23,12 @@
 	} else if ([state isEqualToString:@"closed"]) {
 		_state = KRGithubIssueStateClosed;
 	}
+	NSString *title = dictionary[@"title"];
+	if (title != nil) {
+		_title = title;
+	} else {
+		_title = @"";
+	}
 	
 	return self;
 }

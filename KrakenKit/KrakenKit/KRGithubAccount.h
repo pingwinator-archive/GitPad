@@ -34,7 +34,10 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 - (RACSignal *)login;
 - (RACSignal *)syncRepositories;
 - (RACSignal *)syncNewsFeed;
+- (RACSignal *)syncNotifications;
 
+@property (nonatomic, copy, readonly) NSArray *repositories;
+@property (nonatomic, copy, readonly) NSArray *events;
 @property (nonatomic, copy, readonly) NSString *username;
 @property (nonatomic, copy, readonly) NSString *password;
 @property (nonatomic, strong, readonly) NSURL *endPoint;
@@ -73,6 +76,8 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 - (NSDate*)updatedAt;
 - (BOOL)hireable;
 - (NSURL*)starredURL;
+
+- (NSDictionary*)dictionaryRepresentation;
 
 @end
 

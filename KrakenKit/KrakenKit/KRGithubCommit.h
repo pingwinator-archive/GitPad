@@ -15,5 +15,6 @@
 @property (nonatomic, copy) NSString *sha;
 @property (nonatomic, copy) NSString *message;
 
+- (NSString*)descriptionString;
 
 @end

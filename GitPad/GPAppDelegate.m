@@ -78,10 +78,18 @@
 
 - (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller distanceForSlideDirecton:(MWFSlideDirection)direction portraitOrientation:(BOOL)portraitOrientation {
 	if (portraitOrientation) {
-		return 180;
+		NSInteger distance = CGRectGetHeight(controller.view.bounds)-44;
+		if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+			distance = 180;
+		}
+		return distance;
 	}
 	else {
-		return 100;
+		NSInteger distance = CGRectGetHeight(controller.view.bounds)-44;
+		if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+			distance = 100;
+		}
+		return distance;
 	}
 }
 

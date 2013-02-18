@@ -23,12 +23,12 @@ const CGFloat INButtonTopOffset = 3.0;
 static inline CGPathRef createClippingPathWithRectAndRadius(CGRect rect, CGFloat radius)
 {
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect));
-    CGPathAddLineToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMaxY(rect)-radius);
-    CGPathAddArcToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMaxY(rect), CGRectGetMinX(rect)+radius, CGRectGetMaxY(rect), radius);
-    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect)-radius, CGRectGetMaxY(rect));
-    CGPathAddArcToPoint(path, NULL,  CGRectGetMaxX(rect), CGRectGetMaxY(rect), CGRectGetMaxX(rect), CGRectGetMaxY(rect)-radius, radius);
-    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect), CGRectGetMinY(rect));
+    CGPathMoveToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMaxY(rect));
+    CGPathAddLineToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect)-radius);
+    CGPathAddArcToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetMinX(rect)+radius, CGRectGetMinY(rect), radius);
+    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect)-radius, CGRectGetMinY(rect));
+    CGPathAddArcToPoint(path, NULL,  CGRectGetMaxX(rect), CGRectGetMinY(rect), CGRectGetMaxX(rect), CGRectGetMinY(rect)+radius, radius);
+    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
     CGPathCloseSubpath(path);
     return path;
 }
@@ -133,23 +133,24 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+	CGContextRef context = UIGraphicsGetCurrentContext();
+
 	if (self.drawRect != nil) {
 		self.drawRect(self, rect);
+		CGRect clippingRect = [self bounds];
+		
+		CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
+		CGContextAddPath(context, clippingPath);
+		CGContextClip(context);
+		CGPathRelease(clippingPath);
 		return;
 	}
     CGRect drawingRect = [self bounds];
-
-	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
 	UIColor *endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
 	
 	CGRect clippingRect = drawingRect;
-
-	CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
-	CGContextAddPath(context, clippingPath);
-	CGContextClip(context);
-	CGPathRelease(clippingPath);
 	
 	CGGradientRef gradient = createGradientWithColors(startColor, endColor);
 	CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMinY(drawingRect)),
@@ -161,6 +162,11 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
     CGContextMoveToPoint(context,0.0f, CGRectGetMaxY(drawingRect));
     CGContextAddLineToPoint(context,CGRectGetMaxX(drawingRect), CGRectGetMaxY(drawingRect));
     CGContextStrokePath(context);
+	
+	CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
+	CGContextAddPath(context, clippingPath);
+	CGContextClip(context);
+	CGPathRelease(clippingPath);
 
 }
 

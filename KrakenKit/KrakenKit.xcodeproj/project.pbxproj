@@ -42,6 +42,8 @@
 		84D4678116D0CBBE0080E6F6 /* UAGithubURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */; };
 		84D4678216D0CBBE0080E6F6 /* UAReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D4676D16D0CBBE0080E6F6 /* UAReachability.h */; };
 		84D4678316D0CBBE0080E6F6 /* UAReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4676E16D0CBBE0080E6F6 /* UAReachability.m */; };
+		84F8F03B16D2130300827B4D /* KRGithubNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F8F03916D2130300827B4D /* KRGithubNotification.h */; };
+		84F8F03C16D2130300827B4D /* KRGithubNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03A16D2130300827B4D /* KRGithubNotification.m */; };
 		84FE0DF116D0D9C800A9F360 /* NSDate+JSONDate.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FE0DEF16D0D9C800A9F360 /* NSDate+JSONDate.h */; };
 		84FE0DF216D0D9C800A9F360 /* NSDate+JSONDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DF016D0D9C800A9F360 /* NSDate+JSONDate.m */; };
 		84FE0E2E16D19C8B00A9F360 /* KRGithubEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FE0E2C16D19C8B00A9F360 /* KRGithubEvent.h */; };
@@ -103,6 +105,8 @@
 		84D4676C16D0CBBE0080E6F6 /* UAGithubURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAGithubURLConnection.m; sourceTree = "<group>"; };
 		84D4676D16D0CBBE0080E6F6 /* UAReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAReachability.h; sourceTree = "<group>"; };
 		84D4676E16D0CBBE0080E6F6 /* UAReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UAReachability.m; sourceTree = "<group>"; };
+		84F8F03916D2130300827B4D /* KRGithubNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubNotification.h; sourceTree = "<group>"; };
+		84F8F03A16D2130300827B4D /* KRGithubNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGithubNotification.m; sourceTree = "<group>"; };
 		84FE0DEF16D0D9C800A9F360 /* NSDate+JSONDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSONDate.h"; sourceTree = "<group>"; };
 		84FE0DF016D0D9C800A9F360 /* NSDate+JSONDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONDate.m"; sourceTree = "<group>"; };
 		84FE0E2C16D19C8B00A9F360 /* KRGithubEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGithubEvent.h; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				84FE0E3716D1BADB00A9F360 /* KRGithubCommit.m */,
 				84FE0E3016D1B25200A9F360 /* KRGithubIssue.h */,
 				84FE0E3116D1B25200A9F360 /* KRGithubIssue.m */,
+				84F8F03916D2130300827B4D /* KRGithubNotification.h */,
+				84F8F03A16D2130300827B4D /* KRGithubNotification.m */,
 				84CB8C8716ADC3B90026AF86 /* KRGithubAccountPlan.h */,
 				84CB8C8816ADC3B90026AF86 /* KRGithubAccountPlan.m */,
 				84ADFA1316ADA9BD0026F990 /* KRSession.h */,
@@ -246,6 +252,7 @@
 				84FE0E2E16D19C8B00A9F360 /* KRGithubEvent.h in Headers */,
 				84FE0E3216D1B25200A9F360 /* KRGithubIssue.h in Headers */,
 				84FE0E3816D1BADB00A9F360 /* KRGithubCommit.h in Headers */,
+				84F8F03B16D2130300827B4D /* KRGithubNotification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +328,7 @@
 				84FE0E2F16D19C8B00A9F360 /* KRGithubEvent.m in Sources */,
 				84FE0E3316D1B25200A9F360 /* KRGithubIssue.m in Sources */,
 				84FE0E3916D1BADB00A9F360 /* KRGithubCommit.m in Sources */,
+				84F8F03C16D2130300827B4D /* KRGithubNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

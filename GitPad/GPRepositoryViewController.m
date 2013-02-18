@@ -67,17 +67,19 @@
 - (void)showView {
 	CGRect remainder, slice;
 	CGRectDivide(self.view.superview.bounds, &slice, &remainder, 300, CGRectMaxXEdge);
-	[UIView animateWithDuration:0.25 animations:^{
+	[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
 		self.view.frame = slice;
+	} completion:^(BOOL finished) {
+		
 	}];
 }
 
 - (void)hideView {
 	CGRect hiddenRect = self.view.frame;
-	hiddenRect.origin.x = CGRectGetWidth(UIScreen.mainScreen.bounds);
+	hiddenRect.origin.x = CGRectGetWidth(self.view.superview.bounds);
 	[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
 		self.view.frame = hiddenRect;
-	}completion:^(BOOL finished) {
+	} completion:^(BOOL finished) {
 		
 	}];
 }

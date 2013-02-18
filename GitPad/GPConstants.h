@@ -11,4 +11,6 @@
 
 static NSString *const GPLoginViewControllerDidSuccessfulyLoginNotification = @"GPLoginViewControllerDidSuccessfulyLogin";
 
+static NSString *const GPPasswordServiceConstant = @"com.CodaFi.GPLoginKeychainConstant";
+
 #endif

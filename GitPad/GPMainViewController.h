@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class KRGithubAccount;
+
 @interface GPMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) KRGithubAccount *currentAccount;
 
 @end

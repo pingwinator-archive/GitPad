@@ -69,7 +69,11 @@
 	
 	[self.view addSubview:self.navigationBar];
 	
-	self.usernameField = [[UITextField alloc]initWithFrame:CGRectMake(145, 163, 250, 44)];
+	CGRect usernameRect = CGRectMake(145, 163, 250, 44);
+	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		usernameRect = CGRectMake(35, 103, 250, 44);
+	}
+	self.usernameField = [[UITextField alloc]initWithFrame:usernameRect];
 	self.usernameField.delegate = self;
 	[self.usernameField setBackgroundColor:[UIColor whiteColor]];
 	self.usernameField.borderStyle = UITextBorderStyleLine;
@@ -78,7 +82,11 @@
 	[self.usernameField setReturnKeyType:UIReturnKeyNext];
 	[self.view addSubview:self.usernameField];
 	
-	self.passwordField = [[UITextField alloc]initWithFrame:CGRectMake(145, 215, 250, 44)];
+	CGRect passwordRect = CGRectMake(145, 215, 250, 44);
+	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		passwordRect = CGRectMake(35, 155, 250, 44);
+	}
+	self.passwordField = [[UITextField alloc]initWithFrame:passwordRect];
 	self.passwordField.delegate = self;
 	[self.passwordField setSecureTextEntry:YES];
 	[self.passwordField setBackgroundColor:[UIColor whiteColor]];

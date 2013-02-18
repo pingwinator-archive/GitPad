@@ -17,7 +17,7 @@
 - (void) addAccount:(KRGithubAccount *)account;
 - (void) removeAccount:(KRGithubAccount *)account;
 
-- (KRGithubAccount *) accountForEmail:(NSString *)email;
+- (KRGithubAccount*)accountForUsername:(NSString*)email;
 
 - (void) saveChanges;
 

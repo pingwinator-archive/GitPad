@@ -58,6 +58,27 @@
 		84CB8C9C16ADCE9B0026AF86 /* UIImage+PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9716ADCE9B0026AF86 /* UIImage+PDF.m */; };
 		84CB8C9D16ADCE9B0026AF86 /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */; };
 		84CB8C9F16ADCEA60026AF86 /* <Blacktocats>.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */; };
+		84F8F00D16D1D0C200827B4D /* BWStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F00616D1D0C200827B4D /* BWStatusBarOverlay.m */; };
+		84F8F00E16D1D0C200827B4D /* status-bar-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00716D1D0C200827B4D /* status-bar-progress.png */; };
+		84F8F00F16D1D0C200827B4D /* status-bar-progress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00816D1D0C200827B4D /* status-bar-progress@2x.png */; };
+		84F8F01016D1D0C200827B4D /* status-bar-pattern-black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00916D1D0C200827B4D /* status-bar-pattern-black.jpg */; };
+		84F8F01116D1D0C200827B4D /* status-bar-pattern-black@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00A16D1D0C200827B4D /* status-bar-pattern-black@2x.jpg */; };
+		84F8F01216D1D0C200827B4D /* status-bar-pattern-default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00B16D1D0C200827B4D /* status-bar-pattern-default.jpg */; };
+		84F8F01316D1D0C200827B4D /* status-bar-pattern-default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00C16D1D0C200827B4D /* status-bar-pattern-default@2x.jpg */; };
+		84F8F01516D1D24900827B4D /* BWStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F00616D1D0C200827B4D /* BWStatusBarOverlay.m */; };
+		84F8F01616D1D32500827B4D /* status-bar-progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00716D1D0C200827B4D /* status-bar-progress.png */; };
+		84F8F01716D1D32500827B4D /* status-bar-progress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00816D1D0C200827B4D /* status-bar-progress@2x.png */; };
+		84F8F01816D1D32500827B4D /* status-bar-pattern-black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00916D1D0C200827B4D /* status-bar-pattern-black.jpg */; };
+		84F8F01916D1D32500827B4D /* status-bar-pattern-black@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00A16D1D0C200827B4D /* status-bar-pattern-black@2x.jpg */; };
+		84F8F01A16D1D32500827B4D /* status-bar-pattern-default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00B16D1D0C200827B4D /* status-bar-pattern-default.jpg */; };
+		84F8F01B16D1D32500827B4D /* status-bar-pattern-default@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F00C16D1D0C200827B4D /* status-bar-pattern-default@2x.jpg */; };
+		84F8F02F16D1FB8B00827B4D /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F02E16D1FB8B00827B4D /* octicons.ttf */; };
+		84F8F03016D1FB8B00827B4D /* octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84F8F02E16D1FB8B00827B4D /* octicons.ttf */; };
+		84F8F03716D2068600827B4D /* GPScrollingSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03616D2068600827B4D /* GPScrollingSegmentedControl.m */; };
+		84F8F03816D2068600827B4D /* GPScrollingSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03616D2068600827B4D /* GPScrollingSegmentedControl.m */; };
+		84F8F03F16D2175400827B4D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03E16D2175400827B4D /* SSKeychain.m */; };
+		84F8F04016D2175400827B4D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03E16D2175400827B4D /* SSKeychain.m */; };
+		84F8F04216D217E700827B4D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8F04116D217E700827B4D /* Security.framework */; };
 		84FE0DE916D0CE0800A9F360 /* GPRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */; };
 		84FE0DEE16D0CE2400A9F360 /* GPRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */; };
 /* End PBXBuildFile section */
@@ -196,6 +217,20 @@
 		84CB8C9816ADCE9B0026AF86 /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
 		84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
 		84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "<Blacktocats>.pdf"; sourceTree = "<group>"; };
+		84F8F00516D1D0C200827B4D /* BWStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWStatusBarOverlay.h; sourceTree = "<group>"; };
+		84F8F00616D1D0C200827B4D /* BWStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWStatusBarOverlay.m; sourceTree = "<group>"; };
+		84F8F00716D1D0C200827B4D /* status-bar-progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-bar-progress.png"; sourceTree = "<group>"; };
+		84F8F00816D1D0C200827B4D /* status-bar-progress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-bar-progress@2x.png"; sourceTree = "<group>"; };
+		84F8F00916D1D0C200827B4D /* status-bar-pattern-black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "status-bar-pattern-black.jpg"; sourceTree = "<group>"; };
+		84F8F00A16D1D0C200827B4D /* status-bar-pattern-black@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "status-bar-pattern-black@2x.jpg"; sourceTree = "<group>"; };
+		84F8F00B16D1D0C200827B4D /* status-bar-pattern-default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "status-bar-pattern-default.jpg"; sourceTree = "<group>"; };
+		84F8F00C16D1D0C200827B4D /* status-bar-pattern-default@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "status-bar-pattern-default@2x.jpg"; sourceTree = "<group>"; };
+		84F8F02E16D1FB8B00827B4D /* octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = octicons.ttf; sourceTree = "<group>"; };
+		84F8F03516D2068500827B4D /* GPScrollingSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPScrollingSegmentedControl.h; sourceTree = "<group>"; };
+		84F8F03616D2068600827B4D /* GPScrollingSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPScrollingSegmentedControl.m; sourceTree = "<group>"; };
+		84F8F03D16D2175400827B4D /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		84F8F03E16D2175400827B4D /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		84F8F04116D217E700827B4D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryViewController.h; sourceTree = "<group>"; };
 		84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPRepositoryViewController.m; sourceTree = "<group>"; };
 		84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryCell.h; sourceTree = "<group>"; };
@@ -208,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ADF9EC16ADA7D50026F990 /* libKrakenKit.a in Frameworks */,
+				84F8F04216D217E700827B4D /* Security.framework in Frameworks */,
 				84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */,
 				8442C32716681AF4007046E3 /* QuartzCore.framework in Frameworks */,
 				8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */,
@@ -234,6 +270,7 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
+				84F8F04116D217E700827B4D /* Security.framework */,
 				846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */,
 				84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */,
 				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
@@ -278,12 +315,13 @@
 				846F181816C795EC0099BA2C /* NPReachability.m */,
 				846B205D1671717600436E90 /* GPMainViewController.h */,
 				846B205E1671717700436E90 /* GPMainViewController.m */,
-				84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */,
-				84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */,
-				84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */,
-				84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */,
 				8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */,
 				8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */,
+				84F8F03516D2068500827B4D /* GPScrollingSegmentedControl.h */,
+				84F8F03616D2068600827B4D /* GPScrollingSegmentedControl.m */,
+				84F8F03D16D2175400827B4D /* SSKeychain.h */,
+				84F8F03E16D2175400827B4D /* SSKeychain.m */,
+				84F8F01C16D1D4A500827B4D /* Repository View Controller */,
 				840582EF169F86DE0022E4F9 /* GPNotificationButton.h */,
 				840582F0169F86DE0022E4F9 /* GPNotificationButton.m */,
 				8442C32816681B76007046E3 /* GPControlCenterViewController.h */,
@@ -294,6 +332,7 @@
 				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
 				846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */,
 				846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */,
+				84F8F01416D1D0CF00827B4D /* BWStatusBarOverlay */,
 				846F181A16C79A110099BA2C /* WBNoticeView */,
 				84CB8C9116ADCE9B0026AF86 /* UIImage+PDF */,
 				846B205C1671710100436E90 /* GPNavigationController */,
@@ -305,6 +344,7 @@
 		8442C2F11668184B007046E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84F8F02E16D1FB8B00827B4D /* octicons.ttf */,
 				84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */,
 				84CB8C9E16ADCEA50026AF86 /* <Blacktocats>.pdf */,
 				8442C3021668184B007046E3 /* GitPad.xcdatamodeld */,
@@ -410,6 +450,32 @@
 				84CB8C9916ADCE9B0026AF86 /* UIView+Image.m */,
 			);
 			path = "UIImage+PDF";
+			sourceTree = "<group>";
+		};
+		84F8F01416D1D0CF00827B4D /* BWStatusBarOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				84F8F00516D1D0C200827B4D /* BWStatusBarOverlay.h */,
+				84F8F00616D1D0C200827B4D /* BWStatusBarOverlay.m */,
+				84F8F00716D1D0C200827B4D /* status-bar-progress.png */,
+				84F8F00816D1D0C200827B4D /* status-bar-progress@2x.png */,
+				84F8F00916D1D0C200827B4D /* status-bar-pattern-black.jpg */,
+				84F8F00A16D1D0C200827B4D /* status-bar-pattern-black@2x.jpg */,
+				84F8F00B16D1D0C200827B4D /* status-bar-pattern-default.jpg */,
+				84F8F00C16D1D0C200827B4D /* status-bar-pattern-default@2x.jpg */,
+			);
+			name = BWStatusBarOverlay;
+			sourceTree = "<group>";
+		};
+		84F8F01C16D1D4A500827B4D /* Repository View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */,
+				84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */,
+				84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */,
+				84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */,
+			);
+			name = "Repository View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +593,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F8F01616D1D32500827B4D /* status-bar-progress.png in Resources */,
+				84F8F01716D1D32500827B4D /* status-bar-progress@2x.png in Resources */,
+				84F8F01816D1D32500827B4D /* status-bar-pattern-black.jpg in Resources */,
+				84F8F01916D1D32500827B4D /* status-bar-pattern-black@2x.jpg in Resources */,
+				84F8F01A16D1D32500827B4D /* status-bar-pattern-default.jpg in Resources */,
+				84F8F01B16D1D32500827B4D /* status-bar-pattern-default@2x.jpg in Resources */,
 				8442C2F51668184B007046E3 /* InfoPlist.strings in Resources */,
 				8442C2FD1668184B007046E3 /* Default.png in Resources */,
 				8442C2FF1668184B007046E3 /* Default@2x.png in Resources */,
@@ -535,6 +607,7 @@
 				84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */,
 				84CB8C9F16ADCEA60026AF86 /* <Blacktocats>.pdf in Resources */,
 				846F183116C79A110099BA2C /* NoticeView.bundle in Resources */,
+				84F8F02F16D1FB8B00827B4D /* octicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +616,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8442C3171668184B007046E3 /* InfoPlist.strings in Resources */,
+				84F8F00E16D1D0C200827B4D /* status-bar-progress.png in Resources */,
+				84F8F00F16D1D0C200827B4D /* status-bar-progress@2x.png in Resources */,
+				84F8F01016D1D0C200827B4D /* status-bar-pattern-black.jpg in Resources */,
+				84F8F01116D1D0C200827B4D /* status-bar-pattern-black@2x.jpg in Resources */,
+				84F8F01216D1D0C200827B4D /* status-bar-pattern-default.jpg in Resources */,
+				84F8F01316D1D0C200827B4D /* status-bar-pattern-default@2x.jpg in Resources */,
+				84F8F03016D1FB8B00827B4D /* octicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +649,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F8F01516D1D24900827B4D /* BWStatusBarOverlay.m in Sources */,
 				8442C2F71668184B007046E3 /* main.m in Sources */,
 				8442C2FB1668184B007046E3 /* GPAppDelegate.m in Sources */,
 				8442C3041668184B007046E3 /* GitPad.xcdatamodeld in Sources */,
@@ -598,6 +679,8 @@
 				846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */,
 				84FE0DE916D0CE0800A9F360 /* GPRepositoryViewController.m in Sources */,
 				84FE0DEE16D0CE2400A9F360 /* GPRepositoryCell.m in Sources */,
+				84F8F03716D2068600827B4D /* GPScrollingSegmentedControl.m in Sources */,
+				84F8F03F16D2175400827B4D /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +692,9 @@
 				840582ED169F7D920022E4F9 /* MWFSlideNavigationViewController.m in Sources */,
 				840582F2169F86DE0022E4F9 /* GPNotificationButton.m in Sources */,
 				846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */,
+				84F8F00D16D1D0C200827B4D /* BWStatusBarOverlay.m in Sources */,
+				84F8F03816D2068600827B4D /* GPScrollingSegmentedControl.m in Sources */,
+				84F8F04016D2175400827B4D /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,11 +809,13 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -743,11 +831,13 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -26,7 +26,7 @@ typedef NS_ENUM(int, KRGithubEventPayloadType) {
 	KRGithubEventPayloadTypeOpenSourcedRepository
 };
 
-@interface KRGithubEvent : NSObject
+@interface KRGithubEvent : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSDate *creationDate;
 @property (nonatomic, strong) KRGithubAccount *actor;

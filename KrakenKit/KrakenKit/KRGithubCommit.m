@@ -25,4 +25,12 @@
 	return self;
 }
 
+- (NSString*)descriptionString {
+	NSMutableString *str = [NSMutableString stringWithFormat:@"%@ %@", [self.sha substringToIndex:8], self.message];
+	if (str.length < 43) {
+		return str;
+	}
+	return [[str substringToIndex:40]stringByAppendingString:@"..."];
+}
+
 @end

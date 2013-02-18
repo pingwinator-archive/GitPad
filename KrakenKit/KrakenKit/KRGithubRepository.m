@@ -15,6 +15,7 @@
 @property (nonatomic, assign, getter = isPrivateRepository) BOOL privateRepository;
 @property (nonatomic, strong) NSDate *lastUpdateDate;
 @property (nonatomic, strong) NSDate *lastPushDate;
+@property (nonatomic, copy) NSString *descriptionString;
 
 @end
 
@@ -36,6 +37,12 @@
 	if (privateEntry != nil) {
 		_privateRepository = [privateEntry boolValue];
 	}
+	NSString *description = dictionary[@"description"];
+	if (description != nil) {
+		_descriptionString = description;
+	} else {
+		description = @"";
+	}
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
 	[dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
 	_lastUpdateDate = [dateFormat dateFromString:dictionary[@"updated_at"]];
@@ -52,12 +59,32 @@
 	return self.lastUpdateDate;
 }
 
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	self = [super init];
+	
+	_name = [aDecoder decodeObjectForKey:@"name"];
+	_privateRepository = [aDecoder decodeBoolForKey:@"private"];
+	_lastUpdateDate = [aDecoder decodeObjectForKey:@"lastUpdateDate"];
+	_lastPushDate = [aDecoder decodeObjectForKey:@"lastPushDate"];
+
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:self.name forKey:@"name"];
+	[aCoder encodeBool:self.isPrivateRepository forKey:@"private"];
+	[aCoder encodeObject:self.lastUpdateDate forKey:@"lastUpdateDate"];
+	[aCoder encodeObject:self.lastPushDate forKey:@"lastPushDate"];
+}
+
 @end
 
 @interface KRGithubRepositoryReference ()
 
 @property (nonatomic, copy) NSString *referenceName;
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *descriptionString;
 
 @end
 
@@ -72,7 +99,7 @@
 	}
 	NSString *descriptionEntry = dictionary[@"description"];
 	if (descriptionEntry != nil) {
-		_description = descriptionEntry;
+		_descriptionString = descriptionEntry;
 	}
 	return self;
 }
