@@ -6,19 +6,19 @@
 //  Copyright (c) 2013 CodaFi. All rights reserved.
 //
 
-#import "GPRepositoryViewController.h"
+#import "GPRepositoryListViewController.h"
 #import "GPRepositoryCell.h"
 #import "GPNavigationBar.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface GPRepositoryViewController ()
+@interface GPRepositoryListViewController ()
 
 @property (nonatomic, strong) GPNavigationBar *navigationBar;
 @property (nonatomic, strong) UISearchBar *searchBar;
 
 @end
 
-@implementation GPRepositoryViewController
+@implementation GPRepositoryListViewController
 
 - (id)init {
 	self = [super init];
@@ -65,23 +65,40 @@
 }
 
 - (void)showView {
-	CGRect remainder, slice;
-	CGRectDivide(self.view.superview.bounds, &slice, &remainder, 300, CGRectMaxXEdge);
-	[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-		self.view.frame = slice;
-	} completion:^(BOOL finished) {
-		
-	}];
+	[self showViewAnimated:NO];
+
 }
 
 - (void)hideView {
+	[self hideViewAnimated:NO];
+}
+
+- (void)showViewAnimated:(BOOL)animated {
+	CGRect remainder, slice;
+	CGRectDivide(self.view.superview.bounds, &slice, &remainder, 300, CGRectMaxXEdge);
+	if (animated) {
+		[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+			self.view.frame = slice;
+		} completion:^(BOOL finished) {
+			
+		}];
+	}else {
+		self.view.frame = slice;
+	}
+}
+
+- (void)hideViewAnimated:(BOOL)animated {
 	CGRect hiddenRect = self.view.frame;
 	hiddenRect.origin.x = CGRectGetWidth(self.view.superview.bounds);
-	[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+	if (animated) {
+		[UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+			self.view.frame = hiddenRect;
+		} completion:^(BOOL finished) {
+			
+		}];
+	} else {
 		self.view.frame = hiddenRect;
-	} completion:^(BOOL finished) {
-		
-	}];
+	}
 }
 
 - (void)setRepositories:(NSArray *)repositories {
@@ -98,6 +115,7 @@
 	GPRepositoryCell *cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
     if (cell == nil) {
 		KRGithubRepository *repo = [self.repositories objectAtIndex:indexPath.row];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell = [[GPRepositoryCell alloc] initWithRepository:repo style:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
     }
 	return cell;

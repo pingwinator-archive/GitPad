@@ -18,6 +18,7 @@
 
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, assign, readonly, getter = isPrivateRepository) BOOL privateRepository;
+@property (nonatomic, assign, readonly, getter = isFork) BOOL fork;
 
 @property (nonatomic, copy, readonly) NSString *descriptionString;
 

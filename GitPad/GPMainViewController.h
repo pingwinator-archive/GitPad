@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) KRGithubAccount *currentAccount;
 
+- (void)gp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated newNavigationBar:(BOOL)flag completion:(void (^)(void))completion;
+
 @end

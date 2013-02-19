@@ -161,6 +161,7 @@
 		[loginSignal subscribeError:^(NSError *error) {
 			@strongify(self);
 			switch (error.code) {
+				case -1009:
 				case 503:
 					[errStr appendString:@"GitHub appears to be unreachable.  Check that you have a valid connection to the internet."];
 					errAlpha = 1;

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPScrollingSegmentedControl : UISegmentedControl
+@interface GPScrollingSegmentedControl : UIView
 
-- (id)initWithItems:(NSArray *)items inScrollView:(UIScrollView*)scrollView;
+- (id)initWithFrame:(CGRect)frame andItems:(NSArray *)items inScrollView:(UIScrollView*)scrollView;
+
+@property (nonatomic, assign) NSInteger selectedSegmentIndex;
 
 @end

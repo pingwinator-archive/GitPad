@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 CodaFi. All rights reserved.
 //
 
+#import "GPAccountViewController.h"
 #import "GPMainViewController.h"
 #import "GPAppDelegate.h"
 #import "GPLoginViewController.h"
@@ -13,8 +14,7 @@
 #import "GPNavigationBar.h"
 #import "GPNotificationButton.h"
 #import "GPNewsFeedCell.h"
-#import "GPConstants.h"
-#import "GPRepositoryViewController.h"
+#import "GPRepositoryListViewController.h"
 #import "BWStatusBarOverlay.h"
 #import "GPAccountManager.h"
 #import "GPScrollingSegmentedControl.h"
@@ -27,7 +27,7 @@
 
 @property (nonatomic, strong) GPScrollingSegmentedControl *scopeBar;
 
-@property (nonatomic, strong) GPRepositoryViewController *repositoryTableViewController;
+@property (nonatomic, strong) GPRepositoryListViewController *repositoryTableViewController;
 
 @property (nonatomic, assign) GPAppDelegate *delegate;
 @property (nonatomic, strong) GPLoginViewController *loginViewController;
@@ -38,9 +38,6 @@
 @property (nonatomic, strong) NSArray *eventsArray;
 @property (nonatomic, strong) UITableView *newsFeedTableView;
 
-@property (nonatomic, strong) UISwipeGestureRecognizer *repoViewPanGestureRecognizer;
-@property (nonatomic, strong) UISwipeGestureRecognizer *repoViewPanGestureRecognizer2;
-
 @property (nonatomic, strong) CALayer *blanketDimmingLayer;
 @property (nonatomic, assign) BOOL loginPresentedOnce;
 
@@ -50,17 +47,13 @@
 
 - (id)init {
 	if (self = [super init]) {
-		_repositoryTableViewController = [[GPRepositoryViewController alloc]init];
+		_repositoryTableViewController = [[GPRepositoryListViewController alloc]init];
 		
 		_delegate = [[UIApplication sharedApplication]delegate];
 		
 		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful:) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
-		self.repoViewPanGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-		self.repoViewPanGestureRecognizer.direction = (UISwipeGestureRecognizerDirectionRight);
-		
-		self.repoViewPanGestureRecognizer2 = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-		self.repoViewPanGestureRecognizer2.direction = (UISwipeGestureRecognizerDirectionLeft);
-				
+		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_leftSideActionNotificationRecieved:) name:GPNewsFeedCellSelectedLeftSideActionNotification object:nil];
+	
 		_blanketDimmingLayer = [[CALayer alloc]init];
 		_blanketDimmingLayer.backgroundColor = UIColor.blackColor.CGColor;
 		_blanketDimmingLayer.opacity = 0.0;
@@ -83,17 +76,18 @@
 	self.newsFeedTableView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
 	[self.view addSubview:self.newsFeedTableView];
 	
-	self.scopeBar = [[GPScrollingSegmentedControl alloc]initWithItems:@[@"Feed", @"PRs", @"Issues", @"Stars"] inScrollView:self.newsFeedTableView];
-	self.scopeBar.segmentedControlStyle = UISegmentedControlStyleBar;
+	self.scopeBar = [[GPScrollingSegmentedControl alloc]initWithFrame:slice andItems:@[@"Feed", @"PRs", @"Issues", @"Stars"] inScrollView:self.newsFeedTableView];
+	self.scopeBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	[self.scopeBar setSelectedSegmentIndex:0];
 	
 	self.blanketDimmingLayer.frame = self.view.bounds;
 	[self.view.layer addSublayer:self.blanketDimmingLayer];
 	
 	CGRectDivide(self.view.bounds, &slice, &remainder, 300, CGRectMaxXEdge);
 	[self.repositoryTableViewController setupWithFrame:slice];
-	[self.repositoryTableViewController hideView];
 	[self.view addSubview:self.repositoryTableViewController.view];
-	
+	[self.repositoryTableViewController hideView];
+
 	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.view addSubview:self.navigationBar];
@@ -105,8 +99,7 @@
 	self.navigationBar.label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0f];
 	[self.navigationBar addSubview:self.notificationButton];
 	
-	[self.view addGestureRecognizer:self.repoViewPanGestureRecognizer];
-	[self.view addGestureRecognizer:self.repoViewPanGestureRecognizer2];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -197,16 +190,42 @@
 	}];
 }
 
+- (void)_leftSideActionNotificationRecieved:(NSNotification*)notification {
+	KRGithubAccount *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
+	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount navigationBar:self.navigationBar];
+	[self gp_presentViewController:accountViewController animated:YES newNavigationBar:NO completion:^{
+		
+	}];
+}
+
+#pragma mark - Presentation
+
+- (void)gp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated newNavigationBar:(BOOL)flag completion:(void (^)(void))completion {
+	if (flag) {
+		[self presentViewController:viewControllerToPresent animated:animated completion:completion];
+	} else {
+		viewControllerToPresent.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(self.view.bounds));
+		[self.view insertSubview:viewControllerToPresent.view belowSubview:self.navigationBar];
+		[UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+			CGRect remainder, slice;
+			CGRectDivide(self.view.bounds, &slice, &remainder, 44, CGRectMinYEdge);
+			viewControllerToPresent.view.frame = remainder;
+		} completion:^(BOOL finished) {
+			completion();
+		}];
+	}
+}
+
 #pragma mark - Gesture Handling
 
 - (void)handleSwipe:(UISwipeGestureRecognizer*)sender {
 	if (sender.direction & UISwipeGestureRecognizerDirectionLeft) {
-		[self.repositoryTableViewController showView];
+		[self.repositoryTableViewController showViewAnimated:YES];
 		self.blanketDimmingLayer.opacity = 0.8;
 		self.newsFeedTableView.userInteractionEnabled = NO;
 	}
 	if (sender.direction & UISwipeGestureRecognizerDirectionRight) {
-		[self.repositoryTableViewController hideView];
+		[self.repositoryTableViewController hideViewAnimated:YES];
 		self.blanketDimmingLayer.opacity = 0.0;
 		self.newsFeedTableView.userInteractionEnabled = YES;
 	}
@@ -222,6 +241,7 @@
 	KRGithubEvent *event = [self.eventsArray objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[GPNewsFeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 	[cell setEvent:event];
 	return cell;

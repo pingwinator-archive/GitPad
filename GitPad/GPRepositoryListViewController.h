@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <KrakenKit.h>
 
-@interface GPRepositoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GPRepositoryListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *repositories;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) KRGithubAccount *account;
 
 - (void)setupWithFrame:(CGRect)frame;
+
 - (void)showView;
 - (void)hideView;
+- (void)showViewAnimated:(BOOL)animated;
+- (void)hideViewAnimated:(BOOL)animated;
 
 @end

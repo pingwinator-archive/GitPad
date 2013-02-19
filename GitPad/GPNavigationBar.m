@@ -72,10 +72,10 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 		_label.backgroundColor = [UIColor clearColor];
 		_label.textAlignment = NSTextAlignmentCenter;
 		_label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f];
-		_label.layer.shadowOpacity = 1.0;
+		_label.layer.shadowOpacity = 0.75;
 		_label.layer.shadowRadius = 0.0;
 		_label.layer.shadowColor = [UIColor blackColor].CGColor;
-		_label.layer.shadowOffset = CGSizeMake(0.0, -1.0);
+		_label.layer.shadowOffset = CGSizeMake(0.0, -0.5);
 		[self addSubview:_label];
 		
 		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];

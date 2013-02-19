@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) KRGithubRepository *repository;
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UILabel *octiconIconLabel;
 
 @end
 
@@ -27,6 +28,12 @@
 	[_label setBackgroundColor:[UIColor clearColor]];
 	[self addSubview:_label];
 	
+	_octiconIconLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+	[_octiconIconLabel setFont:[UIFont fontWithName:@"octicons" size:16]];
+	_octiconIconLabel.textAlignment = NSTextAlignmentCenter;
+	[_octiconIconLabel setText:_repoText(repo)];
+	[_octiconIconLabel setBackgroundColor:[UIColor clearColor]];
+	[self addSubview:_octiconIconLabel];
 	return self;
 }
 
@@ -41,7 +48,17 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	[self.label setFrame:CGRectInset(self.bounds, 30, 0)];
+	[self.octiconIconLabel setFrame:CGRectMake(0, 0, 30, CGRectGetHeight(self.bounds))];
 }
 
+NSString *_repoText(KRGithubRepository* repo) {
+	if (repo.isPrivateRepository) {
+		return @"\uF200";
+	}
+	if (repo.isFork) {
+		return @"\uF202";
+	}
+	return @"\uF201";
+}
 
 @end

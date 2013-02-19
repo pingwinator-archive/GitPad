@@ -36,6 +36,19 @@
 		8442C34916682284007046E3 /* GPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C34816682284007046E3 /* GPLoginViewController.m */; };
 		8442C34C16682568007046E3 /* GPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442C34B16682568007046E3 /* GPNavigationBar.m */; };
 		84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */; };
+		8458973816D286F600D129EA /* GPSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458973716D286F600D129EA /* GPSegment.m */; };
+		8458973D16D2B0A300D129EA /* GPAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458973C16D2B0A300D129EA /* GPAccountViewController.m */; };
+		8458974216D2C43100D129EA /* GPProfileContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458974116D2C43100D129EA /* GPProfileContainerView.m */; };
+		8458976316D2D60000D129EA /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975016D2D60000D129EA /* SDImageCache.m */; };
+		8458976416D2D60000D129EA /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975216D2D60000D129EA /* SDWebImageCompat.m */; };
+		8458976516D2D60000D129EA /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975416D2D60000D129EA /* SDWebImageDecoder.m */; };
+		8458976616D2D60000D129EA /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975616D2D60000D129EA /* SDWebImageDownloader.m */; };
+		8458976716D2D60000D129EA /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975816D2D60000D129EA /* SDWebImageDownloaderOperation.m */; };
+		8458976816D2D60000D129EA /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975A16D2D60000D129EA /* SDWebImageManager.m */; };
+		8458976916D2D60000D129EA /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975D16D2D60000D129EA /* SDWebImagePrefetcher.m */; };
+		8458976A16D2D60000D129EA /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458975F16D2D60000D129EA /* UIButton+WebCache.m */; };
+		8458976B16D2D60000D129EA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458976116D2D60000D129EA /* UIImageView+WebCache.m */; };
+		8458976D16D2D68000D129EA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8458976C16D2D67F00D129EA /* ImageIO.framework */; };
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
 		846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */; };
 		846F181616C7949A0099BA2C /* GPAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181516C7949A0099BA2C /* GPAccountManager.m */; };
@@ -79,7 +92,7 @@
 		84F8F03F16D2175400827B4D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03E16D2175400827B4D /* SSKeychain.m */; };
 		84F8F04016D2175400827B4D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F8F03E16D2175400827B4D /* SSKeychain.m */; };
 		84F8F04216D217E700827B4D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F8F04116D217E700827B4D /* Security.framework */; };
-		84FE0DE916D0CE0800A9F360 /* GPRepositoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */; };
+		84FE0DE916D0CE0800A9F360 /* GPRepositoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DE816D0CE0800A9F360 /* GPRepositoryListViewController.m */; };
 		84FE0DEE16D0CE2400A9F360 /* GPRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +187,32 @@
 		8442C34A16682568007046E3 /* GPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNavigationBar.h; sourceTree = "<group>"; };
 		8442C34B16682568007046E3 /* GPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNavigationBar.m; sourceTree = "<group>"; };
 		84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8458973616D286F600D129EA /* GPSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSegment.h; sourceTree = "<group>"; };
+		8458973716D286F600D129EA /* GPSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSegment.m; sourceTree = "<group>"; };
+		8458973B16D2B0A300D129EA /* GPAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAccountViewController.h; sourceTree = "<group>"; };
+		8458973C16D2B0A300D129EA /* GPAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAccountViewController.m; sourceTree = "<group>"; };
+		8458974016D2C43100D129EA /* GPProfileContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPProfileContainerView.h; sourceTree = "<group>"; };
+		8458974116D2C43100D129EA /* GPProfileContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPProfileContainerView.m; sourceTree = "<group>"; };
+		8458974F16D2D5FF00D129EA /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		8458975016D2D60000D129EA /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		8458975116D2D60000D129EA /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		8458975216D2D60000D129EA /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
+		8458975316D2D60000D129EA /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		8458975416D2D60000D129EA /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		8458975516D2D60000D129EA /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		8458975616D2D60000D129EA /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		8458975716D2D60000D129EA /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		8458975816D2D60000D129EA /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		8458975916D2D60000D129EA /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		8458975A16D2D60000D129EA /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		8458975B16D2D60000D129EA /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		8458975C16D2D60000D129EA /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		8458975D16D2D60000D129EA /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		8458975E16D2D60000D129EA /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		8458975F16D2D60000D129EA /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		8458976016D2D60000D129EA /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		8458976116D2D60000D129EA /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		8458976C16D2D67F00D129EA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		846B205B1671705B00436E90 /* GPConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPConstants.h; sourceTree = "<group>"; };
 		846B205D1671717600436E90 /* GPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPMainViewController.h; sourceTree = "<group>"; };
 		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
@@ -231,8 +270,8 @@
 		84F8F03D16D2175400827B4D /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		84F8F03E16D2175400827B4D /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		84F8F04116D217E700827B4D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryViewController.h; sourceTree = "<group>"; };
-		84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPRepositoryViewController.m; sourceTree = "<group>"; };
+		84FE0DE716D0CE0800A9F360 /* GPRepositoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryListViewController.h; sourceTree = "<group>"; };
+		84FE0DE816D0CE0800A9F360 /* GPRepositoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPRepositoryListViewController.m; sourceTree = "<group>"; };
 		84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPRepositoryCell.h; sourceTree = "<group>"; };
 		84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPRepositoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ADF9EC16ADA7D50026F990 /* libKrakenKit.a in Frameworks */,
+				8458976D16D2D68000D129EA /* ImageIO.framework in Frameworks */,
 				84F8F04216D217E700827B4D /* Security.framework in Frameworks */,
 				84434FD1167168D8005C7AC4 /* SystemConfiguration.framework in Frameworks */,
 				8442C32716681AF4007046E3 /* QuartzCore.framework in Frameworks */,
@@ -270,6 +310,7 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
+				8458976C16D2D67F00D129EA /* ImageIO.framework */,
 				84F8F04116D217E700827B4D /* Security.framework */,
 				846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */,
 				84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */,
@@ -319,8 +360,9 @@
 				8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */,
 				84F8F03516D2068500827B4D /* GPScrollingSegmentedControl.h */,
 				84F8F03616D2068600827B4D /* GPScrollingSegmentedControl.m */,
-				84F8F03D16D2175400827B4D /* SSKeychain.h */,
-				84F8F03E16D2175400827B4D /* SSKeychain.m */,
+				8458973616D286F600D129EA /* GPSegment.h */,
+				8458973716D286F600D129EA /* GPSegment.m */,
+				8458973F16D2C40D00D129EA /* Account View Controller */,
 				84F8F01C16D1D4A500827B4D /* Repository View Controller */,
 				840582EF169F86DE0022E4F9 /* GPNotificationButton.h */,
 				840582F0169F86DE0022E4F9 /* GPNotificationButton.m */,
@@ -332,6 +374,8 @@
 				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
 				846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */,
 				846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */,
+				8458974C16D2D5FF00D129EA /* SDWebImage */,
+				8458973E16D2B0AE00D129EA /* SSKeychain */,
 				84F8F01416D1D0CF00827B4D /* BWStatusBarOverlay */,
 				846F181A16C79A110099BA2C /* WBNoticeView */,
 				84CB8C9116ADCE9B0026AF86 /* UIImage+PDF */,
@@ -377,6 +421,52 @@
 				8442C3151668184B007046E3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8458973E16D2B0AE00D129EA /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				84F8F03D16D2175400827B4D /* SSKeychain.h */,
+				84F8F03E16D2175400827B4D /* SSKeychain.m */,
+			);
+			name = SSKeychain;
+			sourceTree = "<group>";
+		};
+		8458973F16D2C40D00D129EA /* Account View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8458973B16D2B0A300D129EA /* GPAccountViewController.h */,
+				8458973C16D2B0A300D129EA /* GPAccountViewController.m */,
+				8458974016D2C43100D129EA /* GPProfileContainerView.h */,
+				8458974116D2C43100D129EA /* GPProfileContainerView.m */,
+			);
+			name = "Account View Controller";
+			sourceTree = "<group>";
+		};
+		8458974C16D2D5FF00D129EA /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				8458974F16D2D5FF00D129EA /* SDImageCache.h */,
+				8458975016D2D60000D129EA /* SDImageCache.m */,
+				8458975116D2D60000D129EA /* SDWebImageCompat.h */,
+				8458975216D2D60000D129EA /* SDWebImageCompat.m */,
+				8458975316D2D60000D129EA /* SDWebImageDecoder.h */,
+				8458975416D2D60000D129EA /* SDWebImageDecoder.m */,
+				8458975516D2D60000D129EA /* SDWebImageDownloader.h */,
+				8458975616D2D60000D129EA /* SDWebImageDownloader.m */,
+				8458975716D2D60000D129EA /* SDWebImageDownloaderOperation.h */,
+				8458975816D2D60000D129EA /* SDWebImageDownloaderOperation.m */,
+				8458975916D2D60000D129EA /* SDWebImageManager.h */,
+				8458975A16D2D60000D129EA /* SDWebImageManager.m */,
+				8458975B16D2D60000D129EA /* SDWebImageOperation.h */,
+				8458975C16D2D60000D129EA /* SDWebImagePrefetcher.h */,
+				8458975D16D2D60000D129EA /* SDWebImagePrefetcher.m */,
+				8458975E16D2D60000D129EA /* UIButton+WebCache.h */,
+				8458975F16D2D60000D129EA /* UIButton+WebCache.m */,
+				8458976016D2D60000D129EA /* UIImageView+WebCache.h */,
+				8458976116D2D60000D129EA /* UIImageView+WebCache.m */,
+			);
+			path = SDWebImage;
 			sourceTree = "<group>";
 		};
 		846B205C1671710100436E90 /* GPNavigationController */ = {
@@ -470,8 +560,8 @@
 		84F8F01C16D1D4A500827B4D /* Repository View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				84FE0DE716D0CE0800A9F360 /* GPRepositoryViewController.h */,
-				84FE0DE816D0CE0800A9F360 /* GPRepositoryViewController.m */,
+				84FE0DE716D0CE0800A9F360 /* GPRepositoryListViewController.h */,
+				84FE0DE816D0CE0800A9F360 /* GPRepositoryListViewController.m */,
 				84FE0DEC16D0CE2400A9F360 /* GPRepositoryCell.h */,
 				84FE0DED16D0CE2400A9F360 /* GPRepositoryCell.m */,
 			);
@@ -677,10 +767,22 @@
 				846F183916C79A110099BA2C /* WBRedGradientView.m in Sources */,
 				846F183A16C79A110099BA2C /* WBStickyNoticeView.m in Sources */,
 				846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */,
-				84FE0DE916D0CE0800A9F360 /* GPRepositoryViewController.m in Sources */,
+				84FE0DE916D0CE0800A9F360 /* GPRepositoryListViewController.m in Sources */,
 				84FE0DEE16D0CE2400A9F360 /* GPRepositoryCell.m in Sources */,
 				84F8F03716D2068600827B4D /* GPScrollingSegmentedControl.m in Sources */,
 				84F8F03F16D2175400827B4D /* SSKeychain.m in Sources */,
+				8458973816D286F600D129EA /* GPSegment.m in Sources */,
+				8458973D16D2B0A300D129EA /* GPAccountViewController.m in Sources */,
+				8458974216D2C43100D129EA /* GPProfileContainerView.m in Sources */,
+				8458976316D2D60000D129EA /* SDImageCache.m in Sources */,
+				8458976416D2D60000D129EA /* SDWebImageCompat.m in Sources */,
+				8458976516D2D60000D129EA /* SDWebImageDecoder.m in Sources */,
+				8458976616D2D60000D129EA /* SDWebImageDownloader.m in Sources */,
+				8458976716D2D60000D129EA /* SDWebImageDownloaderOperation.m in Sources */,
+				8458976816D2D60000D129EA /* SDWebImageManager.m in Sources */,
+				8458976916D2D60000D129EA /* SDWebImagePrefetcher.m in Sources */,
+				8458976A16D2D60000D129EA /* UIButton+WebCache.m in Sources */,
+				8458976B16D2D60000D129EA /* UIImageView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,6 +912,10 @@
 				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -832,6 +938,10 @@
 				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",

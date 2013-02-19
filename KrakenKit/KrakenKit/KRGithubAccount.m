@@ -44,31 +44,32 @@ RACScheduler *currentScheduler() {
 @property (nonatomic, copy) NSArray *repositories;
 @property (nonatomic, copy) NSArray *events;
 @property (nonatomic, strong) NSURL *avatarURL;
+@property (nonatomic, strong) NSURL *blogURL;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *location;
+@property (nonatomic, copy) NSString *companyName;
+@property (nonatomic, assign) NSUInteger publicRepositories;
 
 @end
 
 @implementation KRGithubAccount {
 	NSURL* _repositoryURL;
-	NSString* _email;
 	NSURL* _eventsURL;
 	NSURL* _recievedEventsURL;
 	NSInteger _ownedPrivateRepositories;
 	long long _userID;
 	NSInteger _privateGists;
 	NSURL* _subscriptionsURL;
-	NSURL* _blogURL;
 	long long _diskUsage;
 	NSURL* _userURL;
 	NSInteger _publicGists;
 	NSURL* _organizationsURL;
 	NSURL* _followingURL;
 	KRGithubAccountType _type;
-	NSString* _companyName;
 	NSDate* _accountCreationDate;
 	NSURL* _followersURL;
 	NSString* _location;
-	NSInteger _publicRepositories;
 	NSInteger _following;
 	NSURL* _gistsURL;
 	NSInteger _collaborators;
@@ -100,14 +101,16 @@ RACScheduler *currentScheduler() {
 
 - (id)initWithDictionary:(NSDictionary*)dictionary {
 	self = [super init];
-	NSString *loginString = dictionary[@"login"];
-	if (loginString != nil) {
-		self.username = loginString;
-	}
-	NSString *avatarURLString = dictionary[@"avatar_url"];
-	if (avatarURLString != nil) {
-		self.avatarURL = [NSURL URLWithString:avatarURLString];
-	}
+	_requestFullUserFromURL(dictionary[@"url"], dictionary[@"login"], ^(NSDictionary *__strong userResponse) {
+		self.username = userResponse[@"login"];
+		self.avatarURL = [NSURL URLWithString:userResponse[@"avatar_url"]];
+		self.name = userResponse[@"name"];
+		self.publicRepositories = [userResponse[@"public_repos"] unsignedIntegerValue];
+		self.location = userResponse[@"location"];
+		self.email = userResponse[@"email"];
+		self.blogURL = [NSURL URLWithString:userResponse[@"blog"]];
+		self.companyName = [NSURL URLWithString:userResponse[@"company"]];
+	});
 	return self;
 }
 
@@ -135,6 +138,13 @@ RACScheduler *currentScheduler() {
 }
 
 #pragma Account Management
+
+void _requestFullUserFromURL(NSString *urlString, NSString *username, void(^successBlock)(NSDictionary *user)) {
+	KRSession *disposableSession = [[KRSession alloc]initWithUsername:username password:nil];
+	[disposableSession _user:username withSuccess:successBlock failure:^(NSError *error) {
+		//Do something
+	}];
+}
 
 - (RACSignal *)login {
 	return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {

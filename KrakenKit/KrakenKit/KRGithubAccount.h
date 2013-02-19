@@ -38,12 +38,14 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 
 @property (nonatomic, copy, readonly) NSArray *repositories;
 @property (nonatomic, copy, readonly) NSArray *events;
+@property (nonatomic, copy, readonly) NSArray *issueEvents;
+
 @property (nonatomic, copy, readonly) NSString *username;
 @property (nonatomic, copy, readonly) NSString *password;
 @property (nonatomic, strong, readonly) NSURL *endPoint;
+@property (nonatomic, copy, readonly) NSString *email;
 
 - (NSURL*)repositoryURL;
-- (NSString*)email;
 - (NSURL*)eventsURL;
 - (NSURL*)recievedEventsURL;
 - (NSInteger)ownedPrivateRepositories;
@@ -51,19 +53,20 @@ typedef NS_ENUM(int, KRGithubAccountType) {
 @property (nonatomic, strong, readonly) NSURL *avatarURL;
 - (NSInteger)privateGists;
 - (NSURL*)subscriptionsURL;
-- (NSURL*)blogURL;
+@property (nonatomic, strong, readonly) NSURL *blogURL;
 - (long long)diskUsage;
 - (NSURL*)userURL;
 - (NSInteger)publicGists;
 - (NSURL*)organizationsURL;
 - (NSURL*)followingURL;
 - (KRGithubAccountType)type;
-- (NSString*)companyName;
+@property (nonatomic, copy, readonly) NSString *companyName;
 - (NSDate*)accountCreationDate;
 - (NSURL*)followersURL;
-- (NSString*)location;
+@property (nonatomic, copy, readonly) NSString *location;
 @property (nonatomic, copy, readonly) NSString *name;
-- (NSInteger)publicRepositories;
+@property (nonatomic, assign, readonly) NSUInteger publicRepositories;
+
 - (NSInteger)following;
 - (NSURL*)gistsURL;
 - (NSInteger)collaborators;

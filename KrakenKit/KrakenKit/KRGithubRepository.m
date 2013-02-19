@@ -37,6 +37,10 @@
 	if (privateEntry != nil) {
 		_privateRepository = [privateEntry boolValue];
 	}
+	NSNumber *forkEntry = dictionary[@"fork"];
+	if (forkEntry != nil) {
+		_fork = [forkEntry boolValue];
+	}
 	NSString *description = dictionary[@"description"];
 	if (description != nil) {
 		_descriptionString = description;
