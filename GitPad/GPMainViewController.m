@@ -156,37 +156,54 @@
 	[[GPAccountManager sharedManager]addAccount:loginNotification.object];
 	[SSKeychain setPassword:self.currentAccount.password forService:GPPasswordServiceConstant account:self.currentAccount.username];
 	
-	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching News Feed Items..." loading:YES animated:YES];
+	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
 	
 	@weakify(self);
 	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
 		@strongify(self);
+		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
 		[self.repositoryTableViewController setAccount:self.currentAccount];
 		[self.repositoryTableViewController setRepositories:repositories];
+		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
+			@strongify(self);
+			self.eventsArray = events;
+			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
+			
+			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
+				NSLog(@"%@", events);
+				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+			}];
+		}];
 	}];
-	[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
-		@strongify(self);
-		self.eventsArray = events;
-		[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-		[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
-	}];
+
 	[[GPAccountManager sharedManager]saveChanges];
 }
 
 - (void)_reloadSync {	
-	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching News Feed Items..." loading:YES animated:YES];
+	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
 	
 	@weakify(self);
 	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
 		@strongify(self);
+		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
 		[self.repositoryTableViewController setAccount:self.currentAccount];
 		[self.repositoryTableViewController setRepositories:repositories];
-	}];
-	[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
-		@strongify(self);
-		self.eventsArray = events;
-		[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-		[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
+			@strongify(self);
+			self.eventsArray = events;
+			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
+			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
+				for (KRGithubNotification *notification in events) {
+//					if (event.is) {
+//						<#statements#>
+//					}
+					[self.newsFeedTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+				}
+				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+			}];
+		}];
 	}];
 }
 
@@ -256,6 +273,10 @@
 		return 145.f;
 	}
 	return 50.f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
 }
 
 @end

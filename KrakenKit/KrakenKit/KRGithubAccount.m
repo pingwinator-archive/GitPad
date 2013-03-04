@@ -101,16 +101,26 @@ RACScheduler *currentScheduler() {
 
 - (id)initWithDictionary:(NSDictionary*)dictionary {
 	self = [super init];
-	_requestFullUserFromURL(dictionary[@"url"], dictionary[@"login"], ^(NSDictionary *__strong userResponse) {
+//	_requestFullUserFromURL(dictionary[@"url"], dictionary[@"login"], ^(NSArray *__strong resp) {
+//		NSDictionary *userResponse = resp.lastObject;
+		NSDictionary *userResponse = dictionary;
 		self.username = userResponse[@"login"];
 		self.avatarURL = [NSURL URLWithString:userResponse[@"avatar_url"]];
 		self.name = userResponse[@"name"];
 		self.publicRepositories = [userResponse[@"public_repos"] unsignedIntegerValue];
 		self.location = userResponse[@"location"];
 		self.email = userResponse[@"email"];
-		self.blogURL = [NSURL URLWithString:userResponse[@"blog"]];
-		self.companyName = [NSURL URLWithString:userResponse[@"company"]];
-	});
+		if(![userResponse[@"blog"] isKindOfClass:[NSNull class]])
+			self.blogURL = [NSURL URLWithString:userResponse[@"blog"]];
+		else {
+			self.blogURL = [NSURL URLWithString:@""];
+		}
+		if(![userResponse[@"company"] isKindOfClass:[NSNull class]])
+			self.companyName = [NSURL URLWithString:userResponse[@"company"]];
+		else {
+			self.companyName = @"";
+		}
+//	});
 	return self;
 }
 
@@ -139,7 +149,7 @@ RACScheduler *currentScheduler() {
 
 #pragma Account Management
 
-void _requestFullUserFromURL(NSString *urlString, NSString *username, void(^successBlock)(NSDictionary *user)) {
+void _requestFullUserFromURL(NSString *urlString, NSString *username, void(^successBlock)(NSArray *user)) {
 	KRSession *disposableSession = [[KRSession alloc]initWithUsername:username password:nil];
 	[disposableSession _user:username withSuccess:successBlock failure:^(NSError *error) {
 		//Do something
@@ -199,8 +209,10 @@ static NSArray *_parsedRepositories(NSArray *dirtyRepos) {
 
 static NSArray *_parsedEvents(NSArray *dirtyEvents) {
 	NSMutableArray *result = [[NSMutableArray alloc]init];
+	NSMutableSet *uniquingSet = [[NSMutableSet alloc]init];
 	for (NSDictionary *repositoryDictionary in dirtyEvents) {
 		KRGithubEvent *newRepo = [[KRGithubEvent alloc]initWithDictionary:repositoryDictionary];
+		[uniquingSet addObject:newRepo];
 		[result addObject:newRepo];
 	}
 	return [result sortedArrayUsingComparator:^NSComparisonResult(KRGithubEvent *obj1, KRGithubEvent *obj2) {

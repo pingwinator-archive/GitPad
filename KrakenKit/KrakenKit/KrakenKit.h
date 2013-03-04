@@ -16,5 +16,6 @@
 #import "KRGithubEvent.h"
 #import "KRGithubIssue.h"
 #import "KRGithubCommit.h"
+#import "KRGithubNotification.h"
 
 #endif

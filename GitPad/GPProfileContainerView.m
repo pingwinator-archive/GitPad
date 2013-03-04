@@ -12,6 +12,7 @@
 
 @interface GPProfileContainerView ()
 
+@property (nonatomic, strong) KRGithubAccount *account;
 @property (nonatomic, strong) UIImageView *profileImageView;
 //@property (nonatomic, strong) UILabel *profileImageView;
 
@@ -25,7 +26,8 @@
     if (self) {
         // Initialization code
 		_profileImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-		RACSignal *avatarURLSigal = RACAbleWithStart(account.avatarURL) 
+		_account = account;
+		RACSignal *avatarURLSigal = RACAbleWithStart(account.avatarURL);
 		[_profileImageView rac_liftSelector:@selector(setImageWithURL:) withObjects:avatarURLSigal];
 		[self addSubview:_profileImageView];
     }

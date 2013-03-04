@@ -23,7 +23,7 @@
 @interface KRSession (Private)
 
 - (void)_login;
-- (void)_user:(NSString*)userName withSuccess:(void(^)(NSDictionary *user))successBlock failure:(void(^)(NSError *error))failureBlock;
+- (void)_user:(NSString*)userName withSuccess:(void(^)(NSArray *user))successBlock failure:(void(^)(NSError *error))failureBlock;
 - (void)_fetchRepositoriesWithSuccess:(void(^)(NSArray *notifications))successBlock failure:(void(^)(NSError *error))failureBlock;
 - (void)_fetchEventsWithSuccess:(void(^)(NSArray *events))successBlock failure:(void(^)(NSError *error))failureBlock;
 - (void)_fetchNotificationsWithSuccess:(void(^)(NSArray *events))successBlock failure:(void(^)(NSError *error))failureBlock;

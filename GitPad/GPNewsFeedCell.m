@@ -235,6 +235,7 @@ NSString *_octiconStringFromEvent(KRGithubEvent *event) {
 			break;
 		case KRGithubEventPayloadTypePush:
 			octicon = @"\uF01F";
+			break;
 		case KRGithubEventPayloadTypeCreatedBranch:
 			octicon = @"\uF256";
 			break;

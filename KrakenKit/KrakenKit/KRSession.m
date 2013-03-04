@@ -32,7 +32,7 @@
 	[self.githubEngine userWithSuccess:successBlock failure:failureBlock];
 }
 
-- (void)_user:(NSString*)userName withSuccess:(void(^)(NSDictionary *user))successBlock failure:(void(^)(NSError *error))failureBlock {
+- (void)_user:(NSString*)userName withSuccess:(void(^)(NSArray *user))successBlock failure:(void(^)(NSError *error))failureBlock {
 	[self.githubEngine user:userName success:successBlock failure:failureBlock];
 }
 

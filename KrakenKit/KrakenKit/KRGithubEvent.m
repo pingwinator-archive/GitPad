@@ -134,6 +134,12 @@
 
 }
 
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)object {
+	return [[object creationDate]isEqual:self.creationDate];
+}
+
 #pragma mark - Private
 
 NSArray *_parsedIssuesCommits(NSArray *commits) {
