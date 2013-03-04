@@ -310,11 +310,8 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
-				8458976C16D2D67F00D129EA /* ImageIO.framework */,
-				84F8F04116D217E700827B4D /* Security.framework */,
 				846F17F816C7834A0099BA2C /* ReactiveCocoa.xcodeproj */,
 				84ADF9E416ADA7C60026F990 /* KrakenKit.xcodeproj */,
-				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
 				8442C2F01668184B007046E3 /* GitPad */,
 				8442C3121668184B007046E3 /* GitPadTests */,
 				8442C2E71668184B007046E3 /* Frameworks */,
@@ -334,6 +331,9 @@
 		8442C2E71668184B007046E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84434FD0167168D8005C7AC4 /* SystemConfiguration.framework */,
+				8458976C16D2D67F00D129EA /* ImageIO.framework */,
+				84F8F04116D217E700827B4D /* Security.framework */,
 				8442C32616681AF4007046E3 /* QuartzCore.framework */,
 				8442C2E81668184B007046E3 /* UIKit.framework */,
 				8442C2EA1668184B007046E3 /* Foundation.framework */,
