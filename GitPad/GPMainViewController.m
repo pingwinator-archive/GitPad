@@ -99,7 +99,6 @@
 	self.navigationBar.label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0f];
 	[self.navigationBar addSubview:self.notificationButton];
 	
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -277,6 +276,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
+}
+
+#pragma mark - NPReachability Callback
+
+- (void)_reachabilityHasChanged {
+	// TODO Implement
 }
 
 @end
