@@ -1,3 +1,15 @@
-[submodule "ReactiveCocoa"]
-	path = ReactiveCocoa
-	url = https://github.com/ReactiveCocoa/ReactiveCocoa
+[submodule "External/Expecta"]
+	path = External/Expecta
+	url = https://github.com/petejkim/expecta.git
+[submodule "External/Specta"]
+	path = External/Specta
+	url = https://github.com/petejkim/specta.git
+[submodule "External/AFNetworking-RACExtensions"]
+	path = External/AFNetworking-RACExtensions
+	url = https://github.com/CodaFi/AFNetworking-RACExtensions.git
+[submodule "External/ReactiveCocoa"]
+	path = External/ReactiveCocoa
+	url = https://github.com/ReactiveCocoa/ReactiveCocoa.git
+[submodule "External/KrakenKit"]
+	path = External/KrakenKit
+	url = https://github.com/CodaFi/KrakenKit.git

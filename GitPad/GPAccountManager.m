@@ -7,9 +7,9 @@
 //
 
 #import "GPAccountManager.h"
+#import "GPAccount.h"
 #import "NPReachability.h"
 #import "SSKeychain.h"
-#import <KrakenKit/KrakenKit.h>
 
 @interface GPAccountManager ()
 
@@ -54,23 +54,23 @@
 - (void)setAccounts:(NSMutableArray *)accounts {
 	[self.accountHash removeAllObjects];
 	[_accounts setArray:accounts];
-	for (KRGithubAccount *account in self.accounts) {
+	for (GPAccount *account in self.accounts) {
 		[self.accountHash setObject:account forKey:account.username];
 	}
 }
 
-- (void)addAccount:(KRGithubAccount*)account {
+- (void)addAccount:(GPAccount*)account {
 	[self.accounts addObject:account];
 	[self.accountHash setObject:account forKey:account.username];
 }
 
-- (void)removeAccount:(KRGithubAccount*)account {
+- (void)removeAccount:(GPAccount*)account {
 //	[account cancel];
 	[self.accountHash removeObjectForKey:account.username];
 	[self.accounts removeObject:account];
 }
 
-- (KRGithubAccount*)accountForUsername:(NSString*)username {
+- (GPAccount*)accountForUsername:(NSString*)username {
 	return [self.accountHash objectForKey:username];
 }
 
@@ -82,7 +82,7 @@
 	NSArray *defaultsAccounts = [[NSUserDefaults standardUserDefaults]objectForKey:@"Accounts"];
 	for (NSDictionary *infoDict in defaultsAccounts) {
 		NSString *password = [SSKeychain passwordForService:GPPasswordServiceConstant account:infoDict[@"login"]];
-		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithUsername:infoDict[@"login"] password:password];
+		GPAccount *newAccount = [[GPAccount alloc]initWithUsername:infoDict[@"login"] password:password];
 		[self.accounts addObject:newAccount];
 		[self.accountHash setObject:newAccount forKey:newAccount.username];
 	}
@@ -90,12 +90,15 @@
 
 - (void)_saveAccounts {
 	NSMutableArray *arrayOfAccounts = [NSMutableArray array];
-	for (KRGithubAccount *account in self.accounts) {
+	for (GPAccount *account in self.accounts) {
 		[arrayOfAccounts addObject:[account dictionaryRepresentation]];
 	}
 	[[NSUserDefaults standardUserDefaults]setObject:arrayOfAccounts forKey:@"Accounts"];
 	[[NSUserDefaults standardUserDefaults]synchronize];
 }
 
+- (void)_reachabilityHasChanged {
+	
+}
 
 @end

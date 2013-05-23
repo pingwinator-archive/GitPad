@@ -7,7 +7,6 @@
 //
 
 #import "GPAccountViewController.h"
-#import <KrakenKit.h>
 #import "GPNavigationBar.h"
 #import "GPScrollingSegmentedControl.h"
 #import "GPProfileContainerView.h"
@@ -21,7 +20,7 @@
 
 @implementation GPAccountContainerView
 
-- (id)initWithFrame:(CGRect)frame andAccount:(KRGithubAccount *)account{
+- (id)initWithFrame:(CGRect)frame andAccount:(GPAccount *)account{
 	self = [super initWithFrame:frame];
 	
 	_scopeBar = [[GPScrollingSegmentedControl alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 44) andItems:@[@"Profile", @"Repos", @"Activity"] inScrollView:nil];
@@ -47,14 +46,14 @@
 
 @interface GPAccountViewController ()
 
-@property (nonatomic, strong) KRGithubAccount *account;
+@property (nonatomic, strong) GPAccount *account;
 @property (nonatomic, strong) GPNavigationBar *navigationbar;
 
 @end
 
 @implementation GPAccountViewController
 
-- (id)initWithAccount:(KRGithubAccount*)account navigationBar:(GPNavigationBar*)navigationBar {
+- (id)initWithAccount:(GPAccount*)account navigationBar:(GPNavigationBar*)navigationBar {
 	self = [super init];
 	
 	_account = account;

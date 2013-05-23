@@ -8,21 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@class KRGithubAccount;
+@class GPAccount;
 
 @interface GPAccountManager : NSObject
 
 + (GPAccountManager *) sharedManager;
 
-- (void) addAccount:(KRGithubAccount *)account;
-- (void) removeAccount:(KRGithubAccount *)account;
+- (void) addAccount:(GPAccount *)account;
+- (void) removeAccount:(GPAccount *)account;
 
-- (KRGithubAccount*)accountForUsername:(NSString*)email;
+- (GPAccount*)accountForUsername:(NSString*)email;
 
 - (void) saveChanges;
 
-@property (nonatomic, strong, readonly) NSMutableArray * /*KRGithubAccount*/ accounts;
-@property (nonatomic, strong) NSMutableArray * /*KRGithubAccount*/ accountsShadow;
+@property (nonatomic, strong, readonly) NSMutableArray * /*GPAccount*/ accounts;
+@property (nonatomic, strong) NSMutableArray * /*GPAccount*/ accountsShadow;
 
 
 @end

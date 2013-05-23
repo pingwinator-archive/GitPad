@@ -13,6 +13,7 @@
 #import "GPNavigationController.h"
 #import "GPNavigationBar.h"
 #import "GPNotificationButton.h"
+#import "GPAccount.h"
 #import "GPNewsFeedCell.h"
 #import "GPRepositoryListViewController.h"
 #import "BWStatusBarOverlay.h"
@@ -20,7 +21,6 @@
 #import "GPScrollingSegmentedControl.h"
 #import "MWFSlideNavigationViewController.h"
 #import "SSKeychain.h"
-#import <KrakenKit/KrakenKit.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface GPMainViewController ()
@@ -157,24 +157,24 @@
 	
 	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
 	
-	@weakify(self);
-	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
-		@strongify(self);
-		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
-		[self.repositoryTableViewController setAccount:self.currentAccount];
-		[self.repositoryTableViewController setRepositories:repositories];
-		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
-			@strongify(self);
-			self.eventsArray = events;
-			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
-			
-			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
-				NSLog(@"%@", events);
-				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
-			}];
-		}];
-	}];
+//	@weakify(self);
+//	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
+//		@strongify(self);
+//		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
+//		[self.repositoryTableViewController setAccount:self.currentAccount];
+//		[self.repositoryTableViewController setRepositories:repositories];
+//		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
+//			@strongify(self);
+//			self.eventsArray = events;
+//			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
+//			
+//			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
+//				NSLog(@"%@", events);
+//				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+//			}];
+//		}];
+//	}];
 
 	[[GPAccountManager sharedManager]saveChanges];
 }
@@ -182,32 +182,32 @@
 - (void)_reloadSync {	
 	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
 	
-	@weakify(self);
-	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
-		@strongify(self);
-		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
-		[self.repositoryTableViewController setAccount:self.currentAccount];
-		[self.repositoryTableViewController setRepositories:repositories];
-		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
-			@strongify(self);
-			self.eventsArray = events;
-			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
-			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
-				for (KRGithubNotification *notification in events) {
-//					if (event.is) {
-//						<#statements#>
-//					}
-					[self.newsFeedTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-				}
-				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
-			}];
-		}];
-	}];
+//	@weakify(self);
+//	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
+//		@strongify(self);
+//		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
+//		[self.repositoryTableViewController setAccount:self.currentAccount];
+//		[self.repositoryTableViewController setRepositories:repositories];
+//		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
+//			@strongify(self);
+//			self.eventsArray = events;
+//			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+//			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
+//			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
+//				for (KRGithubNotification *notification in events) {
+////					if (event.is) {
+////						<#statements#>
+////					}
+//					[self.newsFeedTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+//				}
+//				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+//			}];
+//		}];
+//	}];
 }
 
 - (void)_leftSideActionNotificationRecieved:(NSNotification*)notification {
-	KRGithubAccount *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
+	GPAccount *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
 	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount navigationBar:self.navigationBar];
 	[self gp_presentViewController:accountViewController animated:YES newNavigationBar:NO completion:^{
 		
@@ -254,7 +254,7 @@
 	static NSString *GPNewsFeedCellIdentifier = @"GPNewsFeedCellIdentifier";
 	
 	GPNewsFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
-	KRGithubEvent *event = [self.eventsArray objectAtIndex:indexPath.row];
+	KRAEvent *event = [self.eventsArray objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[GPNewsFeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -268,9 +268,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	if ([[self.eventsArray objectAtIndex:indexPath.row]hasDetail]) {
-		return 145.f;
-	}
+//	if ([(KRAEvent *)[self.eventsArray objectAtIndex:indexPath.row]hasDetail]) {
+//		return 145.f;
+//	}
 	return 50.f;
 }
 

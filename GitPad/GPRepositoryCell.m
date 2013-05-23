@@ -7,11 +7,10 @@
 //
 
 #import "GPRepositoryCell.h"
-#import <KrakenKit.h>
 
 @interface GPRepositoryCell ()
 
-@property (nonatomic, strong) KRGithubRepository *repository;
+@property (nonatomic, strong) KRARepository *repository;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UILabel *octiconIconLabel;
 
@@ -19,7 +18,7 @@
 
 @implementation GPRepositoryCell
 
-- (id)initWithRepository:(KRGithubRepository*)repo style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (id)initWithRepository:(KRARepository*)repo style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 	self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
 	_repository = repo;
 	_label = [[UILabel alloc]initWithFrame:CGRectZero];
@@ -39,7 +38,7 @@
 
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
-	if (self.repository.isPrivateRepository) {
+	if (self.repository.privateRepo) {
 		[[UIColor colorWithRed:1.000 green:0.998 blue:0.898 alpha:1.000]set];
 		UIRectFill(rect);
 	}
@@ -51,8 +50,8 @@
 	[self.octiconIconLabel setFrame:CGRectMake(0, 0, 30, CGRectGetHeight(self.bounds))];
 }
 
-NSString *_repoText(KRGithubRepository* repo) {
-	if (repo.isPrivateRepository) {
+NSString *_repoText(KRARepository* repo) {
+	if (repo.privateRepo) {
 		return @"\uF200";
 	}
 	if (repo.isFork) {

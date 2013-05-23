@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class KRGithubAccount;
+@class GPAccount;
 
 @interface GPMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) KRGithubAccount *currentAccount;
+@property (nonatomic, strong) GPAccount *currentAccount;
 
 - (void)gp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated newNavigationBar:(BOOL)flag completion:(void (^)(void))completion;
 

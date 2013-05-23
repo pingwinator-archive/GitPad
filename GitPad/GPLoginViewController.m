@@ -10,8 +10,8 @@
 #import "GPNavigationController.h"
 #import "GPNavigationBar.h"
 #import "GPAppDelegate.h"
+#import "GPAccount.h"
 #import "GPConstants.h"
-#import "KrakenKit.h"
 #import "UIImage+PDF.h"
 #import "WBNoticeView.h"
 #import "WBErrorNoticeView.h"
@@ -44,7 +44,7 @@
 {
 	// Do any additional setup after loading the view.
     [super viewDidLoad];
-	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectMake(0, 0, 540, 44)];
+	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:(CGRect){ .size.width = 540, .size.height = 44 }];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	self.navigationBar.titleImage = [UIImage imageWithPDFNamed:@"<Blacktocats>.pdf" atSize:CGSizeMake(32, 32)];
 	self.navigationBar.drawRect = ^(GPNavigationBar *bar, CGRect dirtyRect) {
@@ -151,29 +151,31 @@
 		errAlpha = 1;
 	}
 	if (errAlpha == 0) {
-		KRGithubAccount *newAccount = [[KRGithubAccount alloc]initWithUsername:self.usernameField.text password:self.passwordField.text];
+		GPAccount *newAccount = nil;
 		@weakify(self);
-		RACSignal *loginSignal = [newAccount login];
-		[loginSignal subscribeCompleted:^ {
-			@strongify(self);
-			[self _dismissForSuccessfulValidationWithAccount:newAccount];
-		}];
-		[loginSignal subscribeError:^(NSError *error) {
-			@strongify(self);
-			switch (error.code) {
-				case -1009:
-				case 503:
-					[errStr appendString:@"GitHub appears to be unreachable.  Check that you have a valid connection to the internet."];
-					errAlpha = 1;
-					[self _reEnableForFailedValidationWithErrorMessage:errStr];
-					break;
-				default:
-					[errStr appendString:@"Your credentials are invalid.  Please enter another login."];
-					errAlpha = 1;
-					break;
-			}
-			[self _reEnableForFailedValidationWithErrorMessage:errStr];
-		}];
+		[[KRAClient sharedClient]authenticateUsername:self.usernameField.text
+											password:self.passwordField.text
+									completionHandler:^(BOOL success, NSError *error) {
+										@strongify(self);
+										if (error) {
+											@strongify(self);
+											switch (error.code) {
+												case -1009:
+												case 503:
+													[errStr appendString:@"GitHub appears to be unreachable.  Check that you have a valid connection to the internet."];
+													errAlpha = 1;
+													[self _reEnableForFailedValidationWithErrorMessage:errStr];
+													break;
+												default:
+													[errStr appendString:@"Your credentials are invalid.  Please enter another login."];
+													errAlpha = 1;
+													break;
+											}
+											[self _reEnableForFailedValidationWithErrorMessage:errStr];
+											return;
+										}
+										[self _dismissForSuccessfulValidationWithAccount:newAccount];
+									}];
 
 	} else {
 		[self _reEnableForFailedValidationWithErrorMessage:errStr];
@@ -196,7 +198,7 @@
 	[self.loginButton setUserInteractionEnabled:YES];
 }
 
--(void)_dismissForSuccessfulValidationWithAccount:(KRGithubAccount*)account {
+-(void)_dismissForSuccessfulValidationWithAccount:(GPAccount*)account {
 	[[NSNotificationCenter defaultCenter]postNotificationName:GPLoginViewControllerDidSuccessfulyLoginNotification object:account];
 }
 

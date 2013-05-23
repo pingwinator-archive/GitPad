@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class KRGithubAccount;
+@class GPAccount;
 
 @interface GPProfileContainerView : UIView
 
-- (id)initWithFrame:(CGRect)frame andAccount:(KRGithubAccount*)account;
+- (id)initWithFrame:(CGRect)frame andAccount:(GPAccount*)account;
 
 @end

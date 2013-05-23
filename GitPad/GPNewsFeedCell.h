@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class KRGithubEvent;
+@class KRAEvent;
 
 @interface GPNewsFeedCell : UITableViewCell
 
-@property (nonatomic, strong) KRGithubEvent *event;
+@property (nonatomic, strong) KRAEvent *event;
 
 @end

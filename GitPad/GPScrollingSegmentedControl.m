@@ -30,7 +30,7 @@
 		@strongify(self);
 		CGPoint offset = [contentOffset CGPointValue];
 		[self.scrollView layoutSubviews];
-		[(UITableView*)self.scrollView tableHeaderView].frame = CGRectMake(0,MIN(0,offset.y),CGRectGetWidth(self.scrollView.frame),44);;
+		[(UITableView*)self.scrollView tableHeaderView].frame = (CGRect){ .origin.y = MIN(0,offset.y), .size.width = CGRectGetWidth(self.scrollView.frame), .size.height = 44 };
 	}];
 	[(UITableView*)scrollView setTableHeaderView:self];
 	

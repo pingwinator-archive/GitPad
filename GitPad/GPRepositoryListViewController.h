@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <KrakenKit.h>
+
+@class GPAccount;
 
 @interface GPRepositoryListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *repositories;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) KRGithubAccount *account;
+@property (nonatomic, strong) GPAccount *account;
 
 - (void)setupWithFrame:(CGRect)frame;
 

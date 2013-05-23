@@ -7,12 +7,12 @@
 //
 
 #import "GPProfileContainerView.h"
+#import "GPAccount.h"
 #import "UIImageView+WebCache.h"
-#import <KrakenKit.h>
 
 @interface GPProfileContainerView ()
 
-@property (nonatomic, strong) KRGithubAccount *account;
+@property (nonatomic, strong) GPAccount *account;
 @property (nonatomic, strong) UIImageView *profileImageView;
 //@property (nonatomic, strong) UILabel *profileImageView;
 
@@ -20,16 +20,16 @@
 
 @implementation GPProfileContainerView
 
-- (id)initWithFrame:(CGRect)frame andAccount:(KRGithubAccount*)account;
+- (id)initWithFrame:(CGRect)frame andAccount:(GPAccount*)account;
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-		_profileImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-		_account = account;
-		RACSignal *avatarURLSigal = RACAbleWithStart(account.avatarURL);
-		[_profileImageView rac_liftSelector:@selector(setImageWithURL:) withObjects:avatarURLSigal];
-		[self addSubview:_profileImageView];
+//		_profileImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+//		_account = account;
+//		RACSignal *avatarURLSigal = RACAbleWithStart(account.avatarURL);
+//		[_profileImageView rac_liftSelector:@selector(setImageWithURL:) withObjects:avatarURLSigal];
+//		[self addSubview:_profileImageView];
     }
     return self;
 }

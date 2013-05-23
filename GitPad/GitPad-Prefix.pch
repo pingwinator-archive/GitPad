@@ -14,5 +14,6 @@
 	#import <CoreData/CoreData.h>
 	#import <ReactiveCocoa/ReactiveCocoa.h>
 	#import <ReactiveCocoa/EXTScope.h>
+	#import <KrakenKit/KrakenKit.h>
 	#import "GPConstants.h"
 #endif

@@ -114,7 +114,7 @@
 	
 	GPRepositoryCell *cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
     if (cell == nil) {
-		KRGithubRepository *repo = [self.repositories objectAtIndex:indexPath.row];
+		KRARepository *repo = [self.repositories objectAtIndex:indexPath.row];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell = [[GPRepositoryCell alloc] initWithRepository:repo style:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
     }

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class KRGithubRepository;
+@class KRARepository;
 
 @interface GPRepositoryCell : UITableViewCell
 
-- (id)initWithRepository:(KRGithubRepository*)repo style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithRepository:(KRARepository*)repo style:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
