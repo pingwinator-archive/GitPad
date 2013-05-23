@@ -1,0 +1,15 @@
+[submodule "External/Mantle"]
+	path = External/Mantle
+	url = https://github.com/github/Mantle.git
+[submodule "External/AFNetworking"]
+	path = External/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "External/Expecta"]
+	path = External/Expecta
+	url = https://github.com/petejkim/expecta.git
+[submodule "External/Specta"]
+	path = External/Specta
+	url = https://github.com/petejkim/specta.git
+[submodule "Configuration"]
+	path = Configuration
+	url = https://github.com/jspahrsummers/xcconfigs.git
