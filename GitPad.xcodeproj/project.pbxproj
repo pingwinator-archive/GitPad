@@ -67,6 +67,7 @@
 		849E8FBA174AE71C005FAB56 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E8FB9174AE71C005FAB56 /* MobileCoreServices.framework */; };
 		84A1563F1730ABC4007E6A0D /* GPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1563E1730ABC4007E6A0D /* GPAccount.m */; };
 		84A156571730C2FF007E6A0D /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DB04421730855F00674C99 /* libReactiveCocoa-iOS.a */; };
+		84C453FD17503AA3001ECB0F /* libKrakenKit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E91E1175039C9005FAB56 /* libKrakenKit-iOS.a */; };
 		84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */; };
 		84CB8C9A16ADCE9B0026AF86 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */; };
 		84CB8C9B16ADCE9B0026AF86 /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9516ADCE9B0026AF86 /* PDFView.m */; };
@@ -133,6 +134,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 88F440AA153DAC820097B4C3;
 			remoteInfo = "ReactiveCocoa-iOS";
+		};
+		84C453F617503A95001ECB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 84ADF9D216ADA7C60026F990;
+			remoteInfo = "KrakenKit-iOS";
 		};
 		84DB043F1730855F00674C99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -293,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C453FD17503AA3001ECB0F /* libKrakenKit-iOS.a in Frameworks */,
 				84A156571730C2FF007E6A0D /* libReactiveCocoa-iOS.a in Frameworks */,
 				8458976D16D2D68000D129EA /* ImageIO.framework in Frameworks */,
 				84F8F04216D217E700827B4D /* Security.framework in Frameworks */,
@@ -600,6 +609,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				84C453F717503A95001ECB0F /* PBXTargetDependency */,
 				84A156561730C2F8007E6A0D /* PBXTargetDependency */,
 			);
 			name = GitPad;
@@ -844,6 +854,11 @@
 			isa = PBXTargetDependency;
 			name = "ReactiveCocoa-iOS";
 			targetProxy = 84A156551730C2F8007E6A0D /* PBXContainerItemProxy */;
+		};
+		84C453F717503A95001ECB0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "KrakenKit-iOS";
+			targetProxy = 84C453F617503A95001ECB0F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
