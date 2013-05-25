@@ -940,8 +940,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/External/AFNetworking-RACExtensions/External/AFNetworking/AFNetworking/**",
-					"\"$(SRCROOT)/External/KrakenKit\"",
+					"\"$(SRCROOT)/External/KrakenKit\"/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";
@@ -967,8 +966,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/External/AFNetworking-RACExtensions/External/AFNetworking/AFNetworking/**",
-					"\"$(SRCROOT)/External/KrakenKit\"",
+					"\"$(SRCROOT)/External/KrakenKit\"/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
 				);
 				INFOPLIST_FILE = "GitPad/GitPad-Info.plist";

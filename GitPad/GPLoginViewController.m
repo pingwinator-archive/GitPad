@@ -52,8 +52,8 @@
 		
 		CGContextRef context = UIGraphicsGetCurrentContext();
 		
-		UIColor *startColor = [UIColor colorWithRed:0.425 green:0.512 blue:0.581 alpha:1.000];
-		UIColor *endColor = [UIColor colorWithRed:0.351 green:0.438 blue:0.504 alpha:1.000];
+		UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
+		UIColor *endColor = [UIColor colorWithWhite:0.849 alpha:1.000];
 				
 		CGGradientRef gradient = createGradientWithColors(startColor, endColor);
 		CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMinY(drawingRect)),

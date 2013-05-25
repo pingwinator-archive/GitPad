@@ -78,7 +78,7 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 		_label.layer.shadowOffset = CGSizeMake(0.0, -0.5);
 		[self addSubview:_label];
 		
-		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMidX(self.bounds)/2, 0, 44, 44)];
 		_imageView.contentMode = UIViewContentModeCenter;
 		[self addSubview:_imageView];
     }
