@@ -7,6 +7,7 @@
 //
 
 #import "GPNotificationButton.h"
+#import "GPUtilities.h"
 
 @implementation GPNotificationButton
 
@@ -31,7 +32,7 @@
 	UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
 	UIColor *endColor = [UIColor colorWithWhite:0.936 alpha:1.000];
 
-	CGGradientRef gradient = createGradientWithColors(startColor, endColor);
+	CGGradientRef gradient = GPCreateGradientWithColors(startColor, endColor);
 	CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(b), CGRectGetMinY(b)),
 								CGPointMake(CGRectGetMidX(b), CGRectGetMaxY(b)), 0);
 	CGGradientRelease(gradient);
@@ -68,21 +69,5 @@
 	[self setNeedsDisplay];
 	[super setHighlighted:highlighted];
 }
-
-static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *endingColor)
-{
-    CGFloat locations[2] = {0.0f, 1.0f, };
-#if __has_feature(objc_arc)
-    CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(__bridge id)[startingColor CGColor], (__bridge id)[endingColor CGColor], nil];
-#else
-    CFArrayRef colors = (CFArrayRef)[NSArray arrayWithObjects:(id)[startingColor CGColor], (id)[endingColor CGColor], nil];
-#endif
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, colors, locations);
-    CGColorSpaceRelease(colorSpace);
-    return gradient;
-}
-
-
 
 @end

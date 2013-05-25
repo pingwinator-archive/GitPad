@@ -7,8 +7,9 @@
 //
 
 #import "GPSegment.h"
+#import "GPUtilities.h"
 
-const CGFloat GPCornerClipRadius = 8.0;
+static CGFloat const GPCornerClipRadius = 8.0;
 
 @interface GPSegment ()
 
@@ -62,7 +63,7 @@ const CGFloat GPCornerClipRadius = 8.0;
         endColor = [UIColor colorWithRed:0.832 green:0.877 blue:0.921 alpha:1.000];
     }
 	
-    CGGradientRef gradient = createGradientWithColors(startColor, endColor);
+    CGGradientRef gradient = GPCreateGradientWithColors(startColor, endColor);
     CGContextDrawLinearGradient(context, gradient, CGPointMake( CGRectGetMidX(b), CGRectGetMinY(b) ),
                                 CGPointMake( CGRectGetMidX(b), CGRectGetMaxY(b) ), 0);
     CGGradientRelease(gradient);
@@ -122,14 +123,14 @@ const CGFloat GPCornerClipRadius = 8.0;
 	
     if (self.isFirstSegment)
     {
-        CGPathRef clippingPath = createClippingPathWithRectAndRadius(b, GPCornerClipRadius, YES);
+        CGPathRef clippingPath = GPClippingPathWithRectAndRadius(b, GPCornerClipRadius, YES);
         CGContextAddPath(context, clippingPath);
         CGContextClip(context);
         CGPathRelease(clippingPath);
     }
 	if (self.isLastSegment)
     {
-        CGPathRef clippingPath = createClippingPathWithRectAndRadius(b, GPCornerClipRadius, NO);
+        CGPathRef clippingPath = GPClippingPathWithRectAndRadius(b, GPCornerClipRadius, NO);
         CGContextAddPath(context, clippingPath);
         CGContextClip(context);
         CGPathRelease(clippingPath);
@@ -145,23 +146,7 @@ const CGFloat GPCornerClipRadius = 8.0;
     [super setHighlighted:highlighted];
 }
 
-static inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *endingColor)
-{
-    CGFloat locations[2] = {
-        0.0f, 1.0f,
-    };
-#if __has_feature(objc_arc)
-    CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(__bridge id)[startingColor CGColor], (__bridge id)[endingColor CGColor], nil];
-#else
-    CFArrayRef colors = (CFArrayRef)[NSArray arrayWithObjects : (id)[startingColor CGColor], (id)[endingColor CGColor], nil];
-#endif
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, colors, locations);
-    CGColorSpaceRelease(colorSpace);
-    return gradient;
-}
-
-static inline CGPathRef createClippingPathWithRectAndRadius(CGRect rect, CGFloat radius, BOOL first)
+static inline CGPathRef GPClippingPathWithRectAndRadius(CGRect rect, CGFloat radius, BOOL first)
 {
     CGMutablePathRef path = CGPathCreateMutable();
     if (first)

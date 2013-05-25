@@ -8,44 +8,9 @@
 
 #import "GPNavigationBar.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GPUtilities.h"
 
-const CGFloat INCornerClipRadius = 4.0;
-const CGFloat INButtonTopOffset = 3.0;
-
-#define IN_COLOR_MAIN_START_L [UIColor colorWithWhite:0.66 alpha:1.0]
-#define IN_COLOR_MAIN_END_L [UIColor colorWithWhite:0.9 alpha:1.0]
-#define IN_COLOR_MAIN_BOTTOM_L [UIColor colorWithWhite:0.408 alpha:1.0]
-
-#define IN_COLOR_NOTMAIN_START_L [UIColor colorWithWhite:0.878 alpha:1.0]
-#define IN_COLOR_NOTMAIN_END_L [UIColor colorWithWhite:0.976 alpha:1.0]
-#define IN_COLOR_NOTMAIN_BOTTOM_L [UIColor colorWithWhite:0.655 alpha:1.0]
-
-static inline CGPathRef createClippingPathWithRectAndRadius(CGRect rect, CGFloat radius)
-{
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMaxY(rect));
-    CGPathAddLineToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect)-radius);
-    CGPathAddArcToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect), CGRectGetMinX(rect)+radius, CGRectGetMinY(rect), radius);
-    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect)-radius, CGRectGetMinY(rect));
-    CGPathAddArcToPoint(path, NULL,  CGRectGetMaxX(rect), CGRectGetMinY(rect), CGRectGetMaxX(rect), CGRectGetMinY(rect)+radius, radius);
-    CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(rect), CGRectGetMaxY(rect));
-    CGPathCloseSubpath(path);
-    return path;
-}
-
-inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *endingColor)
-{
-    CGFloat locations[2] = {0.0f, 1.0f, };
-#if __has_feature(objc_arc)
-    CFArrayRef colors = (__bridge CFArrayRef)[NSArray arrayWithObjects:(__bridge id)[startingColor CGColor], (__bridge id)[endingColor CGColor], nil];
-#else
-    CFArrayRef colors = (CFArrayRef)[NSArray arrayWithObjects:(id)[startingColor CGColor], (id)[endingColor CGColor], nil];
-#endif
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, colors, locations);
-    CGColorSpaceRelease(colorSpace);
-    return gradient;
-}
+static CGFloat const GPCornerClipRadius = 4.0;
 
 @interface GPNavigationBar ()
 
@@ -78,7 +43,10 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 		_label.layer.shadowOffset = CGSizeMake(0.0, -0.5);
 		[self addSubview:_label];
 		
-		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMidX(self.bounds)/2, 0, 44, 44)];
+		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMidX(self.bounds) - 22, 0, 44, 44)];
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+			_imageView.frame = CGRectMake(CGRectGetMidX(self.bounds)/2, 0, 44, 44);
+		}
 		_imageView.contentMode = UIViewContentModeCenter;
 		[self addSubview:_imageView];
     }
@@ -139,7 +107,7 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 		self.drawRect(self, rect);
 		CGRect clippingRect = [self bounds];
 		
-		CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
+		CGPathRef clippingPath = GPCreateClippingPathWithRectAndRadius(clippingRect, GPCornerClipRadius);
 		CGContextAddPath(context, clippingPath);
 		CGContextClip(context);
 		CGPathRelease(clippingPath);
@@ -152,7 +120,7 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
 	
 	CGRect clippingRect = drawingRect;
 	
-	CGGradientRef gradient = createGradientWithColors(startColor, endColor);
+	CGGradientRef gradient = GPCreateGradientWithColors(startColor, endColor);
 	CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMinY(drawingRect)),
 								CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMaxY(drawingRect)), 0);
 	CGGradientRelease(gradient);
@@ -163,7 +131,7 @@ inline CGGradientRef createGradientWithColors(UIColor *startingColor, UIColor *e
     CGContextAddLineToPoint(context,CGRectGetMaxX(drawingRect), CGRectGetMaxY(drawingRect));
     CGContextStrokePath(context);
 	
-	CGPathRef clippingPath = createClippingPathWithRectAndRadius(clippingRect, INCornerClipRadius);
+	CGPathRef clippingPath = GPCreateClippingPathWithRectAndRadius(clippingRect, GPCornerClipRadius);
 	CGContextAddPath(context, clippingPath);
 	CGContextClip(context);
 	CGPathRelease(clippingPath);

@@ -17,15 +17,17 @@
 #import "WBSuccessNoticeView.h"
 #import "WBStickyNoticeView.h"
 #import "NSOperationQueue+WBNoticeExtensions.h"
-#import <KrakenKit/KrakenKit.h>
+#import "GPLoginButton.h"
+#import "GPUtilities.h"
+#import "GPLoginTextField.h"
 
 @interface GPLoginViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) GPNavigationBar *navigationBar;
 
-@property (nonatomic, strong) UITextField *usernameField;
-@property (nonatomic, strong) UITextField *passwordField;
-@property (nonatomic, strong) UIButton *loginButton;
+@property (nonatomic, strong) GPLoginTextField *usernameField;
+@property (nonatomic, strong) GPLoginTextField *passwordField;
+@property (nonatomic, strong) GPLoginButton *loginButton;
 
 @end
 
@@ -55,7 +57,7 @@
 		UIColor *startColor = [UIColor colorWithWhite:0.970 alpha:1.000];
 		UIColor *endColor = [UIColor colorWithWhite:0.849 alpha:1.000];
 				
-		CGGradientRef gradient = createGradientWithColors(startColor, endColor);
+		CGGradientRef gradient = GPCreateGradientWithColors(startColor, endColor);
 		CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMinY(drawingRect)),
 									CGPointMake(CGRectGetMidX(drawingRect), CGRectGetMaxY(drawingRect)), 0);
 		CGGradientRelease(gradient);
@@ -70,10 +72,10 @@
 	[self.view addSubview:self.navigationBar];
 	
 	CGRect usernameRect = CGRectMake(145, 163, 250, 44);
-	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
 		usernameRect = CGRectMake(35, 103, 250, 44);
 	}
-	self.usernameField = [[UITextField alloc]initWithFrame:usernameRect];
+	self.usernameField = [[GPLoginTextField alloc]initWithFrame:usernameRect];
 	self.usernameField.delegate = self;
 	[self.usernameField setBackgroundColor:[UIColor whiteColor]];
 	self.usernameField.borderStyle = UITextBorderStyleLine;
@@ -83,10 +85,10 @@
 	[self.view addSubview:self.usernameField];
 	
 	CGRect passwordRect = CGRectMake(145, 215, 250, 44);
-	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
 		passwordRect = CGRectMake(35, 155, 250, 44);
 	}
-	self.passwordField = [[UITextField alloc]initWithFrame:passwordRect];
+	self.passwordField = [[GPLoginTextField alloc]initWithFrame:passwordRect];
 	self.passwordField.delegate = self;
 	[self.passwordField setSecureTextEntry:YES];
 	[self.passwordField setBackgroundColor:[UIColor whiteColor]];
@@ -96,13 +98,18 @@
 	[self.passwordField setReturnKeyType:UIReturnKeyNext];
 	[self.view addSubview:self.passwordField];
 	
-	self.loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.loginButton setFrame:CGRectMake(145, 277, 250, 44)];
+	CGRect loginRect = CGRectMake(145, 280, 250, 44);
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		loginRect = CGRectMake(35, 220, 250, 44);
+	}
+	self.loginButton = [[GPLoginButton alloc]initWithFrame:loginRect];
 	[self.loginButton setTitle:@"Sign in" forState:UIControlStateNormal];
+	[self.loginButton setTitleShadowColor:UIColor.blackColor forState:UIControlStateNormal];
 	[self.loginButton addTarget:self action:@selector(loginWithCredentialsAndReturnError) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:self.loginButton];
 
 	[self.usernameField becomeFirstResponder];
+	self.view.backgroundColor = [UIColor colorWithWhite:0.975 alpha:1.000];
 }
 
 

@@ -12,6 +12,9 @@
 		840582F1169F86DE0022E4F9 /* GPNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582F0169F86DE0022E4F9 /* GPNotificationButton.m */; };
 		840582F2169F86DE0022E4F9 /* GPNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840582F0169F86DE0022E4F9 /* GPNotificationButton.m */; };
 		8410AB48169F8FF900E71AC3 /* GPNewsFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */; };
+		84339AD41750488100FCC06C /* GPLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84339AD31750488100FCC06C /* GPLoginButton.m */; };
+		84339ADB175048F500FCC06C /* GPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 84339ADA175048F500FCC06C /* GPUtilities.m */; };
+		84339ADE17504E9A00FCC06C /* GPLoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84339ADD17504E9A00FCC06C /* GPLoginTextField.m */; };
 		8442C2E91668184B007046E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2E81668184B007046E3 /* UIKit.framework */; };
 		8442C2EB1668184B007046E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EA1668184B007046E3 /* Foundation.framework */; };
 		8442C2ED1668184B007046E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8442C2EC1668184B007046E3 /* CoreGraphics.framework */; };
@@ -170,6 +173,12 @@
 		840582F0169F86DE0022E4F9 /* GPNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNotificationButton.m; sourceTree = "<group>"; };
 		8410AB46169F8FF900E71AC3 /* GPNewsFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPNewsFeedCell.h; sourceTree = "<group>"; };
 		8410AB47169F8FF900E71AC3 /* GPNewsFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPNewsFeedCell.m; sourceTree = "<group>"; };
+		84339AD21750488100FCC06C /* GPLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPLoginButton.h; sourceTree = "<group>"; };
+		84339AD31750488100FCC06C /* GPLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPLoginButton.m; sourceTree = "<group>"; };
+		84339AD9175048F500FCC06C /* GPUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUtilities.h; sourceTree = "<group>"; };
+		84339ADA175048F500FCC06C /* GPUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUtilities.m; sourceTree = "<group>"; };
+		84339ADC17504E9A00FCC06C /* GPLoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPLoginTextField.h; sourceTree = "<group>"; };
+		84339ADD17504E9A00FCC06C /* GPLoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPLoginTextField.m; sourceTree = "<group>"; };
 		8442C2E51668184B007046E3 /* GitPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8442C2E81668184B007046E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8442C2EA1668184B007046E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -367,6 +376,8 @@
 				8442C2F91668184B007046E3 /* GPAppDelegate.h */,
 				8442C2FA1668184B007046E3 /* GPAppDelegate.m */,
 				846B205B1671705B00436E90 /* GPConstants.h */,
+				84339AD9175048F500FCC06C /* GPUtilities.h */,
+				84339ADA175048F500FCC06C /* GPUtilities.m */,
 				846F181716C795EC0099BA2C /* NPReachability.h */,
 				846F181816C795EC0099BA2C /* NPReachability.m */,
 				846B205D1671717600436E90 /* GPMainViewController.h */,
@@ -385,6 +396,10 @@
 				8442C32916681B76007046E3 /* GPControlCenterViewController.m */,
 				8442C34716682283007046E3 /* GPLoginViewController.h */,
 				8442C34816682284007046E3 /* GPLoginViewController.m */,
+				84339AD21750488100FCC06C /* GPLoginButton.h */,
+				84339AD31750488100FCC06C /* GPLoginButton.m */,
+				84339ADC17504E9A00FCC06C /* GPLoginTextField.h */,
+				84339ADD17504E9A00FCC06C /* GPLoginTextField.m */,
 				840582EA169F7D920022E4F9 /* MWFSlideNavigationViewController.h */,
 				840582EB169F7D920022E4F9 /* MWFSlideNavigationViewController.m */,
 				846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */,
@@ -813,6 +828,9 @@
 				8458976916D2D60000D129EA /* SDWebImagePrefetcher.m in Sources */,
 				8458976A16D2D60000D129EA /* UIButton+WebCache.m in Sources */,
 				8458976B16D2D60000D129EA /* UIImageView+WebCache.m in Sources */,
+				84339AD41750488100FCC06C /* GPLoginButton.m in Sources */,
+				84339ADB175048F500FCC06C /* GPUtilities.m in Sources */,
+				84339ADE17504E9A00FCC06C /* GPLoginTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
