@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class GPAccount;
+@class KRAUser;
 
 @interface GPProfileContainerView : UIView
 
-- (id)initWithFrame:(CGRect)frame andAccount:(GPAccount*)account;
+- (id)initWithFrame:(CGRect)frame andAccount:(KRAUser*)account;
 
 @end

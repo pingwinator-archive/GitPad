@@ -10,7 +10,6 @@
 #import "GPNavigationController.h"
 #import "GPNavigationBar.h"
 #import "GPAppDelegate.h"
-#import "GPAccount.h"
 #import "GPConstants.h"
 #import "UIImage+PDF.h"
 #import "WBNoticeView.h"
@@ -18,6 +17,7 @@
 #import "WBSuccessNoticeView.h"
 #import "WBStickyNoticeView.h"
 #import "NSOperationQueue+WBNoticeExtensions.h"
+#import <KrakenKit/KrakenKit.h>
 
 @interface GPLoginViewController () <UITextFieldDelegate>
 
@@ -151,7 +151,6 @@
 		errAlpha = 1;
 	}
 	if (errAlpha == 0) {
-		GPAccount *newAccount = nil;
 		@weakify(self);
 		[[KRAClient sharedClient]authenticateUsername:self.usernameField.text
 											password:self.passwordField.text
@@ -174,7 +173,7 @@
 											[self _reEnableForFailedValidationWithErrorMessage:errStr];
 											return;
 										}
-										[self _dismissForSuccessfulValidationWithAccount:newAccount];
+										[self _dismissForSuccessfulValidation];
 									}];
 
 	} else {
@@ -198,8 +197,8 @@
 	[self.loginButton setUserInteractionEnabled:YES];
 }
 
--(void)_dismissForSuccessfulValidationWithAccount:(GPAccount*)account {
-	[[NSNotificationCenter defaultCenter]postNotificationName:GPLoginViewControllerDidSuccessfulyLoginNotification object:account];
+-(void)_dismissForSuccessfulValidation {
+	[[NSNotificationCenter defaultCenter]postNotificationName:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
 }
 
 - (BOOL) validateEmail: (NSString *) candidate {

@@ -51,7 +51,6 @@
 		8458976D16D2D68000D129EA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8458976C16D2D67F00D129EA /* ImageIO.framework */; };
 		846B205F1671717700436E90 /* GPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B205E1671717700436E90 /* GPMainViewController.m */; };
 		846E858616A61F7F00B0B61D /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */; };
-		846F181616C7949A0099BA2C /* GPAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181516C7949A0099BA2C /* GPAccountManager.m */; };
 		846F181916C795EC0099BA2C /* NPReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181816C795EC0099BA2C /* NPReachability.m */; };
 		846F183116C79A110099BA2C /* NoticeView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 846F181B16C79A110099BA2C /* NoticeView.bundle */; };
 		846F183216C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F181D16C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m */; };
@@ -65,9 +64,8 @@
 		846F183A16C79A110099BA2C /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182E16C79A110099BA2C /* WBStickyNoticeView.m */; };
 		846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F183016C79A110099BA2C /* WBSuccessNoticeView.m */; };
 		849E8FBA174AE71C005FAB56 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E8FB9174AE71C005FAB56 /* MobileCoreServices.framework */; };
-		84A1563F1730ABC4007E6A0D /* GPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1563E1730ABC4007E6A0D /* GPAccount.m */; };
 		84A156571730C2FF007E6A0D /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DB04421730855F00674C99 /* libReactiveCocoa-iOS.a */; };
-		84C453FD17503AA3001ECB0F /* libKrakenKit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E91E1175039C9005FAB56 /* libKrakenKit-iOS.a */; };
+		84C4548E175041E7001ECB0F /* libKrakenKit-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C4548B175041E1001ECB0F /* libKrakenKit-iOS.a */; };
 		84CB8C8C16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png in Resources */ = {isa = PBXBuildFile; fileRef = 84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */; };
 		84CB8C9A16ADCE9B0026AF86 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */; };
 		84CB8C9B16ADCE9B0026AF86 /* PDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CB8C9516ADCE9B0026AF86 /* PDFView.m */; };
@@ -107,27 +105,6 @@
 			remoteGlobalIDString = 8442C2E41668184B007046E3;
 			remoteInfo = GitPad;
 		};
-		849E91DE175039C9005FAB56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 849E9003174D8915005FAB56;
-			remoteInfo = KrakenKit;
-		};
-		849E91E0175039C9005FAB56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84ADF9D316ADA7C60026F990;
-			remoteInfo = "KrakenKit-iOS";
-		};
-		849E91E2175039C9005FAB56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84F2FE6117402DEC001B7683;
-			remoteInfo = KrakenKitTests;
-		};
 		84A156551730C2F8007E6A0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84DB04371730855F00674C99 /* ReactiveCocoa.xcodeproj */;
@@ -135,12 +112,33 @@
 			remoteGlobalIDString = 88F440AA153DAC820097B4C3;
 			remoteInfo = "ReactiveCocoa-iOS";
 		};
-		84C453F617503A95001ECB0F /* PBXContainerItemProxy */ = {
+		84C45483175041E0001ECB0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
+			containerPortal = 84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 84ADF9D216ADA7C60026F990;
 			remoteInfo = "KrakenKit-iOS";
+		};
+		84C45488175041E1001ECB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 849E9003174D8915005FAB56;
+			remoteInfo = KrakenKit;
+		};
+		84C4548A175041E1001ECB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84ADF9D316ADA7C60026F990;
+			remoteInfo = "KrakenKit-iOS";
+		};
+		84C4548C175041E1001ECB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84F2FE6117402DEC001B7683;
+			remoteInfo = KrakenKitTests;
 		};
 		84DB043F1730855F00674C99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -235,8 +233,6 @@
 		846B205E1671717700436E90 /* GPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMainViewController.m; sourceTree = "<group>"; };
 		846E858416A61F7F00B0B61D /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		846E858516A61F7F00B0B61D /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
-		846F181416C7949A0099BA2C /* GPAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAccountManager.h; sourceTree = "<group>"; };
-		846F181516C7949A0099BA2C /* GPAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAccountManager.m; sourceTree = "<group>"; };
 		846F181716C795EC0099BA2C /* NPReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPReachability.h; sourceTree = "<group>"; };
 		846F181816C795EC0099BA2C /* NPReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPReachability.m; sourceTree = "<group>"; };
 		846F181B16C79A110099BA2C /* NoticeView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NoticeView.bundle; sourceTree = "<group>"; };
@@ -262,9 +258,7 @@
 		846F182F16C79A110099BA2C /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
 		846F183016C79A110099BA2C /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
 		849E8FB9174AE71C005FAB56 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = External/KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
-		84A1563D1730ABC4007E6A0D /* GPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAccount.h; sourceTree = "<group>"; };
-		84A1563E1730ABC4007E6A0D /* GPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAccount.m; sourceTree = "<group>"; };
+		84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = External/KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
 		84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "<Github-Social-Logo-Outlined>.png"; sourceTree = "<group>"; };
 		84CB8C9216ADCE9B0026AF86 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		84CB8C9316ADCE9B0026AF86 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
@@ -301,7 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C453FD17503AA3001ECB0F /* libKrakenKit-iOS.a in Frameworks */,
+				84C4548E175041E7001ECB0F /* libKrakenKit-iOS.a in Frameworks */,
 				84A156571730C2FF007E6A0D /* libReactiveCocoa-iOS.a in Frameworks */,
 				8458976D16D2D68000D129EA /* ImageIO.framework in Frameworks */,
 				84F8F04216D217E700827B4D /* Security.framework in Frameworks */,
@@ -332,7 +326,7 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
-				849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */,
+				84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */,
 				84DB04371730855F00674C99 /* ReactiveCocoa.xcodeproj */,
 				8442C2F01668184B007046E3 /* GitPad */,
 				8442C3121668184B007046E3 /* GitPadTests */,
@@ -373,10 +367,6 @@
 				8442C2F91668184B007046E3 /* GPAppDelegate.h */,
 				8442C2FA1668184B007046E3 /* GPAppDelegate.m */,
 				846B205B1671705B00436E90 /* GPConstants.h */,
-				84A1563D1730ABC4007E6A0D /* GPAccount.h */,
-				84A1563E1730ABC4007E6A0D /* GPAccount.m */,
-				846F181416C7949A0099BA2C /* GPAccountManager.h */,
-				846F181516C7949A0099BA2C /* GPAccountManager.m */,
 				846F181716C795EC0099BA2C /* NPReachability.h */,
 				846F181816C795EC0099BA2C /* NPReachability.m */,
 				846B205D1671717600436E90 /* GPMainViewController.h */,
@@ -534,12 +524,12 @@
 			path = WBNoticeView;
 			sourceTree = "<group>";
 		};
-		849E91D4175039C9005FAB56 /* Products */ = {
+		84C4547C175041CE001ECB0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				849E91DF175039C9005FAB56 /* KrakenKit.framework */,
-				849E91E1175039C9005FAB56 /* libKrakenKit-iOS.a */,
-				849E91E3175039C9005FAB56 /* KrakenKitTests.octest */,
+				84C45489175041E1001ECB0F /* KrakenKit.framework */,
+				84C4548B175041E1001ECB0F /* libKrakenKit-iOS.a */,
+				84C4548D175041E1001ECB0F /* KrakenKitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -609,7 +599,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				84C453F717503A95001ECB0F /* PBXTargetDependency */,
+				84C45484175041E0001ECB0F /* PBXTargetDependency */,
 				84A156561730C2F8007E6A0D /* PBXTargetDependency */,
 			);
 			name = GitPad;
@@ -658,8 +648,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 849E91D4175039C9005FAB56 /* Products */;
-					ProjectRef = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
+					ProductGroup = 84C4547C175041CE001ECB0F /* Products */;
+					ProjectRef = 84C4547B175041CE001ECB0F /* KrakenKit.xcodeproj */;
 				},
 				{
 					ProductGroup = 84DB04381730855F00674C99 /* Products */;
@@ -675,25 +665,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		849E91DF175039C9005FAB56 /* KrakenKit.framework */ = {
+		84C45489175041E1001ECB0F /* KrakenKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = KrakenKit.framework;
-			remoteRef = 849E91DE175039C9005FAB56 /* PBXContainerItemProxy */;
+			remoteRef = 84C45488175041E1001ECB0F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		849E91E1175039C9005FAB56 /* libKrakenKit-iOS.a */ = {
+		84C4548B175041E1001ECB0F /* libKrakenKit-iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libKrakenKit-iOS.a";
-			remoteRef = 849E91E0175039C9005FAB56 /* PBXContainerItemProxy */;
+			remoteRef = 84C4548A175041E1001ECB0F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		849E91E3175039C9005FAB56 /* KrakenKitTests.octest */ = {
+		84C4548D175041E1001ECB0F /* KrakenKitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = KrakenKitTests.octest;
-			remoteRef = 849E91E2175039C9005FAB56 /* PBXContainerItemProxy */;
+			remoteRef = 84C4548C175041E1001ECB0F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		84DB04401730855F00674C99 /* ReactiveCocoa.framework */ = {
@@ -796,7 +786,6 @@
 				84CB8C9B16ADCE9B0026AF86 /* PDFView.m in Sources */,
 				84CB8C9C16ADCE9B0026AF86 /* UIImage+PDF.m in Sources */,
 				84CB8C9D16ADCE9B0026AF86 /* UIView+Image.m in Sources */,
-				846F181616C7949A0099BA2C /* GPAccountManager.m in Sources */,
 				846F181916C795EC0099BA2C /* NPReachability.m in Sources */,
 				846F183216C79A110099BA2C /* NSOperationQueue+WBNoticeExtensions.m in Sources */,
 				846F183316C79A110099BA2C /* UILabel+WBExtensions.m in Sources */,
@@ -824,7 +813,6 @@
 				8458976916D2D60000D129EA /* SDWebImagePrefetcher.m in Sources */,
 				8458976A16D2D60000D129EA /* UIButton+WebCache.m in Sources */,
 				8458976B16D2D60000D129EA /* UIImageView+WebCache.m in Sources */,
-				84A1563F1730ABC4007E6A0D /* GPAccount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,10 +843,10 @@
 			name = "ReactiveCocoa-iOS";
 			targetProxy = 84A156551730C2F8007E6A0D /* PBXContainerItemProxy */;
 		};
-		84C453F717503A95001ECB0F /* PBXTargetDependency */ = {
+		84C45484175041E0001ECB0F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "KrakenKit-iOS";
-			targetProxy = 84C453F617503A95001ECB0F /* PBXContainerItemProxy */;
+			targetProxy = 84C45483175041E0001ECB0F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1002,10 +990,12 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitPad.app/GitPad";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(SRCROOT)/External/KrakenKit\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/KrakenKit\"";
 				INFOPLIST_FILE = "GitPadTests/GitPadTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1019,10 +1009,12 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GitPad.app/GitPad";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(SRCROOT)/External/KrakenKit\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GitPad/GitPad-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/External/KrakenKit\"";
 				INFOPLIST_FILE = "GitPadTests/GitPadTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

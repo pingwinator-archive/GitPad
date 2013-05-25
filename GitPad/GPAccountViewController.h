@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class GPAccount, GPNavigationBar;
+@class KRAUser, GPNavigationBar;
 
 @interface GPAccountViewController : UIViewController
 
 
-- (id)initWithAccount:(GPAccount*)account navigationBar:(GPNavigationBar*)navigationBar;
+- (id)initWithAccount:(KRAUser*)account navigationBar:(GPNavigationBar*)navigationBar;
 
-@property (nonatomic, strong, readonly) GPAccount *account;
+@property (nonatomic, strong, readonly) KRAUser *account;
 
 @end

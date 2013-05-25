@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class GPAccount;
+@class KRAUser;
 
 @interface GPRepositoryListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *repositories;
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) GPAccount *account;
+@property (nonatomic, strong) KRAUser *account;
 
 - (void)setupWithFrame:(CGRect)frame;
 

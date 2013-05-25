@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class GPAccount;
+@class KRAUser;
 
 @interface GPMainViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) GPAccount *currentAccount;
+@property (nonatomic, strong) KRAUser *currentAccount;
 
 - (void)gp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated newNavigationBar:(BOOL)flag completion:(void (^)(void))completion;
 

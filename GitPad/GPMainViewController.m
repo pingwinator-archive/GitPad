@@ -13,15 +13,14 @@
 #import "GPNavigationController.h"
 #import "GPNavigationBar.h"
 #import "GPNotificationButton.h"
-#import "GPAccount.h"
 #import "GPNewsFeedCell.h"
 #import "GPRepositoryListViewController.h"
 #import "BWStatusBarOverlay.h"
-#import "GPAccountManager.h"
 #import "GPScrollingSegmentedControl.h"
 #import "MWFSlideNavigationViewController.h"
 #import "SSKeychain.h"
 #import <QuartzCore/QuartzCore.h>
+#import <KrakenKit/KrakenKit.h>
 
 @interface GPMainViewController ()
 
@@ -114,7 +113,8 @@
 - (BOOL)presentLoginViewControllerIfNeeded {
 	BOOL result = NO;
 	if (!self.loginPresentedOnce) {
-		if ([[GPAccountManager sharedManager]accounts].count == 0) {
+		self.currentAccount = [[KRAClient sharedClient]authenticatedUser];
+		if (!self.currentAccount) {
 			[self _setupLoginViewControllerIfNeeded];
 		//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
 			[self presentViewController:self.loginNavigationBar animated:YES completion:NULL];
@@ -123,8 +123,6 @@
 		//#endif
 		//
 			result = YES;
-		} else {
-			self.currentAccount = [GPAccountManager sharedManager].accounts.lastObject;
 		}
 	}
 	return result;
@@ -151,10 +149,7 @@
 
 -(void)_newLoginSuccessful:(NSNotification*)loginNotification {
 	[self dismissViewControllerAnimated:YES completion:NULL];
-	self.currentAccount = loginNotification.object;
-	[[GPAccountManager sharedManager]addAccount:loginNotification.object];
-	[SSKeychain setPassword:self.currentAccount.password forService:GPPasswordServiceConstant account:self.currentAccount.username];
-	
+	self.currentAccount = [[KRAClient sharedClient]authenticatedUser];	
 	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
 	
 //	@weakify(self);
@@ -175,8 +170,6 @@
 //			}];
 //		}];
 //	}];
-
-	[[GPAccountManager sharedManager]saveChanges];
 }
 
 - (void)_reloadSync {	
@@ -207,7 +200,7 @@
 }
 
 - (void)_leftSideActionNotificationRecieved:(NSNotification*)notification {
-	GPAccount *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
+	KRAUser *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
 	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount navigationBar:self.navigationBar];
 	[self gp_presentViewController:accountViewController animated:YES newNavigationBar:NO completion:^{
 		

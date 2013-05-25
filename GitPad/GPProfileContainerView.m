@@ -7,12 +7,11 @@
 //
 
 #import "GPProfileContainerView.h"
-#import "GPAccount.h"
 #import "UIImageView+WebCache.h"
 
 @interface GPProfileContainerView ()
 
-@property (nonatomic, strong) GPAccount *account;
+@property (nonatomic, strong) KRAUser *account;
 @property (nonatomic, strong) UIImageView *profileImageView;
 //@property (nonatomic, strong) UILabel *profileImageView;
 
@@ -20,7 +19,7 @@
 
 @implementation GPProfileContainerView
 
-- (id)initWithFrame:(CGRect)frame andAccount:(GPAccount*)account;
+- (id)initWithFrame:(CGRect)frame andAccount:(KRAUser*)account;
 {
     self = [super initWithFrame:frame];
     if (self) {

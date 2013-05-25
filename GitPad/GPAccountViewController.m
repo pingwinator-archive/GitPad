@@ -20,7 +20,7 @@
 
 @implementation GPAccountContainerView
 
-- (id)initWithFrame:(CGRect)frame andAccount:(GPAccount *)account{
+- (id)initWithFrame:(CGRect)frame andAccount:(KRAUser *)account{
 	self = [super initWithFrame:frame];
 	
 	_scopeBar = [[GPScrollingSegmentedControl alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, 44) andItems:@[@"Profile", @"Repos", @"Activity"] inScrollView:nil];
@@ -46,14 +46,14 @@
 
 @interface GPAccountViewController ()
 
-@property (nonatomic, strong) GPAccount *account;
+@property (nonatomic, strong) KRAUser *account;
 @property (nonatomic, strong) GPNavigationBar *navigationbar;
 
 @end
 
 @implementation GPAccountViewController
 
-- (id)initWithAccount:(GPAccount*)account navigationBar:(GPNavigationBar*)navigationBar {
+- (id)initWithAccount:(KRAUser*)account navigationBar:(GPNavigationBar*)navigationBar {
 	self = [super init];
 	
 	_account = account;
