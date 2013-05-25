@@ -64,7 +64,6 @@
 		846F183916C79A110099BA2C /* WBRedGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182C16C79A110099BA2C /* WBRedGradientView.m */; };
 		846F183A16C79A110099BA2C /* WBStickyNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F182E16C79A110099BA2C /* WBStickyNoticeView.m */; };
 		846F183B16C79A110099BA2C /* WBSuccessNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F183016C79A110099BA2C /* WBSuccessNoticeView.m */; };
-		849E8FB8174AE69A005FAB56 /* libKrakenKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E8FB1174AE684005FAB56 /* libKrakenKit.a */; };
 		849E8FBA174AE71C005FAB56 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849E8FB9174AE71C005FAB56 /* MobileCoreServices.framework */; };
 		84A1563F1730ABC4007E6A0D /* GPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1563E1730ABC4007E6A0D /* GPAccount.m */; };
 		84A156571730C2FF007E6A0D /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DB04421730855F00674C99 /* libReactiveCocoa-iOS.a */; };
@@ -107,26 +106,26 @@
 			remoteGlobalIDString = 8442C2E41668184B007046E3;
 			remoteInfo = GitPad;
 		};
-		849E8FB0174AE684005FAB56 /* PBXContainerItemProxy */ = {
+		849E91DE175039C9005FAB56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 849E8FA6174AE683005FAB56 /* KrakenKit.xcodeproj */;
+			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 84ADF9D316ADA7C60026F990;
+			remoteGlobalIDString = 849E9003174D8915005FAB56;
 			remoteInfo = KrakenKit;
 		};
-		849E8FB2174AE684005FAB56 /* PBXContainerItemProxy */ = {
+		849E91E0175039C9005FAB56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 849E8FA6174AE683005FAB56 /* KrakenKit.xcodeproj */;
+			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84ADF9D316ADA7C60026F990;
+			remoteInfo = "KrakenKit-iOS";
+		};
+		849E91E2175039C9005FAB56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 84F2FE6117402DEC001B7683;
 			remoteInfo = KrakenKitTests;
-		};
-		849E8FB6174AE691005FAB56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 849E8FA6174AE683005FAB56 /* KrakenKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 84ADF9D216ADA7C60026F990;
-			remoteInfo = KrakenKit;
 		};
 		84A156551730C2F8007E6A0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -254,8 +253,8 @@
 		846F182E16C79A110099BA2C /* WBStickyNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStickyNoticeView.m; sourceTree = "<group>"; };
 		846F182F16C79A110099BA2C /* WBSuccessNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSuccessNoticeView.h; sourceTree = "<group>"; };
 		846F183016C79A110099BA2C /* WBSuccessNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSuccessNoticeView.m; sourceTree = "<group>"; };
-		849E8FA6174AE683005FAB56 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = External/KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
 		849E8FB9174AE71C005FAB56 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KrakenKit.xcodeproj; path = External/KrakenKit/KrakenKit.xcodeproj; sourceTree = "<group>"; };
 		84A1563D1730ABC4007E6A0D /* GPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAccount.h; sourceTree = "<group>"; };
 		84A1563E1730ABC4007E6A0D /* GPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAccount.m; sourceTree = "<group>"; };
 		84CB8C8B16ADC77D0026AF86 /* <Github-Social-Logo-Outlined>.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "<Github-Social-Logo-Outlined>.png"; sourceTree = "<group>"; };
@@ -294,7 +293,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849E8FB8174AE69A005FAB56 /* libKrakenKit.a in Frameworks */,
 				84A156571730C2FF007E6A0D /* libReactiveCocoa-iOS.a in Frameworks */,
 				8458976D16D2D68000D129EA /* ImageIO.framework in Frameworks */,
 				84F8F04216D217E700827B4D /* Security.framework in Frameworks */,
@@ -325,7 +323,7 @@
 		8442C2DC1668184B007046E3 = {
 			isa = PBXGroup;
 			children = (
-				849E8FA6174AE683005FAB56 /* KrakenKit.xcodeproj */,
+				849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */,
 				84DB04371730855F00674C99 /* ReactiveCocoa.xcodeproj */,
 				8442C2F01668184B007046E3 /* GitPad */,
 				8442C3121668184B007046E3 /* GitPadTests */,
@@ -527,11 +525,12 @@
 			path = WBNoticeView;
 			sourceTree = "<group>";
 		};
-		849E8FA7174AE683005FAB56 /* Products */ = {
+		849E91D4175039C9005FAB56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				849E8FB1174AE684005FAB56 /* libKrakenKit.a */,
-				849E8FB3174AE684005FAB56 /* KrakenKitTests.octest */,
+				849E91DF175039C9005FAB56 /* KrakenKit.framework */,
+				849E91E1175039C9005FAB56 /* libKrakenKit-iOS.a */,
+				849E91E3175039C9005FAB56 /* KrakenKitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -601,7 +600,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				849E8FB7174AE691005FAB56 /* PBXTargetDependency */,
 				84A156561730C2F8007E6A0D /* PBXTargetDependency */,
 			);
 			name = GitPad;
@@ -650,8 +648,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 849E8FA7174AE683005FAB56 /* Products */;
-					ProjectRef = 849E8FA6174AE683005FAB56 /* KrakenKit.xcodeproj */;
+					ProductGroup = 849E91D4175039C9005FAB56 /* Products */;
+					ProjectRef = 849E91D3175039C9005FAB56 /* KrakenKit.xcodeproj */;
 				},
 				{
 					ProductGroup = 84DB04381730855F00674C99 /* Products */;
@@ -667,18 +665,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		849E8FB1174AE684005FAB56 /* libKrakenKit.a */ = {
+		849E91DF175039C9005FAB56 /* KrakenKit.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKrakenKit.a;
-			remoteRef = 849E8FB0174AE684005FAB56 /* PBXContainerItemProxy */;
+			fileType = wrapper.framework;
+			path = KrakenKit.framework;
+			remoteRef = 849E91DE175039C9005FAB56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		849E8FB3174AE684005FAB56 /* KrakenKitTests.octest */ = {
+		849E91E1175039C9005FAB56 /* libKrakenKit-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libKrakenKit-iOS.a";
+			remoteRef = 849E91E0175039C9005FAB56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		849E91E3175039C9005FAB56 /* KrakenKitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = KrakenKitTests.octest;
-			remoteRef = 849E8FB2174AE684005FAB56 /* PBXContainerItemProxy */;
+			remoteRef = 849E91E2175039C9005FAB56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		84DB04401730855F00674C99 /* ReactiveCocoa.framework */ = {
@@ -834,11 +839,6 @@
 			isa = PBXTargetDependency;
 			target = 8442C2E41668184B007046E3 /* GitPad */;
 			targetProxy = 8442C3101668184B007046E3 /* PBXContainerItemProxy */;
-		};
-		849E8FB7174AE691005FAB56 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KrakenKit;
-			targetProxy = 849E8FB6174AE691005FAB56 /* PBXContainerItemProxy */;
 		};
 		84A156561730C2F8007E6A0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
