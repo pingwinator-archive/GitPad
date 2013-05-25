@@ -44,9 +44,6 @@ static CGFloat const GPCornerClipRadius = 4.0;
 		[self addSubview:_label];
 		
 		_imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMidX(self.bounds) - 22, 0, 44, 44)];
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-			_imageView.frame = CGRectMake(CGRectGetMidX(self.bounds)/2, 0, 44, 44);
-		}
 		_imageView.contentMode = UIViewContentModeCenter;
 		[self addSubview:_imageView];
     }

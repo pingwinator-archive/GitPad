@@ -46,7 +46,7 @@
 {
 	// Do any additional setup after loading the view.
     [super viewDidLoad];
-	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:(CGRect){ .size.width = 540, .size.height = 44 }];
+	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:(CGRect){ .size.width = CGRectGetWidth(self.view.bounds), .size.height = 44 }];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	self.navigationBar.titleImage = [UIImage imageWithPDFNamed:@"<Blacktocats>.pdf" atSize:CGSizeMake(32, 32)];
 	self.navigationBar.drawRect = ^(GPNavigationBar *bar, CGRect dirtyRect) {
@@ -71,9 +71,11 @@
 	
 	[self.view addSubview:self.navigationBar];
 	
+	BOOL iPhive = CGSizeEqualToSize([[UIScreen mainScreen] preferredMode].size,CGSizeMake(640, 1136));
+	
 	CGRect usernameRect = CGRectMake(145, 163, 250, 44);
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-		usernameRect = CGRectMake(35, 103, 250, 44);
+		usernameRect = CGRectMake(35, iPhive ? 103 : 78, 250, 44);
 	}
 	self.usernameField = [[GPLoginTextField alloc]initWithFrame:usernameRect];
 	self.usernameField.delegate = self;
@@ -86,7 +88,7 @@
 	
 	CGRect passwordRect = CGRectMake(145, 215, 250, 44);
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-		passwordRect = CGRectMake(35, 155, 250, 44);
+		passwordRect = CGRectMake(35, iPhive  ? 155 : 130, 250, 44);
 	}
 	self.passwordField = [[GPLoginTextField alloc]initWithFrame:passwordRect];
 	self.passwordField.delegate = self;
@@ -100,7 +102,7 @@
 	
 	CGRect loginRect = CGRectMake(145, 280, 250, 44);
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-		loginRect = CGRectMake(35, 220, 250, 44);
+		loginRect = CGRectMake(35, iPhive ? 220 : 195, 250, 44);
 	}
 	self.loginButton = [[GPLoginButton alloc]initWithFrame:loginRect];
 	[self.loginButton setTitle:@"Sign in" forState:UIControlStateNormal];
