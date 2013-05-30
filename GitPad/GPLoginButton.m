@@ -22,7 +22,6 @@
 		self.layer.borderColor = [UIColor colorWithRed:0.269 green:0.578 blue:0.168 alpha:1.000].CGColor;
 		self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
 		self.backgroundColor = [UIColor colorWithRed:0.430 green:0.758 blue:0.316 alpha:1.000];
-		
     }
     return self;
 }
