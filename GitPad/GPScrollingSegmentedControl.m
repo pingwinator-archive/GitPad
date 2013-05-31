@@ -67,6 +67,7 @@
 }
 
 - (void)selectSegment:(GPSegment*)segmentButton {
+	[self willChangeValueForKey:@"selectedSegmentIndex"];
 	_selectedSegmentIndex = [self.segments indexOfObject:segmentButton];
 	for (GPSegment *segment in self.segments) {
 		if (segment != segmentButton) {
@@ -75,6 +76,7 @@
 			[segment setSelected:YES];
 		}
 	}
+	[self didChangeValueForKey:@"selectedSegmentIndex"];
 }
 
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex {
