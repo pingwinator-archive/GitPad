@@ -396,8 +396,24 @@ NSString *_stringFromEventPayloadType(KRAGithubEventType payload, KRAGithubActio
 			break;
 		case KRAGithubWatchEventType:
 			return @"starred";
-		case KRAGithubPullRequestEventType:
-			return @"merged pull request";
+		case KRAGithubPullRequestEventType: {
+			switch (action) {
+				case KRAGithubActionTypeOpened:
+					return @"opened pull request";
+					break;
+				case KRAGithubActionTypeClosed:
+					return @"merged pull request";
+					break;
+				case KRAGithubActionTypeCreated:
+					return @"merged pull request";
+					break;
+				default:
+					return @"";
+					break;
+			}
+			return @"issued";
+			break;
+		}
 		default:
 			return @"did something else";
 			break;

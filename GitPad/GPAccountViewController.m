@@ -48,7 +48,8 @@
 @interface GPAccountViewController ()
 
 @property (nonatomic, strong) KRAUser *account;
-@property (nonatomic, strong) GPNavigationBar *navigationbar;
+@property (nonatomic, strong) GPNavigationBar *navigationBar;
+@property (nonatomic, strong) GPAccountContainerView *accountView;
 @property (nonatomic, strong) UISwipeGestureRecognizer *dismissSwipeGestureRecognizer;
 @property (nonatomic, weak) UIViewController *presentingVC;
 
@@ -56,23 +57,33 @@
 
 @implementation GPAccountViewController
 
-- (id)initWithAccount:(KRAUser *)account navigationBar:(GPNavigationBar *)navigationBar presentingViewController:(UIViewController *)presentingViewController {
+- (id)initWithAccount:(KRAUser *)account presentingViewController:(UIViewController *)presentingViewController {
 	self = [super init];
 	
 	_account = account;
-	_navigationbar = navigationBar;
 	_presentingVC = presentingViewController;
 	
 	_dismissSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
 	_dismissSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-	[self.view addGestureRecognizer:_dismissSwipeGestureRecognizer];
 	
 	return self;
 }
 
 - (void)loadView {
-	GPAccountContainerView *view = [[GPAccountContainerView alloc]initWithFrame:CGRectZero andAccount:self.account];
-	view.backgroundColor = UIColor.whiteColor;
+	UIView *view = [[UIView alloc]initWithFrame:CGRectZero];
+	
+	_accountView = [[GPAccountContainerView alloc]initWithFrame:CGRectZero andAccount:self.account];
+	_accountView.backgroundColor = UIColor.whiteColor;
+	_accountView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+	[view addSubview:_accountView];
+	
+	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectZero];
+	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	self.navigationBar.title = @"News Feed";
+	self.navigationBar.label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0f];
+	[self.navigationBar addGestureRecognizer:self.dismissSwipeGestureRecognizer];
+	[view addSubview:self.navigationBar];
+	
 	self.view = view;
 }
 
@@ -80,7 +91,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.navigationbar setTitle:@"Profile"];
+	[self.navigationBar setTitle:self.account.login];
+}
+
+- (void)viewWillLayoutSubviews {
+	CGRect remainder, slice;
+	CGRectDivide(self.view.bounds, &slice, &remainder, 44, CGRectMinYEdge);
+	self.navigationBar.frame = slice;
+	self.accountView.frame = remainder;
 }
 
 - (void)dismiss {

@@ -52,28 +52,29 @@
 @implementation GPMainViewController
 
 - (id)init {
-	if (self = [super init]) {
-		_repositoryTableViewController = [[GPRepositoryListViewController alloc]init];
+	self = [super init];
 		
-		_delegate = [[UIApplication sharedApplication]delegate];
+	_repositoryTableViewController = [[GPRepositoryListViewController alloc]init];
 		
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful:) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
-		[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_leftSideActionNotificationRecieved:) name:GPNewsFeedCellSelectedLeftSideActionNotification object:nil];
+	_delegate = [[UIApplication sharedApplication]delegate];
 	
-		_blanketDimmingLayer = [[CALayer alloc]init];
-		_blanketDimmingLayer.backgroundColor = UIColor.blackColor.CGColor;
-		_blanketDimmingLayer.opacity = 0.0;
-		_eventsArray = @[];
-		
-		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
-        [BWStatusBarOverlay setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
-		[[BWStatusBarOverlay shared]setAnimation:BWStatusBarOverlayAnimationTypeFromTop];
-	}
+	[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_newLoginSuccessful:) name:GPLoginViewControllerDidSuccessfulyLoginNotification object:nil];
+	[[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_leftSideActionNotificationRecieved:) name:GPNewsFeedCellSelectedLeftSideActionNotification object:nil];
+
+	_blanketDimmingLayer = [[CALayer alloc]init];
+	_blanketDimmingLayer.backgroundColor = UIColor.blackColor.CGColor;
+	_blanketDimmingLayer.opacity = 0.0;
+	_eventsArray = @[];
+	
+	[BWStatusBarOverlay setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+	[BWStatusBarOverlay.shared setAnimation:BWStatusBarOverlayAnimationTypeFromTop];
+
 	return self;
 }
 
 - (void)viewDidLoad {
-	    
+	[UIApplication.sharedApplication setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:YES];
+
     CGRect remainder, slice;
 	CGRectDivide(self.view.bounds, &slice, &remainder, 44, CGRectMinYEdge);
 	self.newsFeedTableView = [[UITableView alloc]initWithFrame:remainder style:UITableViewStylePlain];
@@ -87,8 +88,24 @@
 	[self.scopeBar setSelectedSegmentIndex:0];
 	
 	@weakify(self);
-	[[RACAble(self,scopeBar.selectedSegmentIndex) distinctUntilChanged]subscribeNext:^(id x) {
+	[[RACAble(self,scopeBar.selectedSegmentIndex) distinctUntilChanged]subscribeNext:^(NSNumber *x) {
 		@strongify(self);
+		switch (x.intValue) {
+			case 0:
+				self.navigationBar.title = @"News Feed";
+				break;
+			case 1:
+				self.navigationBar.title = @"Pull Requests";
+				break;
+			case 2:
+				self.navigationBar.title = @"Issues";
+				break;
+			case 3:
+				self.navigationBar.title = @"Stargazers";
+				break;
+			default:
+				break;
+		}
 		[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 	}];
 	self.blanketDimmingLayer.frame = self.view.bounds;
@@ -233,7 +250,7 @@
 
 - (void)_leftSideActionNotificationRecieved:(NSNotification*)notification {
 	KRAUser *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
-	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount navigationBar:self.navigationBar presentingViewController:self];
+	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount presentingViewController:self];
 	[self gp_presentViewController:accountViewController animated:YES newNavigationBar:NO completion:^{
 		
 	}];
@@ -247,11 +264,12 @@
 		[self presentViewController:viewControllerToPresent animated:animated completion:completion];
 	} else {
 		viewControllerToPresent.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(self.view.bounds));
-		[self.view insertSubview:viewControllerToPresent.view belowSubview:self.navigationBar];
+		viewControllerToPresent.view.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+		[self.view addSubview:viewControllerToPresent.view];
 		[UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
 			CGRect remainder, slice;
-			CGRectDivide(self.view.bounds, &slice, &remainder, 44, CGRectMinYEdge);
-			viewControllerToPresent.view.frame = remainder;
+			CGRectDivide(self.view.bounds, &slice, &remainder, 22, CGRectMinYEdge);
+			viewControllerToPresent.view.frame = self.view.bounds;
 		} completion:^(BOOL finished) {
 			completion();
 		}];
@@ -268,7 +286,6 @@
 		@strongify(self);
 		[self.currentModalViewController.view removeFromSuperview];
 		self.currentModalViewController = nil;
-		self.navigationBar.title = @"News Feed";
 	}];
 }
 
@@ -292,12 +309,14 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *GPNewsFeedCellIdentifier = @"GPNewsFeedCellIdentifier";
-	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
+	static NSString *GPStarredCellIdentifier = @"GPStarredCellIdentifier";
+
+	UITableViewCell *cell = nil;
 	switch (self.scopeBar.selectedSegmentIndex) {
 		case 0: {
+			cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
 			KRAEvent *event = [self.eventsArray objectAtIndex:indexPath.row];
-			if (cell == nil) {
+			if (!cell || ![cell isKindOfClass:GPNewsFeedCell.class]) {
 				cell = [[GPNewsFeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
 				cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			}
@@ -307,8 +326,9 @@
 		case 1:
 		case 2:
 		case 3: {
+			cell = [tableView dequeueReusableCellWithIdentifier:GPStarredCellIdentifier];
 			KRARepository *repo = [self.starredReposArray objectAtIndex:indexPath.row];
-			if (cell == nil) {
+			if (!cell || ![cell isKindOfClass:GPStarredRepoCell.class]) {
 				cell = [[GPStarredRepoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
 				cell.selectionStyle = UITableViewCellSelectionStyleNone;
 			}
@@ -329,6 +349,8 @@
 		case 1:
 		case 2:
 		case 3:
+			return self.starredReposArray.count;
+			break;
 		default:
 			break;
 	}
@@ -347,6 +369,8 @@
 		case 1:
 		case 2:
 		case 3:
+			return 70.f;
+			break;
 		default:
 			break;
 	}

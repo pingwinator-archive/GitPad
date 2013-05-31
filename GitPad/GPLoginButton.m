@@ -14,15 +14,13 @@
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-		self.layer.cornerRadius = 5.0f;
-		self.layer.masksToBounds = YES;
-		self.layer.borderWidth = 1.0f;
-		self.layer.borderColor = [UIColor colorWithRed:0.269 green:0.578 blue:0.168 alpha:1.000].CGColor;
-		self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-		self.backgroundColor = [UIColor colorWithRed:0.430 green:0.758 blue:0.316 alpha:1.000];
-    }
+	// Initialization code
+	self.layer.cornerRadius = 5.0f;
+	self.layer.masksToBounds = YES;
+	self.layer.borderWidth = 1.0f;
+	self.layer.borderColor = [UIColor colorWithRed:0.269 green:0.578 blue:0.168 alpha:1.000].CGColor;
+	self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+	self.backgroundColor = [UIColor colorWithRed:0.430 green:0.758 blue:0.316 alpha:1.000];
     return self;
 }
 

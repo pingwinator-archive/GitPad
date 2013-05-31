@@ -24,18 +24,18 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-//		_profileImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
-//		_account = account;
-//		RACSignal *avatarURLSigal = RACAbleWithStart(account.avatarURL);
-//		[_profileImageView rac_liftSelector:@selector(setImageWithURL:) withObjects:avatarURLSigal];
-//		[self addSubview:_profileImageView];
+		_profileImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+		_account = account;
+		RACSignal *avatarURLSigal = RACAbleWithStart(account.avatarURL);
+		[_profileImageView rac_liftSelector:@selector(setImageWithURL:) withObjects:avatarURLSigal];
+		[self addSubview:_profileImageView];
     }
     return self;
 }
 
 - (void)layoutSubviews {
 	CGRect remainder, slice;
-	_profileImageView.frame = CGRectMake(0, 0, 160, 160);
+	_profileImageView.frame = (CGRect){ .origin.x = CGRectGetMidX(self.bounds) - 80, .origin.y = CGRectGetMidX(self.bounds) - 80, .size = { 160, 160 } };
 }
 
 /*
