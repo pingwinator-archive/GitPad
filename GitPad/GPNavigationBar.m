@@ -57,6 +57,8 @@ static CGFloat const GPCornerClipRadius = 4.0;
 - (void)setFrame:(CGRect)frame {
 	[super setFrame:frame];
 	[self.label setFrame:self.bounds];
+	self.label.frame = self.bounds;
+	self.imageView.frame = (CGRect){ .origin.x = CGRectGetMidX(self.bounds) - 22, .size = (CGSize){ 44, 44 } };
 }
 
 #pragma mark - Drawing
