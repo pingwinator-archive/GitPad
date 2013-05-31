@@ -10,6 +10,7 @@
 #import "GPNavigationBar.h"
 #import "GPScrollingSegmentedControl.h"
 #import "GPProfileContainerView.h"
+#import "GPMainViewController.h"
 
 @interface GPAccountContainerView : UIView
 
@@ -30,7 +31,7 @@
 	
 	_profileContainerView = [[GPProfileContainerView alloc]initWithFrame:CGRectZero andAccount:account];
 	[self addSubview:_profileContainerView];
-
+	
 	return self;
 }
 
@@ -48,17 +49,24 @@
 
 @property (nonatomic, strong) KRAUser *account;
 @property (nonatomic, strong) GPNavigationBar *navigationbar;
+@property (nonatomic, strong) UISwipeGestureRecognizer *dismissSwipeGestureRecognizer;
+@property (nonatomic, weak) UIViewController *presentingVC;
 
 @end
 
 @implementation GPAccountViewController
 
-- (id)initWithAccount:(KRAUser*)account navigationBar:(GPNavigationBar*)navigationBar {
+- (id)initWithAccount:(KRAUser *)account navigationBar:(GPNavigationBar *)navigationBar presentingViewController:(UIViewController *)presentingViewController {
 	self = [super init];
 	
 	_account = account;
 	_navigationbar = navigationBar;
-
+	_presentingVC = presentingViewController;
+	
+	_dismissSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(dismiss)];
+	_dismissSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+	[self.view addGestureRecognizer:_dismissSwipeGestureRecognizer];
+	
 	return self;
 }
 
@@ -73,6 +81,10 @@
 {
     [super viewDidLoad];
 	[self.navigationbar setTitle:@"Profile"];
+}
+
+- (void)dismiss {
+	[(GPMainViewController *)self.presentingVC gp_dismissCurrentViewController];
 }
 
 

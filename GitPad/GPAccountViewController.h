@@ -13,7 +13,7 @@
 @interface GPAccountViewController : UIViewController
 
 
-- (id)initWithAccount:(KRAUser*)account navigationBar:(GPNavigationBar*)navigationBar;
+- (id)initWithAccount:(KRAUser *)account navigationBar:(GPNavigationBar *)navigationBar presentingViewController:(UIViewController *)presentingViewController;
 
 @property (nonatomic, strong, readonly) KRAUser *account;
 
