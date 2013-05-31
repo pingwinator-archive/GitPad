@@ -114,6 +114,12 @@
 	self.view.backgroundColor = [UIColor colorWithWhite:0.975 alpha:1.000];
 }
 
+- (void)viewWillLayoutSubviews {
+	[super viewWillLayoutSubviews];
+
+	self.navigationBar.frame = (CGRect){ .size.width = CGRectGetWidth(self.view.bounds), .size.height = 44 };
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	if (textField.returnKeyType == UIReturnKeyDone) {

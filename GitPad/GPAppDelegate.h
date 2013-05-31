@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class UAGithubEngine, GPControlCenterViewController, GPMainViewController, MWFSlideNavigationViewController;
+@class UAGithubEngine, GPControlCenterViewController, GPMainViewController;
 
 @interface GPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) GPControlCenterViewController *controlCenterViewController;
 @property (strong, nonatomic) GPMainViewController *mainViewController;
-@property (strong, nonatomic) MWFSlideNavigationViewController *navigationController;
+@property (strong, nonatomic) UINavigationController *navigationController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

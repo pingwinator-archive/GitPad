@@ -11,7 +11,6 @@
 #import "GPNavigationController.h"
 #import "GPConstants.h"
 #import "GPAppDelegate.h"
-#import "MWFSlideNavigationViewController.h"
 
 @interface GPControlCenterViewController ()
 

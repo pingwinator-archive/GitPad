@@ -9,12 +9,7 @@
 #import "GPAppDelegate.h"
 #import "GPControlCenterViewController.h"
 #import "GPNavigationController.h"
-#import "MWFSlideNavigationViewController.h"
 #import "GPMainViewController.h"
-
-@interface GPAppDelegate () <MWFSlideNavigationViewControllerDataSource, MWFSlideNavigationViewControllerDelegate>
-
-@end
 
 @implementation GPAppDelegate
 
@@ -34,13 +29,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-	self.navigationController = [[MWFSlideNavigationViewController alloc]init];
 	self.controlCenterViewController = [GPControlCenterViewController controlCenterViewController];
 	self.mainViewController = [[GPMainViewController alloc]init];
+	self.navigationController = [[UINavigationController alloc]initWithRootViewController:self.mainViewController];
+	self.navigationController.navigationBarHidden = YES;
 	
-	[self.navigationController setRootViewController:self.mainViewController];	
-	self.navigationController.delegate = self;
-	self.navigationController.dataSource = self;
 	[self.window setRootViewController:self.navigationController];
 	
     return YES;
@@ -74,29 +67,6 @@
 {
 	// Saves changes in the application's managed object context before the application terminates.
 	[self saveContext];
-}
-
-- (NSInteger) slideNavigationViewController:(MWFSlideNavigationViewController *)controller distanceForSlideDirecton:(MWFSlideDirection)direction portraitOrientation:(BOOL)portraitOrientation {
-	if (portraitOrientation) {
-		NSInteger distance = CGRectGetHeight(controller.view.bounds)-44;
-		if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-			distance = 180;
-		}
-		return distance;
-	}
-	else {
-		NSInteger distance = CGRectGetHeight(controller.view.bounds)-44;
-		if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-			distance = 100;
-		}
-		return distance;
-	}
-}
-
-- (UIViewController *) slideNavigationViewController:(MWFSlideNavigationViewController *)controller
-					  viewControllerForSlideDirecton:(MWFSlideDirection)direction
-{
-	return self.controlCenterViewController;
 }
 
 - (void)saveContext
