@@ -38,7 +38,7 @@
 
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
-	if (self.repository.privateRepo) {
+	if (self.repository.isPrivateRepo) {
 		[[UIColor colorWithRed:1.000 green:0.998 blue:0.898 alpha:1.000]set];
 		UIRectFill(rect);
 	}
@@ -51,7 +51,7 @@
 }
 
 NSString *_repoText(KRARepository* repo) {
-	if (repo.privateRepo) {
+	if (repo.isPrivateRepo) {
 		return @"\uF200";
 	}
 	if (repo.isFork) {
