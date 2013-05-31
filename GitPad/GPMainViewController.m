@@ -14,11 +14,13 @@
 #import "GPNavigationBar.h"
 #import "GPNotificationButton.h"
 #import "GPNewsFeedCell.h"
+#import "GPStarredRepoCell.h"
 #import "GPRepositoryListViewController.h"
 #import "BWStatusBarOverlay.h"
 #import "GPScrollingSegmentedControl.h"
-#import "MWFSlideNavigationViewController.h"
 #import "SSKeychain.h"
+#import "GPLoginTextField.h"
+#import "GPUtilities.h"
 #import <QuartzCore/QuartzCore.h>
 #import <KrakenKit/KrakenKit.h>
 
@@ -35,10 +37,15 @@
 @property (nonatomic, strong) GPNotificationButton *notificationButton;
 
 @property (nonatomic, strong) NSArray *eventsArray;
+@property (nonatomic, strong) NSArray *starredReposArray;
+
 @property (nonatomic, strong) UITableView *newsFeedTableView;
+@property (nonatomic, strong) GPLoginTextField *searchField;
 
 @property (nonatomic, strong) CALayer *blanketDimmingLayer;
 @property (nonatomic, assign) BOOL loginPresentedOnce;
+
+@property (nonatomic, strong) UIViewController *currentModalViewController;
 
 @end
 
@@ -79,25 +86,56 @@
 	self.scopeBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	[self.scopeBar setSelectedSegmentIndex:0];
 	
+	@weakify(self);
+	[[RACAble(self,scopeBar.selectedSegmentIndex) distinctUntilChanged]subscribeNext:^(id x) {
+		@strongify(self);
+		[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+	}];
 	self.blanketDimmingLayer.frame = self.view.bounds;
 	[self.view.layer addSublayer:self.blanketDimmingLayer];
 	
-	CGRectDivide(self.view.bounds, &slice, &remainder, 300, CGRectMaxXEdge);
-	[self.repositoryTableViewController setupWithFrame:slice];
-	[self.view addSubview:self.repositoryTableViewController.view];
-	[self.repositoryTableViewController hideView];
+//	CGRectDivide(self.view.bounds, &slice, &remainder, 300, CGRectMaxXEdge);
+//	[self.repositoryTableViewController setupWithFrame:slice];
+//	[self.view addSubview:self.repositoryTableViewController.view];
+//	[self.repositoryTableViewController hideView];
 
 	self.navigationBar = [[GPNavigationBar alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];
 	self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	[self.view addSubview:self.navigationBar];
-	
-	CGRectDivide(self.navigationBar.bounds, &slice, &remainder, 42, CGRectMinXEdge);
-	self.notificationButton = [[GPNotificationButton alloc]initWithFrame:slice];
-	[self.notificationButton addTarget:self action:@selector(revealNotificationsView:) forControlEvents:UIControlEventTouchUpInside];
 	self.navigationBar.title = @"News Feed";
 	self.navigationBar.label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:20.0f];
+	[self.view addSubview:self.navigationBar];
+	
+	CGRectDivide(self.navigationBar.bounds, &slice, &remainder, 44, CGRectMinXEdge);
+	self.notificationButton = [[GPNotificationButton alloc]initWithFrame:slice];
+	self.notificationButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+	[self.notificationButton addTarget:self action:@selector(revealNotificationsView:) forControlEvents:UIControlEventTouchUpInside];
+	[RACAble(self,notificationButton.frame) subscribeNext:^(NSValue *x) {
+		@strongify(self);
+		CGRect frameValue = [x CGRectValue];
+		float ratio = frameValue.origin.x  / (CGRectGetWidth(self.view.bounds) - 44);
+		[self.searchField setAlpha:ratio];
+		[self.blanketDimmingLayer setOpacity:ratio/2];
+	}];
 	[self.navigationBar addSubview:self.notificationButton];
 	
+	CGRectDivide(self.navigationBar.bounds, &slice, &remainder, 64, CGRectMaxXEdge);
+	remainder.origin.x += 10;
+	remainder.size.height -= 10;
+	remainder.origin.y += 5;
+	self.searchField = [[GPLoginTextField alloc]initWithFrame:remainder];
+	self.searchField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+	self.searchField.placeholder = @"Search or type a command";
+	self.searchField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	self.searchField.backgroundColor = UIColor.whiteColor;
+	self.searchField.alpha = 0;
+	self.notificationButton.searchField = self.searchField;
+	[self.navigationBar addSubview:self.searchField];
+}
+
+- (void)viewWillLayoutSubviews {
+	[super viewWillLayoutSubviews];
+	
+	self.blanketDimmingLayer.frame = self.view.bounds;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -117,9 +155,10 @@
 		if (!self.currentAccount) {
 			[self _setupLoginViewControllerIfNeeded];
 		//#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
-			[self presentViewController:self.loginNavigationBar animated:YES completion:NULL];
+//			[self presentViewController:self.loginNavigationBar animated:YES completion:NULL];
 		//#else
-		//		[self presentModalViewController:self.loginViewController animated:YES];
+			self.loginViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+			[self presentModalViewController:self.loginViewController animated:YES];
 		//#endif
 		//
 			result = YES;
@@ -130,11 +169,7 @@
 }
 
 - (void)revealNotificationsView:(id)sender {
-	if (self.slideNavigationViewController.currentLandscapeOrientationDistance == 0)
-		[self.slideNavigationViewController slideWithDirection:MWFSlideDirectionDown];
-	else {
-		[self.slideNavigationViewController slideWithDirection:MWFSlideDirectionNone];
-	}
+
 }
 
 -(void)_setupLoginViewControllerIfNeeded {
@@ -152,56 +187,53 @@
 	self.currentAccount = [[KRAClient sharedClient]authenticatedUser];	
 	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
 	
-//	@weakify(self);
-//	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
-//		@strongify(self);
-//		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
-//		[self.repositoryTableViewController setAccount:self.currentAccount];
-//		[self.repositoryTableViewController setRepositories:repositories];
-//		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
-//			@strongify(self);
-//			self.eventsArray = events;
-//			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-//			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
-//			
-//			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
-//				NSLog(@"%@", events);
-//				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
-//			}];
-//		}];
-//	}];
+	@weakify(self);
+	[KRAClient.sharedClient repositoriesForUser:self.currentAccount completion:^(NSArray *repositories, NSError *error) {
+		@strongify(self);
+		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
+		[self.repositoryTableViewController setAccount:self.currentAccount];
+		[self.repositoryTableViewController setRepositories:repositories];
+		[KRAClient.sharedClient eventsForUser:self.currentAccount completion:^(NSArray *events, NSError *error) {
+			self.eventsArray = events;
+			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+			[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+		}];
+		[KRAClient.sharedClient starredRepositoriesForUser:self.currentAccount completion:^(NSArray *starredRepos, NSError *error) {
+			self.starredReposArray = starredRepos;
+		}];
+	}];
 }
 
 - (void)_reloadSync {	
 	[[BWStatusBarOverlay shared]showWithMessage:@"Fetching Repositories..." loading:YES animated:YES];
-	
-//	@weakify(self);
-//	[[self.currentAccount syncRepositories]subscribeNext:^(NSArray *repositories) {
-//		@strongify(self);
-//		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
-//		[self.repositoryTableViewController setAccount:self.currentAccount];
-//		[self.repositoryTableViewController setRepositories:repositories];
-//		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
-//			@strongify(self);
-//			self.eventsArray = events;
-//			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-//			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
-//			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
-//				for (KRGithubNotification *notification in events) {
-////					if (event.is) {
-////						<#statements#>
-////					}
-//					[self.newsFeedTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-//				}
-//				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
-//			}];
-//		}];
-//	}];
+	@weakify(self);
+	[KRAClient.sharedClient repositoriesForUser:self.currentAccount completion:^(NSArray *repositories, NSError *error) {
+		@strongify(self);
+		[[BWStatusBarOverlay shared]setMessage:@"Fetching News Feed Items..." animated:YES];
+		//		[self.repositoryTableViewController setAccount:self.currentAccount];
+		//		[self.repositoryTableViewController setRepositories:repositories];
+		//		[[self.currentAccount syncNewsFeed]subscribeNext:^(NSArray *events) {
+		//			@strongify(self);
+		//			self.eventsArray = events;
+		//			[self.newsFeedTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+		//			[[BWStatusBarOverlay shared]setMessage:@"Loading Events..." animated:YES];
+		//			[[self.currentAccount syncNotifications]subscribeNext:^(NSArray *events) {
+		//				for (KRGithubNotification *notification in events) {
+		////					if (event.is) {
+		////						<#statements#>
+		////					}
+		//					[self.newsFeedTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+		//				}
+		//				[[BWStatusBarOverlay shared]showSuccessWithMessage:@"Finished" duration:2.0 animated:YES];
+		//			}];
+		//		}];
+	}];
+
 }
 
 - (void)_leftSideActionNotificationRecieved:(NSNotification*)notification {
 	KRAUser *associatedAccount = notification.userInfo[GPNotificationUserInfoActionObjectKey];
-	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount navigationBar:self.navigationBar];
+	GPAccountViewController *accountViewController = [[GPAccountViewController alloc]initWithAccount:associatedAccount navigationBar:self.navigationBar presentingViewController:self];
 	[self gp_presentViewController:accountViewController animated:YES newNavigationBar:NO completion:^{
 		
 	}];
@@ -210,12 +242,13 @@
 #pragma mark - Presentation
 
 - (void)gp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)animated newNavigationBar:(BOOL)flag completion:(void (^)(void))completion {
+	self.currentModalViewController = viewControllerToPresent;
 	if (flag) {
 		[self presentViewController:viewControllerToPresent animated:animated completion:completion];
 	} else {
 		viewControllerToPresent.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(self.view.bounds));
 		[self.view insertSubview:viewControllerToPresent.view belowSubview:self.navigationBar];
-		[UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+		[UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
 			CGRect remainder, slice;
 			CGRectDivide(self.view.bounds, &slice, &remainder, 44, CGRectMinYEdge);
 			viewControllerToPresent.view.frame = remainder;
@@ -223,6 +256,20 @@
 			completion();
 		}];
 	}
+}
+
+- (void)gp_dismissCurrentViewController {
+	[self.newsFeedTableView reloadData];
+	@weakify(self);
+	[UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+		@strongify(self);
+		self.currentModalViewController.view.frame = CGRectOffset(self.view.bounds, 0, CGRectGetHeight(self.view.bounds));
+	} completion:^(BOOL finished) {
+		@strongify(self);
+		[self.currentModalViewController.view removeFromSuperview];
+		self.currentModalViewController = nil;
+		self.navigationBar.title = @"News Feed";
+	}];
 }
 
 #pragma mark - Gesture Handling
@@ -246,25 +293,64 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	static NSString *GPNewsFeedCellIdentifier = @"GPNewsFeedCellIdentifier";
 	
-	GPNewsFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
-	KRAEvent *event = [self.eventsArray objectAtIndex:indexPath.row];
-    if (cell == nil) {
-        cell = [[GPNewsFeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-	[cell setEvent:event];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:GPNewsFeedCellIdentifier];
+	switch (self.scopeBar.selectedSegmentIndex) {
+		case 0: {
+			KRAEvent *event = [self.eventsArray objectAtIndex:indexPath.row];
+			if (cell == nil) {
+				cell = [[GPNewsFeedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
+				cell.selectionStyle = UITableViewCellSelectionStyleNone;
+			}
+			[(GPNewsFeedCell*)cell setEvent:event];
+		}
+			break;
+		case 1:
+		case 2:
+		case 3: {
+			KRARepository *repo = [self.starredReposArray objectAtIndex:indexPath.row];
+			if (cell == nil) {
+				cell = [[GPStarredRepoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:GPNewsFeedCellIdentifier];
+				cell.selectionStyle = UITableViewCellSelectionStyleNone;
+			}
+			[(GPStarredRepoCell*)cell setRepository:repo];
+		}
+		default:
+			break;
+	}
+	
 	return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.eventsArray.count;
+	switch (self.scopeBar.selectedSegmentIndex) {
+		case 0:
+			return self.eventsArray.count;
+			break;
+		case 1:
+		case 2:
+		case 3:
+		default:
+			break;
+	}
+	return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//	if ([(KRAEvent *)[self.eventsArray objectAtIndex:indexPath.row]hasDetail]) {
-//		return 145.f;
-//	}
-	return 50.f;
+	switch (self.scopeBar.selectedSegmentIndex) {
+		case 0: {
+			if (GPEventHasDetail([self.eventsArray objectAtIndex:indexPath.row])) {
+				return 100.f;
+			}
+			return 50.f;
+		}
+			break;
+		case 1:
+		case 2:
+		case 3:
+		default:
+			break;
+	}
+	return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
