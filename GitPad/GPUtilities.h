@@ -10,3 +10,4 @@
 
 extern inline CGGradientRef GPCreateGradientWithColors(UIColor *startingColor, UIColor *endingColor);
 extern inline CGPathRef GPCreateClippingPathWithRectAndRadius(CGRect rect, CGFloat radius);
+extern BOOL GPEventHasDetail(KRAEvent *event);

@@ -29,3 +29,21 @@ inline CGPathRef GPCreateClippingPathWithRectAndRadius(CGRect rect, CGFloat radi
     CGPathCloseSubpath(path);
     return path;
 }
+
+BOOL GPEventHasDetail(KRAEvent *event) {
+	BOOL retVal = NO;
+	switch (event.type) {
+		case KRAGithubCommitCommentEventType:
+		case KRAGithubIssueCommentEventType:
+		case KRAGithubPushEventType:
+		case KRAGithubIssuesEventType:
+		case KRAGithubGollumEventType:
+		case KRAGithubPullRequestEventType:
+			retVal = YES;
+			break;
+			
+		default:
+			break;
+	}
+	return retVal;
+}
