@@ -10,4 +10,6 @@
 
 @interface GPNotificationButton : UIButton
 
+@property (nonatomic, weak) UITextField *searchField;
+
 @end

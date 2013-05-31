@@ -9,7 +9,10 @@
 #import "GPNotificationButton.h"
 #import "GPUtilities.h"
 
-@implementation GPNotificationButton
+@implementation GPNotificationButton {
+	float oldX, oldY, delta;
+	BOOL dragging, noTap;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -68,6 +71,58 @@
 - (void)setHighlighted:(BOOL)highlighted {
 	[self setNeedsDisplay];
 	[super setHighlighted:highlighted];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	[super touchesBegan:touches withEvent:event];
+	
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:self];
+	
+    if (CGRectContainsPoint(self.bounds, touchLocation)) {
+		
+        dragging = YES;
+		noTap = NO;
+        oldX = touchLocation.x;
+        oldY = touchLocation.y;
+    }
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	[super touchesMoved:touches withEvent:event];
+	
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:self];
+	
+    if (dragging) {
+		CGRect frame = self.frame;
+		delta = touchLocation.x - oldX;
+		frame.origin.x += delta;
+		noTap = (delta > 1 || delta < 1);
+		self.frame = frame;
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (!noTap) {
+		[super touchesEnded:touches withEvent:event];
+	}
+	dragging = NO;
+
+	[UIView animateWithDuration:0.2 delay:0.f options:UIViewAnimationOptionCurveEaseOut animations:^{
+		CGRect frame = self.frame;
+		frame.origin.x = (delta <= 0) ? 0  : CGRectGetWidth(self.superview.bounds) - 44;
+		[self setFrame:frame];
+	} completion:^(BOOL finished) {
+		if (delta <= 0) {
+			[self.window endEditing:YES];
+			self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+		} else {
+			[self.searchField becomeFirstResponder];
+			self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+		}
+	}];
 }
 
 @end
